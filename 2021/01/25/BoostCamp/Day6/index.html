@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day6 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Numpy shape : dimension 반환 dtype : 데이터 type 반환 ndim : number of dimensions size : data 개수 reshape : shape 변경 , 개수 동일 -1 : size를 기반으로 row 개수 선정   flatten : 1차원으로 변환 slicing example[1] # 1dim example[1:"><meta property="og:type" content="blog"><meta property="og:title" content="Day6"><meta property="og:url" content="https://keonwoochoi.github.io/2021/01/25/BoostCamp/Day6/"><meta property="og:site_name" content="blog"><meta property="og:description" content="Numpy shape : dimension 반환 dtype : 데이터 type 반환 ndim : number of dimensions size : data 개수 reshape : shape 변경 , 개수 동일 -1 : size를 기반으로 row 개수 선정   flatten : 1차원으로 변환 slicing example[1] # 1dim example[1:"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-01-25T12:55:16.000Z"><meta property="article:modified_time" content="2021-01-25T12:58:45.405Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/01/25/BoostCamp/Day6/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-01-25T12:55:16.000Z","dateModified":"2021-01-25T12:58:45.405Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"Numpy shape : dimension 반환 dtype : 데이터 type 반환 ndim : number of dimensions size : data 개수 reshape : shape 변경 , 개수 동일 -1 : size를 기반으로 row 개수 선정   flatten : 1차원으로 변환 slicing example[1] # 1dim example[1:"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/01/25/BoostCamp/Day6/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day6"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-25T12:55:16.000Z" title="2021-1-25 9:55:16 ├F10: PM┤">2021-01-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-25T12:58:45.405Z" title="2021-1-25 9:58:45 ├F10: PM┤">2021-01-25</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">5 minutes read (About 693 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day6</h1><div class="content"><h1 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h1><ul>
+<li>shape : dimension 반환</li>
+<li>dtype : 데이터 type 반환</li>
+<li>ndim : number of dimensions</li>
+<li>size : data 개수</li>
+<li>reshape : shape 변경 , 개수 동일<ul>
+<li>-1 : size를 기반으로 row 개수 선정</li>
+</ul>
+</li>
+<li>flatten : 1차원으로 변환</li>
+<li>slicing<ul>
+<li>example[1] # 1dim</li>
+<li>example[1:2] # 2dim</li>
+</ul>
+</li>
+<li>arange</li>
+<li>zeros ,ones, empty(초기화X), something_like</li>
+<li>identity (단위행렬)</li>
+<li>eye : 대각선 1</li>
+<li>diag : 대각 출력</li>
+<li>sum</li>
+<li>axis : 새로 만들어진 축이 0</li>
+<li>mean , std</li>
+<li>vstac, hstack, concatenate</li>
+<li>Element-wise operations</li>
+<li>dot product</li>
+<li>transpose, T</li>
+<li>broadcasting</li>
+<li>comparisons<ul>
+<li>logical_and logical_not logical_or</li>
+<li>where(condition,TRURE,FALSE) ,index반환</li>
+<li>isnan</li>
+<li>isfinite</li>
+<li>argmax argmin argsort</li>
+</ul>
+</li>
+<li>boolean index shape같아야됨</li>
+<li>fancy index shape같지 않아도됨</li>
+<li>npy : pickle 형태로 저장</li>
+</ul>
+<hr>
+<h1 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h1><ul>
+<li><p>차원 : 벡터의 개수</p>
+</li>
+<li><p>벡터의 노름(norm)은 원점에서부터의 거리</p>
+<ul>
+<li><p>∥ ⋅ ∥</p>
+</li>
+<li><p>L1노름 각 성분의 변화량의 절대값을 모두 더함</p>
+</li>
+<li><p>L2노름 피타고라스 정리를 이용해 유클리드 거리를 계산</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708720-2d7f2480-5f58-11eb-9cf5-ca131912b953.png" alt="image-20210125111054878"></p>
+</li>
+<li><p>노름의 종류에 따라 기하학적 성질이 달라지므로 둘 다 알자</p>
+</li>
+<li><p>두 벡터 사이의 거리를 계산할때는 벡터의 뺄셈을 이용합니다</p>
+</li>
+<li><p>두벡터사이의거리를이용하여각도도계산</p>
+<ul>
+<li><p>L2를 이용</p>
+</li>
+<li><p>제2코사인</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708724-2eb05180-5f58-11eb-8a41-a4b1da47d76c.png" alt="image-20210125111640711"></p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708727-2fe17e80-5f58-11eb-90bc-5e11481d64f1.png" alt="image-20210125111709330"></p>
+</li>
+<li><p>내적은 정사영(orthogonalprojection)된 벡터의 길이와 관련있다.</p>
+</li>
+<li><p>Proj(x)의길이는코사인법칙에의해∥x∥ cos θ가된다</p>
+</li>
+<li><p>내적은정사영의길이를벡터 의길이 만큼조정한값이다</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708731-3112ab80-5f58-11eb-8fad-609391eed73a.png" alt="image-20210125112003457"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="행렬"><a href="#행렬" class="headerlink" title="행렬"></a>행렬</h1><ul>
+<li><p>행렬(matrix)은 벡터(행벡터)를 원소로 가지는 2차원배열</p>
+</li>
+<li><p>행렬 곱셈</p>
+<ul>
+<li>행렬곱셈은 i번째행벡터와 j번째열벡터사이의내적</li>
+</ul>
+</li>
+<li><p>행렬도내적이있을까</p>
+</li>
+<li><p>넘파이의np.inner는 번째행벡터와 번째행벡터사이의내적을 성분으로가지는행렬을계산합니다</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708738-32dc6f00-5f58-11eb-9a64-37a11119eb2f.png" alt="image-20210125113639758"></p>
+</li>
+<li><p>행렬은 벡터공간에서 사용되는 연산자(operator)로 이해한다</p>
+</li>
+<li><p>다른 차원의 공간으로 보낼 수 있다</p>
+</li>
+<li><p>패턴을 추출 할 수도, 데이터를 압축할 수도 있다.</p>
+</li>
+<li><p>역행렬</p>
+<ul>
+<li><p>행과 열 숫자가 같고 행렬식 (determinant)이 0이 아닌 경우에만 계산할 수 있다</p>
+</li>
+<li><p>numpy.linalg.inv 로 구할 수 있다</p>
+</li>
+<li><p>만일 역행렬을 계산할 수 없다면 유사역행렬(pseudo-inverse)또는 무어펜로즈(Moore-Penrose)$A^+$역행렬을 이용한다</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708745-34a63280-5f58-11eb-9579-492a11b8d8c3.png" alt="image-20210125114826875"></p>
+</li>
+<li><p>numpy.linalg.pinv</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708752-366ff600-5f58-11eb-89ec-f14937b31504.png" alt="image-20210125120150285"></p>
+<p><img src="https://user-images.githubusercontent.com/46857207/105708755-37a12300-5f58-11eb-8f62-5ac63c3c2ac7.png" alt="image-20210125120210510"></p>
+</li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day6</p><p><a href="https://keonwoochoi.github.io/2021/01/25/BoostCamp/Day6/">https://keonwoochoi.github.io/2021/01/25/BoostCamp/Day6/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-01-25</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-25</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Numpy"><span class="level-left"><span class="level-item">Numpy</span></span></a></li><li><a class="level is-mobile" href="#Vector"><span class="level-left"><span class="level-item">Vector</span></span></a></li><li><a class="level is-mobile" href="#행렬"><span class="level-left"><span class="level-item">행렬</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/Intro/"><span class="level-start"><span class="level-item">Intro</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-18T00:05:20.000Z">2021-01-18</time></p><p class="title"><a href="/2021/01/18/Hello/">Hello</a></p><p class="categories"><a href="/categories/Intro/">Intro</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
