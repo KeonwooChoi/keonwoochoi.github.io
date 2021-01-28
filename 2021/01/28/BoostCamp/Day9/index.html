@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day9 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Groupby12h_index &amp;#x3D; df.groupby([&amp;quot;Team&amp;quot;, &amp;quot;Year&amp;quot;])[&amp;quot;Points&amp;quot;].sum()h_index Team    Year Devils  2014    863         2015    673 Kings   2014    741         2016    756"><meta property="og:type" content="blog"><meta property="og:title" content="Day9"><meta property="og:url" content="https://keonwoochoi.github.io/2021/01/28/BoostCamp/Day9/"><meta property="og:site_name" content="blog"><meta property="og:description" content="Groupby12h_index &amp;#x3D; df.groupby([&amp;quot;Team&amp;quot;, &amp;quot;Year&amp;quot;])[&amp;quot;Points&amp;quot;].sum()h_index Team    Year Devils  2014    863         2015    673 Kings   2014    741         2016    756"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-01-28T14:25:06.000Z"><meta property="article:modified_time" content="2021-01-28T14:29:58.193Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/01/28/BoostCamp/Day9/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-01-28T14:25:06.000Z","dateModified":"2021-01-28T14:29:58.193Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"Groupby12h_index &#x3D; df.groupby([&quot;Team&quot;, &quot;Year&quot;])[&quot;Points&quot;].sum()h_index Team    Year Devils  2014    863         2015    673 Kings   2014    741         2016    756"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/01/28/BoostCamp/Day9/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day9"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-28T14:25:06.000Z" title="2021-1-28 11:25:06 ├F10: PM┤">2021-01-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-28T14:29:58.193Z" title="2021-1-28 11:29:58 ├F10: PM┤">2021-01-28</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">6 minutes read (About 877 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day9</h1><div class="content"><h2 id="Groupby"><a href="#Groupby" class="headerlink" title="Groupby"></a>Groupby</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h_index = df.groupby([<span class="string">&quot;Team&quot;</span>, <span class="string">&quot;Year&quot;</span>])[<span class="string">&quot;Points&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">h_index</span><br></pre></td></tr></table></figure>
+<pre><code>Team    Year
+Devils  2014    863
+        2015    673
+Kings   2014    741
+        2016    756
+        2017    788
+Riders  2014    876
+        2015    789
+        2016    694
+        2017    690
+Royals  2014    701
+        2015    804
+kings   2015    812
+Name: Points, dtype: int64
+</code></pre><ul>
+<li>sort_index()</li>
+<li>sort_values()</li>
+<li>agg(aggregation)</li>
+<li>transform</li>
+<li>filter</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dateutil</span><br><span class="line"></span><br><span class="line">df_phone[<span class="string">&quot;date&quot;</span>] = df_phone[<span class="string">&quot;date&quot;</span>].apply(dateutil.parser.parse, dayfirst=<span class="literal">True</span>)</span><br><span class="line">df_phone.dtypes</span><br></pre></td></tr></table></figure>
+<pre><code>index                    int64
+date            datetime64[ns]
+duration               float64
+item                    object
+month                   object
+network                 object
+network_type            object
+dtype: object
+</code></pre><ul>
+<li>add_prefix</li>
+<li>pivot_table</li>
+<li>crosstab</li>
+<li>merge(a,b,on=’ ‘)</li>
+<li>merge(left, right, left_on=’ ‘,right_on=’ ‘)</li>
+<li>merge(how=’ ‘) left,right,outer</li>
+<li>concat</li>
+<li>db conneciton</li>
+</ul>
+<hr>
+<h1 id="확률론"><a href="#확률론" class="headerlink" title="확률론"></a>확률론</h1><ul>
+<li>손실함수(lossfunction)들의 작동원리는데이터 공간을 통계적으로 해석해서 유도</li>
+<li>회귀분석에서 손실함수로 사용되는 L2-노름은 예측오차의 분산을 가장 최소화하는 방향으로 학습하도록 유도</li>
+<li>교차엔트로피(cross-entropy)는 모델예측의 불확실성을 최소화하는 방향으로 학습하도록 유도</li>
+<li>이산확률변수 vs 연속확률변수<ul>
+<li>데이터공간 xy에 의해 결정되는 것으로 오해를 하지만 확률변수의분포D에 의해 결정된다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152004-4ee24980-61c0-11eb-8bba-2a145b5d467b.png" alt="image-20210128110619296"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152012-50ac0d00-61c0-11eb-82ad-42808db79e29.png" alt="image-20210128113243715"></li>
+<li>회귀문제의 경우 연속활률 변수를 다뤄 밀도함수로 해석</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152019-530e6700-61c0-11eb-8b32-6bdee36a5431.png" alt="image-20210128113329252"></li>
+<li>데이터가 robust하면 중앙값을 사용하기도 함</li>
+<li><strong>로버스트(robust) 한 통계량은</strong> <strong>이상치/에러값으로 부터 영향을 크게 받지 않는 (건장한) 통계량</strong></li>
+<li>기대값?</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152025-54d82a80-61c0-11eb-8af7-4ac600736d1e.png" alt="image-20210128114915484"></li>
+<li>연속 : 확률밀도함수-&gt;적분, 이산 : 확률질량함수-&gt;sum</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152031-5570c100-61c0-11eb-9a8a-b7d110e22e1e.png" alt="image-20210128115104516"></li>
+</ul>
+</li>
+</ul>
+<h2 id="몬테카를로-샘플링"><a href="#몬테카를로-샘플링" class="headerlink" title="몬테카를로 샘플링"></a>몬테카를로 샘플링</h2><ul>
+<li>밀도함수나 질량함수를 알고있으면 기대값을 계산할 때 적분이사 sum을 해주면 되지만 확률분포를 명시적으로 모르는 상황에서 샘플링하는 방법을 알고있으면 적분이나 sum대신에 샘플링을 통해 기대값을 계산할 수 있다.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152035-56a1ee00-61c0-11eb-9c93-8a62ff60570a.png" alt="image-20210128115921876"></li>
+<li>x자리에 샘플링한 데이터를 대입</li>
+<li>$f(x^(i))$값들의 산술평균이 기대값에 근사, 독립적으로 샘플링을 해야한다.</li>
+<li>독립추출이 보장되면 대수의법치겡 의해 수렴성을 보장</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152040-57d31b00-61c0-11eb-8ba5-ffdfb148d376.png" alt="image-20210128120207036"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106152044-59044800-61c0-11eb-853f-88c0f58f1e65.png" alt="image-20210128120341997"></li>
+<li>샘플사이즈가 적으면 오차범위가 커질 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="further-queston"><a href="#further-queston" class="headerlink" title="further queston"></a>further queston</h2><ul>
+<li><p>몬테카를로 방법으로 원주율 계산하기</p>
+<ul>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/106152053-5b66a200-61c0-11eb-84b2-5ca727a0607a.png" alt="image-20210128152117681"></p>
+</li>
+<li><p>정사각형넓이 =$4r^2$ ,원의 넓이=$\pi r^2$</p>
+</li>
+<li><p>정사각형 안의 임의의 점이 원안에 있을 확율=$\pi r^2\over4r^2$=$\pi\over4$</p>
+</li>
+<li><p>(정사각형 안의 임의의 점이 원안에 있을 확율)*4=$\pi$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> random</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_in</span>(<span class="params">r</span>):</span></span><br><span class="line">    x=random()*r*<span class="number">2</span></span><br><span class="line">    y=random()*r*<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (x-r)**<span class="number">2</span>+(y-r)**<span class="number">2</span>&lt;=r**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">total=<span class="number">5000</span></span><br><span class="line">success=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(total):</span><br><span class="line">    <span class="keyword">if</span> random_in(<span class="number">1</span>)==<span class="literal">True</span>:</span><br><span class="line">        success+=<span class="number">1</span></span><br><span class="line">pi=success/total*<span class="number">4</span></span><br><span class="line">print(pi)</span><br></pre></td></tr></table></figure>
+<pre><code>3.1904
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><p><img src="https://user-images.githubusercontent.com/46857207/106152049-5a357500-61c0-11eb-9a4a-a4a3b7eeff5d.png" alt="image-20210128141914202"></p>
+<ul>
+<li>각 벡터마다 max값을 뺴는 이유?<ul>
+<li>softmax함수는 exp()힘수를 사용하므로 오버플로우가 발생할 수 있다. 따라서 max값을 벡터의 모든 요소에서 빼면 벡터의 요소들은 -max~0의 값을 가져 exp()함수의 출력은 0~1의 값을 가지게 된다.</li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day9</p><p><a href="https://keonwoochoi.github.io/2021/01/28/BoostCamp/Day9/">https://keonwoochoi.github.io/2021/01/28/BoostCamp/Day9/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-01-28</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-28</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#Groupby"><span class="level-left"><span class="level-item">Groupby</span></span></a></li></ul><li><a class="level is-mobile" href="#확률론"><span class="level-left"><span class="level-item">확률론</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#몬테카를로-샘플링"><span class="level-left"><span class="level-item">몬테카를로 샘플링</span></span></a></li><li><a class="level is-mobile" href="#further-queston"><span class="level-left"><span class="level-item">further queston</span></span></a></li><li><a class="level is-mobile" href="#question"><span class="level-left"><span class="level-item">question</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
