@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day10 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Data Visualizationmatplotlib pyplot객체를 사용 단점 : argument를 kwargs받음   set linestyle https:&amp;#x2F;&amp;#x2F;matplotlib.org&amp;#x2F;examples&amp;#x2F;lines_bars_and_markers&amp;#x2F;linestyles.html title xlabel, ylabel legen 범례   scatter bar  se"><meta property="og:type" content="blog"><meta property="og:title" content="Day10"><meta property="og:url" content="https://keonwoochoi.github.io/2021/01/29/BoostCamp/Day10/"><meta property="og:site_name" content="blog"><meta property="og:description" content="Data Visualizationmatplotlib pyplot객체를 사용 단점 : argument를 kwargs받음   set linestyle https:&amp;#x2F;&amp;#x2F;matplotlib.org&amp;#x2F;examples&amp;#x2F;lines_bars_and_markers&amp;#x2F;linestyles.html title xlabel, ylabel legen 범례   scatter bar  se"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-01-29T10:56:44.000Z"><meta property="article:modified_time" content="2021-01-29T11:02:32.397Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/01/29/BoostCamp/Day10/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-01-29T10:56:44.000Z","dateModified":"2021-01-29T11:02:32.397Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"Data Visualizationmatplotlib pyplot객체를 사용 단점 : argument를 kwargs받음   set linestyle https:&#x2F;&#x2F;matplotlib.org&#x2F;examples&#x2F;lines_bars_and_markers&#x2F;linestyles.html title xlabel, ylabel legen 범례   scatter bar  se"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/01/29/BoostCamp/Day10/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day10"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-29T10:56:44.000Z" title="2021-1-29 7:56:44 ├F10: PM┤">2021-01-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-29T11:02:32.397Z" title="2021-1-29 8:02:32 ├F10: PM┤">2021-01-29</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">8 minutes read (About 1169 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day10</h1><div class="content"><h1 id="Data-Visualization"><a href="#Data-Visualization" class="headerlink" title="Data Visualization"></a>Data Visualization</h1><h2 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h2><ul>
+<li>pyplot객체를 사용</li>
+<li>단점 : argument를 kwargs받음</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266883-4fd0b500-626c-11eb-9d72-de4200292022.png" alt="image-20210129094707049"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266889-5101e200-626c-11eb-8b4b-5809e0d5d8b3.png" alt="image-20210129095038186"></li>
+<li>set linestyle</li>
+<li><a target="_blank" rel="noopener" href="https://matplotlib.org/examples/lines_bars_and_markers/linestyles.html">https://matplotlib.org/examples/lines_bars_and_markers/linestyles.html</a></li>
+<li>title</li>
+<li>xlabel, ylabel</li>
+<li>legen<ul>
+<li>범례</li>
+</ul>
+</li>
+<li>scatter</li>
+<li>bar</li>
+</ul>
+<h2 id="seaborn"><a href="#seaborn" class="headerlink" title="seaborn"></a>seaborn</h2><ul>
+<li>hue : 카테고리 데이터<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266893-519a7880-626c-11eb-881c-9e3817a17962.png" alt="image-20210129102243081"></li>
+</ul>
+</li>
+<li>scatterplot : 퍼짐<ul>
+<li>regplot : regression line</li>
+</ul>
+</li>
+<li>countplot ==value_counts()</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266896-52330f00-626c-11eb-99e7-a6a9fd6fa85e.png" alt="image-20210129103422608"></li>
+</ul>
+<hr>
+<h1 id="통계학"><a href="#통계학" class="headerlink" title="통계학"></a>통계학</h1><h2 id="모수"><a href="#모수" class="headerlink" title="모수"></a>모수</h2><ul>
+<li>통계적 모델링은 적절한 가정 위에서 확률분포를 추정하는 것이 목표</li>
+<li>유한한 개수의 데이터를 관찰해서 모집단의 분포를 정확하게 알아내는 것은 불가능, 근사적으로 확률분포를 추정할 수 밖에 없다.</li>
+<li>예측모형의 목적은 분포를 정확하게 맞추는 것보다 데이터와 추정 방법의 불확식성을 고려해서 위험을 최소화하는 것이다.</li>
+<li>데이터가 특정 확률분포를 따른다고 선험적으로(a priori) 가정한 후 그 분포를 결정하는 모수(parameter)를 추정하는 방법을 모수적방법론 (평균과 분산을 추정하는 방법을 통해서 데이터를 학습하는 방법을 모수적 방법론)</li>
+<li>특정 확률분포를 가정하지 않고 데이터에 따라 모델의 구조 및 모수의 개수가 유연하게 바뀌면 비모수방법론이라 부른다.<ul>
+<li>비모수 방법론은 모수가 없는 것이 아니라 무한히 많거나 모수의 개수가 데이터에 따라서 바뀌는 경우이다.</li>
+</ul>
+</li>
+<li>둘의 차이는 어떤 가정을 미리 부여하는지 아닌지에 따라서 구별된다.</li>
+<li>예제<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266900-52cba580-626c-11eb-855a-e9422b3fe981.png" alt="image-20210129104309331"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266907-53643c00-626c-11eb-9ac3-41a123ae3a27.png" alt="image-20210129104431833"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266910-53643c00-626c-11eb-93dc-6ad8f54eccf2.png" alt="image-20210129104704172"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266912-53fcd280-626c-11eb-8648-d286c466b572.png" alt="image-20210129105035616"></li>
+<li>표본분포(sample distribution)과 표집분포는 다르다</li>
+<li>표집분포 : 표본평균과 표본분산의 확률분포</li>
+<li>모집단의 분포가 정규분포를 따르지 않으면 표본분포는 데이터를 많이 모아도 정규분포가 될 수 없다.</li>
+<li>모집단의 분포가 정규분포를 따르지 않아도 표본평균의 표집분포는 정규분포를 따른다</li>
+<li>표본평균의 분산$\sigma^2\over n$는 데이터의 개수(n)이 늘어나면 0으로 수렴<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266915-53fcd280-626c-11eb-89d7-c5e6f6e49c5f.png" alt="image-20210129105953177"></li>
+</ul>
+</li>
+<li>원래 확률분포는 이항분포이고 이항분포의 표본분포는 데이터를 모아도 정규분포가 되지 않지만 이항분포에서 추출한 통계량, 즉 표본평균의 확률분포는 정규분포로 가고 이를 중심극한 정리라고 한다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266916-54956900-626c-11eb-83a5-d45bfff4af3d.png" alt="image-20210129110301104"></li>
+<li>표본평균과 표본분산만으로 확률분포를 추정하는 것은 위험하고 최대가능도 추정법을 활용</li>
+<li>확률밀도함수, 확률질량함수와 같다. 단지 관점의 차이<ul>
+<li>확률밀도함수는 모수($\theta$)가 주어져 있을 때 x에 대한 함수로 해석</li>
+<li>가능도함수는 주어진 데이터($x$)에 대해서 모수($\theta$)를 변수로둔 함수로 해석-&gt; 데이터가 주어진 상황에서 ($\theta$)를 변형시킴에 따라 값이 바뀌는 함수</li>
+<li>($\theta$)에 대한 확률로 해석하면 안되고 가능도는 오로지 ($\theta$)에 대해서 크고 작음에 따른 대소비교가 가능한 함수로 이해하자</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266918-552dff80-626c-11eb-8f22-80d468a7ec62.png" alt="image-20210129110955840"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266919-552dff80-626c-11eb-873a-0b8abb07ca4e.png" alt="image-20210129111107354"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266920-55c69600-626c-11eb-8c08-4bbaf8d12313.png" alt="image-20210129111746332"><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266923-55c69600-626c-11eb-8236-1077b25b68ea.png" alt="image-20210129111918730"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266926-565f2c80-626c-11eb-8c3a-d3e0990704b0.png" alt="image-20210129112411029"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266929-56f7c300-626c-11eb-9bdd-f92a7a35a488.png" alt="image-20210129112426517"></li>
+<li>이산확률변수 카테고리 예제</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266932-57905980-626c-11eb-8a6c-3eaac2676cb0.png" alt="image-20210129114151746"></li>
+<li>원핫벡터</li>
+<li>$x_(i,k)$는 0,1만 가진다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266936-57905980-626c-11eb-83a3-7ca2d01208c0.png" alt="image-20210129114437830"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266938-58c18680-626c-11eb-8082-00c67e6e305a.png" alt="image-20210129114821088"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266940-58c18680-626c-11eb-9b88-67fdf48db3e2.png" alt="image-20210129114928261"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266944-59f2b380-626c-11eb-8c43-0e20cbc3e925.png" alt="image-20210129115153833"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266945-59f2b380-626c-11eb-91f8-dcfa6b6d7606.png" alt="image-20210129115450824"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/106266946-5a8b4a00-626c-11eb-9b52-f8769ef30b4c.png" alt="image-20210129115804360"></li>
+</ul>
+<p>-</p>
+<h2 id="further-question"><a href="#further-question" class="headerlink" title="further question"></a>further question</h2><ul>
+<li>확률 VS 가능도</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day10</p><p><a href="https://keonwoochoi.github.io/2021/01/29/BoostCamp/Day10/">https://keonwoochoi.github.io/2021/01/29/BoostCamp/Day10/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-01-29</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-01-29</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Data-Visualization"><span class="level-left"><span class="level-item">Data Visualization</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#matplotlib"><span class="level-left"><span class="level-item">matplotlib</span></span></a></li><li><a class="level is-mobile" href="#seaborn"><span class="level-left"><span class="level-item">seaborn</span></span></a></li></ul></li><li><a class="level is-mobile" href="#통계학"><span class="level-left"><span class="level-item">통계학</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#모수"><span class="level-left"><span class="level-item">모수</span></span></a></li><li><a class="level is-mobile" href="#further-question"><span class="level-left"><span class="level-item">further question</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
