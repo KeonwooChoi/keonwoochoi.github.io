@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day20 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Recent Trends self-attention block을 많이 쌓는다 self-supervised learning framework 추천시스템 신약개발 영상처리 자연어 생성 task에서 여전히 greedy decoding 벗어나지 못함 GPT-1    special token을 제안해서 다양한 자연어 처리 task를 가능하게 함 12개의 self-a"><meta property="og:type" content="blog"><meta property="og:title" content="Day20"><meta property="og:url" content="https://keonwoochoi.github.io/2021/02/22/BoostCamp/Day20/"><meta property="og:site_name" content="blog"><meta property="og:description" content="Recent Trends self-attention block을 많이 쌓는다 self-supervised learning framework 추천시스템 신약개발 영상처리 자연어 생성 task에서 여전히 greedy decoding 벗어나지 못함 GPT-1    special token을 제안해서 다양한 자연어 처리 task를 가능하게 함 12개의 self-a"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-02-22T06:35:02.000Z"><meta property="article:modified_time" content="2021-02-22T06:39:30.647Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/02/22/BoostCamp/Day20/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-02-22T06:35:02.000Z","dateModified":"2021-02-22T06:39:30.647Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"Recent Trends self-attention block을 많이 쌓는다 self-supervised learning framework 추천시스템 신약개발 영상처리 자연어 생성 task에서 여전히 greedy decoding 벗어나지 못함 GPT-1    special token을 제안해서 다양한 자연어 처리 task를 가능하게 함 12개의 self-a"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/02/22/BoostCamp/Day20/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day20"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-22T06:35:02.000Z" title="2021-2-22 3:35:02 ├F10: PM┤">2021-02-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-22T06:39:30.647Z" title="2021-2-22 3:39:30 ├F10: PM┤">2021-02-22</time></span><span class="level-item">11 minutes read (About 1596 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day20</h1><div class="content"><h1 id="Recent-Trends"><a href="#Recent-Trends" class="headerlink" title="Recent Trends"></a>Recent Trends</h1><ul>
+<li>self-attention block을 많이 쌓는다</li>
+<li>self-supervised learning framework</li>
+<li>추천시스템 신약개발 영상처리</li>
+<li><p>자연어 생성 task에서 여전히 greedy decoding 벗어나지 못함</p>
+<h1 id="GPT-1"><a href="#GPT-1" class="headerlink" title="GPT-1"></a>GPT-1</h1></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/46857207/108671137-5e388680-7523-11eb-81c0-7d0478c4c3d8.png" alt="image-20210219102659967"></p>
+<ul>
+<li>special token을 제안해서 다양한 자연어 처리 task를 가능하게 함</li>
+<li>12개의 self-attention block</li>
+<li>text prediction: 다음단어 예측하는 language modelling<ul>
+<li>입력과 출력이 따로 있지 않음</li>
+</ul>
+</li>
+<li>sentiment analysis, classification과 같은 label된 데이터가 있을때 multi-task learning에 의해서 학습<ul>
+<li><EOS>토큰과 다른 extract토큰으로 바꾼 후 인코딩</li>
+<li>extract토큰만을 선형변환을 통해 긍부정에 대한 output 예측</li>
+</ul>
+</li>
+<li>entailment task<ul>
+<li>두 개의 문장을 하나의 sequence로 만들되 중간에 Delim토큰</li>
+<li>extract토큰을 output layer에 통과시켜 분류 시행</li>
+</ul>
+</li>
+<li>extract토큰이 query로 사용되어서 task에 필요한 여러 정보들을 input으로부터 정보를 추출할 수 있어야함</li>
+<li>학습된 GPT-1모델을 transfer learning형태로 활용할 때<ul>
+<li>가령 긍부정 분류를 하다가 주제분류를 하게되면 downstream task로써</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671172-67c1ee80-7523-11eb-8331-c4bdfb5dafd2.png" alt="image-20210220001443241"></li>
+</ul>
+</li>
+<li>learning rate</li>
+</ul>
+<h1 id="BERT"><a href="#BERT" class="headerlink" title="BERT"></a>BERT</h1><p><img src="https://user-images.githubusercontent.com/46857207/108671138-5ed11d00-7523-11eb-87d7-81d44c7b8ac3.png" alt="image-20210219102816303"></p>
+<ul>
+<li>다음단어를 예측하는 language modelling방식으로 학습시킨 모델</li>
+<li>Pre-training Task in BERT<ul>
+<li>Masked Language Model<ul>
+<li>얼마나 가릴지 hyperparameter 15%</li>
+<li>너무 높거나 낮으면 문제</li>
+<li>15% 다 MASK로 바꾸는 것이 아닌<ul>
+<li>80(MASK) 10(random word) 10(keep same)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Next Sentence Prediction<ul>
+<li>문장레벨에서의 task에 대응하기 위한 기법</li>
+<li>두 문장이 인접한 문장인지 구별하는 binary classification</li>
+<li>[CLS] : GPT의 extract, 문장의 앞</li>
+<li>[SEP] : 문장 사이, 끝날 때</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671141-5f69b380-7523-11eb-98a8-fd465dde2ddb.png" alt="image-20210219103703030"></li>
+</ul>
+</li>
+<li>Summary<ul>
+<li>self-attention block</li>
+<li>arichitecture<ul>
+<li>base: L=12 H(인코딩vector의 차원 수 )=768 A(attention-block)=12</li>
+<li>large: L=24 H=1024 A=16</li>
+</ul>
+</li>
+<li>input representation<ul>
+<li>word별 embedding vector가 아닌 좀 더 잘게 쪼갠 subword단위</li>
+<li>wordPiece embedding(30000)</li>
+<li>learned positional embedding -&gt; 단어의 위치 정보</li>
+<li>[CLS] [SEP]</li>
+<li>segment embedding<ul>
+<li>‘he’는 6번쨰 단어이지만 ,2번째 문장의 첫번째 단어</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671145-61337700-7523-11eb-8168-facc67404d04.png" alt="image-20210219104104656"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GPT vs BERT<ul>
+<li>GPT : Masked( 다음 단어를 예측하는것이 task이기 때문에 다음단어 접근 불가) ,BERT: Masked단어를 포함하여 모든 단어 접근 가능</li>
+<li>GPT; 800M words, batch size-32000 learning-rate동일</li>
+<li>BERT: 2500M words, [CLS] [SEP], segment embedding, batch-size-128000 , learning-rate-optimization</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671148-6264a400-7523-11eb-9da1-f4043ad2b328.png" alt="image-20210219104831286"></li>
+</ul>
+</li>
+<li>FIne tunning process<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671174-67c1ee80-7523-11eb-833e-223c44f452bf.png" alt="image-20210220014456106"></li>
+</ul>
+</li>
+<li>Machine Reading Comprehension, Question Answering<ul>
+<li>기계 독해 기반 질의응답</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671150-6264a400-7523-11eb-9397-9d4dfb5b056b.png" alt="image-20210219105023144"></li>
+</ul>
+</li>
+<li>SQuAD1.1<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671151-62fd3a80-7523-11eb-87da-cebdee7ddc05.png" alt="image-20210219105502453"></li>
+<li>정답 문구의 위치</li>
+</ul>
+</li>
+<li>SQuAD2.0<ul>
+<li>답이 없는 경우</li>
+<li>[CLS] 을 활용해서 binary classification -&gt; no answer(cross entropy loss)</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671153-62fd3a80-7523-11eb-8731-5aa932ad83c9.png" alt="image-20210219105645078"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671155-6395d100-7523-11eb-9bc3-3dc9453a02d8.png" alt="image-20210219105750385"></li>
+</ul>
+</li>
+<li>On Swag<ul>
+<li>다수 문장을 다룰 때 다음에 나타날법한 적절한 문장</li>
+<li>매번 서로 다른 문장을 concat해서 [CLS]토큰을 output layer를 통과하여 각기 얻은 scalar값을 softmax</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671158-642e6780-7523-11eb-9a97-992a6c7d4de5.png" alt="image-20210219105826843"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671156-642e6780-7523-11eb-97ad-1b28b7895bd3.png" alt="image-20210219105817057"></li>
+</ul>
+</li>
+<li>모델이 끊임 없이 좋아짐<ul>
+<li>layer를 깊게 쌓고 parameter를 늘릴 수록 계속 좋아짐</li>
+<li>not asymptoted (점근적이지 않다)</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671159-64c6fe00-7523-11eb-9700-ee93ab525708.png" alt="image-20210219110006966"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/46857207/108671175-685a8500-7523-11eb-8daf-7e7ebf6b1608.png" alt="image-20210220021600123"></p>
+<hr>
+<h1 id="Advance-Self-superviesd-pre-training-models"><a href="#Advance-Self-superviesd-pre-training-models" class="headerlink" title="Advance Self-superviesd pre-training models"></a>Advance Self-superviesd pre-training models</h1><h2 id="GPT-2"><a href="#GPT-2" class="headerlink" title="GPT-2"></a>GPT-2</h2><ul>
+<li>pre-training-task: language modelling</li>
+<li>40GB</li>
+<li>dataset is good quality</li>
+<li>Language model can perform down-stream tasks in zero-shot setting- without any parameter or architecture modification</li>
+<li>motivation<ul>
+<li>multitasking learning as question answering</li>
+<li>모든 자연어처리 task가 질의응답으로 바뀔 수 있다.</li>
+</ul>
+</li>
+<li>Dataset<ul>
+<li>Reddit- 외부 링크도 포함(좋아요3개이상)</li>
+<li>preprocess<ul>
+<li>bpe</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>model<ul>
+<li>layer normalization</li>
+<li>layer가 위로 갈수록 선형변환 값들이 0에 수렴<ul>
+<li>위쪽 layer의 역할이 줄어듬</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Question Answering<ul>
+<li>conversation question answering dataset (CoQA)<ul>
+<li>55 F1 score</li>
+<li>Fine tuned bert achieved 89 F1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Summarization<ul>
+<li>fine tune없이 zero shot으로 inference</li>
+<li>TL;RT Too long didnt read</li>
+</ul>
+</li>
+<li>Translation<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671160-655f9480-7523-11eb-9f6e-a81a746f4a8e.png" alt="image-20210219111840973"></li>
+</ul>
+</li>
+</ul>
+<h2 id="GPT-3"><a href="#GPT-3" class="headerlink" title="GPT-3"></a>GPT-3</h2><ul>
+<li>parameter수를 많이, 큰 batch-size, 많은 data</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671163-655f9480-7523-11eb-8e9b-a65af9e30642.png" alt="image-20210219112105028"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671165-65f82b00-7523-11eb-8572-c4a0f680c1a0.png" alt="image-20210219112127111"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671176-68f31b80-7523-11eb-831c-ef1c53232c8a.png" alt="image-20210220111947547"></li>
+</ul>
+<h2 id="ALBERT"><a href="#ALBERT" class="headerlink" title="ALBERT"></a>ALBERT</h2><ul>
+<li>장애물<ul>
+<li>memory limitation</li>
+<li>training speed</li>
+</ul>
+</li>
+<li>A Lite BERT</li>
+<li>Factorized Embedding parameterization<ul>
+<li>기존의 BERT에서 Embedding vector 사이즈는 hidden vector size 와 같아야 했다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671167-65f82b00-7523-11eb-80d6-c4cc5746a73e.png" alt="image-20210219113056190"></li>
+</ul>
+</li>
+<li>Cross-layer Parameter Sharing<ul>
+<li>Shared-FFN</li>
+<li>Shared-attention- $W_q ,W_k, W_v$</li>
+<li>All-shared</li>
+<li>성능 차이 별로 없다</li>
+</ul>
+</li>
+<li>Sentence Order Prediction<ul>
+<li>Next sentence Prediction -&gt;BERT에서 실효성이 없음-&gt;masked language modelling만</li>
+<li>연속적인 두 문장의 순서를 예측</li>
+<li>두 독립적인 문장을 가져와 선후관계를 파악하는 것이 아니라, 항상 연속적인 두 문장을 가져온다.</li>
+<li>정오더 or 역오더</li>
+<li>이를 <code>negative sample</code>이라고 하는데, 인접 문장이므로 순서와 관계없이 비슷한 단어가 당연히 많이 등장한다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="ELECTRA"><a href="#ELECTRA" class="headerlink" title="ELECTRA"></a>ELECTRA</h2><p>efficiently learning an encoder that classifies token replacements accurately</p>
+<ul>
+<li><p>마스킹된 단어를 복원해주는 모델-<strong><code>Generator</code></strong>를 하나 두고, 또 Generator가 복원한 단어들을 받아 이 단어가 원본인지 또는 generator에 의해 복원된 단어인지를 예측하는 모델-<strong><code>Discriminator</code></strong>를 둔다.</p>
+</li>
+<li><p>Generator ,Discriminator (GAN아이디어)</p>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671168-6690c180-7523-11eb-9cad-760364410be8.png" alt="image-20210219114720305"></li>
+<li>pre-trained Discriminator을 사용</li>
+</ul>
+<h2 id="Light-weight-Models"><a href="#Light-weight-Models" class="headerlink" title="Light-weight Models"></a>Light-weight Models</h2><ul>
+<li>DistillBERT<ul>
+<li>teacher model , student model</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108671179-68f31b80-7523-11eb-934c-ce3b2a1bd190.png" alt="image-20210220115245837"></li>
+</ul>
+</li>
+<li>TinyBERT<ul>
+<li>Teacher model의 parameter, 중간결과물까지 닮도록 학습</li>
+<li>MSE Loss</li>
+<li>teacher model과 student model의 차원이 다르면 적용하기 어려울 수 있음<ul>
+<li>FCN을 하나 더 둔다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Fusing-Knowledge-Graph-into-language-Model"><a href="#Fusing-Knowledge-Graph-into-language-Model" class="headerlink" title="Fusing Knowledge Graph into language Model"></a>Fusing Knowledge Graph into language Model</h2><ul>
+<li>주어진 문장에서 문맥, 단어들간 유사도는 잘 파악하나 문장에 포함되지 않은 추가적인 정보는 활용 못함</li>
+<li>ex) 꽃을 심기 위해 땅을 판다. 집을 짓기 위해 땅을 판다.<ul>
+<li>땅을 파기 위한 도구는 문장에 나타나지 않음</li>
+<li>외부지식(Knowledge graph)을 통해 학습 땅-파다-도구 ex)삽, 포크레인</li>
+</ul>
+</li>
+</ul>
+<h2 id="Further-Question"><a href="#Further-Question" class="headerlink" title="Further Question"></a><strong>Further Question</strong></h2><ul>
+<li>BERT의 Masked Language Model의 단점은 무엇이 있을까요? 사람이 실제로 언어를 배우는 방식과의 차이를 생각해보며 떠올려봅시다</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day20</p><p><a href="https://keonwoochoi.github.io/2021/02/22/BoostCamp/Day20/">https://keonwoochoi.github.io/2021/02/22/BoostCamp/Day20/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-22</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-02-22</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Recent-Trends"><span class="level-left"><span class="level-item">Recent Trends</span></span></a></li><li><a class="level is-mobile" href="#GPT-1"><span class="level-left"><span class="level-item">GPT-1</span></span></a></li><li><a class="level is-mobile" href="#BERT"><span class="level-left"><span class="level-item">BERT</span></span></a></li><li><a class="level is-mobile" href="#Advance-Self-superviesd-pre-training-models"><span class="level-left"><span class="level-item">Advance Self-superviesd pre-training models</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#GPT-2"><span class="level-left"><span class="level-item">GPT-2</span></span></a></li><li><a class="level is-mobile" href="#GPT-3"><span class="level-left"><span class="level-item">GPT-3</span></span></a></li><li><a class="level is-mobile" href="#ALBERT"><span class="level-left"><span class="level-item">ALBERT</span></span></a></li><li><a class="level is-mobile" href="#ELECTRA"><span class="level-left"><span class="level-item">ELECTRA</span></span></a></li><li><a class="level is-mobile" href="#Light-weight-Models"><span class="level-left"><span class="level-item">Light-weight Models</span></span></a></li><li><a class="level is-mobile" href="#Fusing-Knowledge-Graph-into-language-Model"><span class="level-left"><span class="level-item">Fusing Knowledge Graph into language Model</span></span></a></li><li><a class="level is-mobile" href="#Further-Question"><span class="level-left"><span class="level-item">Further Question</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
