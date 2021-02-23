@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day21 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="그래프 그래프는 정점(Vertex) 집합과, 간선(Edge) 집합으로 이루어진 수학적 구조이다. 네트워크로도 불리며, 정점은 노드(Node)로, 간선은 엣지(Edge) 혹은 링크(Link)로도 불린다. 우리 주변의 많은 복잡계(Complex System)는 구성 요소 간의 복잡한 상호작용을 하는 특성이 있다 그래프는 이복잡계의 상호작용을 효과적으로 표현하고"><meta property="og:type" content="blog"><meta property="og:title" content="Day21"><meta property="og:url" content="https://keonwoochoi.github.io/2021/02/23/BoostCamp/Day21/"><meta property="og:site_name" content="blog"><meta property="og:description" content="그래프 그래프는 정점(Vertex) 집합과, 간선(Edge) 집합으로 이루어진 수학적 구조이다. 네트워크로도 불리며, 정점은 노드(Node)로, 간선은 엣지(Edge) 혹은 링크(Link)로도 불린다. 우리 주변의 많은 복잡계(Complex System)는 구성 요소 간의 복잡한 상호작용을 하는 특성이 있다 그래프는 이복잡계의 상호작용을 효과적으로 표현하고"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-02-23T04:36:05.000Z"><meta property="article:modified_time" content="2021-02-23T04:41:45.728Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/02/23/BoostCamp/Day21/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-02-23T04:36:05.000Z","dateModified":"2021-02-23T04:41:45.728Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"그래프 그래프는 정점(Vertex) 집합과, 간선(Edge) 집합으로 이루어진 수학적 구조이다. 네트워크로도 불리며, 정점은 노드(Node)로, 간선은 엣지(Edge) 혹은 링크(Link)로도 불린다. 우리 주변의 많은 복잡계(Complex System)는 구성 요소 간의 복잡한 상호작용을 하는 특성이 있다 그래프는 이복잡계의 상호작용을 효과적으로 표현하고"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/02/23/BoostCamp/Day21/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day21"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-23T04:36:05.000Z" title="2021-2-23 1:36:05 ├F10: PM┤">2021-02-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-23T04:41:45.728Z" title="2021-2-23 1:41:45 ├F10: PM┤">2021-02-23</time></span><span class="level-item">16 minutes read (About 2396 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day21</h1><div class="content"><h2 id="그래프"><a href="#그래프" class="headerlink" title="그래프"></a>그래프</h2><ul>
+<li>그래프는 <code>정점(Vertex)</code> 집합과, <code>간선(Edge)</code> 집합으로 이루어진 수학적 구조이다.</li>
+<li>네트워크로도 불리며, 정점은 노드(Node)로, 간선은 엣지(Edge) 혹은 링크(Link)로도 불린다.</li>
+<li>우리 주변의 많은 복잡계(Complex System)는 구성 요소 간의 복잡한 상호작용을 하는 특성이 있다</li>
+<li>그래프는 이복잡계의 상호작용을 효과적으로 표현하고, 복잡계를 분석하기 위한 언어이다.</li>
+</ul>
+<h2 id="정점-분류-Node-Classification-문제"><a href="#정점-분류-Node-Classification-문제" class="headerlink" title="정점 분류(Node Classification) 문제"></a>정점 분류(Node Classification) 문제</h2><ul>
+<li>트위터에서의 공유(Retweet) 관계를 분석하여, 각 사용자의 정치적 성향을 파악</li>
+<li>백질의 상호작용을 분석</li>
+</ul>
+<h2 id="연결-예측-Link-Prediction-문제"><a href="#연결-예측-Link-Prediction-문제" class="headerlink" title="연결 예측(Link Prediction) 문제"></a>연결 예측(Link Prediction) 문제</h2><ul>
+<li>거시적 - 페이스북 소셜네트워크는 진화 방향 예측</li>
+<li>미시적 : 추천시스템</li>
+</ul>
+<h3 id="군집-분석-Community-Detection-문제"><a href="#군집-분석-Community-Detection-문제" class="headerlink" title="군집 분석(Community Detection) 문제"></a>군집 분석(Community Detection) 문제</h3><ul>
+<li>연결 관계로부터 사회적 무리(Social Circle)을 찾아내기</li>
+</ul>
+<h3 id="랭킹-Ranking-및-정보-검색-Information-Retrieval-문제"><a href="#랭킹-Ranking-및-정보-검색-Information-Retrieval-문제" class="headerlink" title="랭킹(Ranking) 및 정보 검색(Information Retrieval) 문제"></a>랭킹(Ranking) 및 정보 검색(Information Retrieval) 문제</h3><ul>
+<li>웹(Web)이라는 거대한 그래프로부터 중요한 웹페이지 찾아내기</li>
+</ul>
+<h2 id="정보-전파-Information-Cascading-및-바이럴-마케팅-Viral-Marketing-문제"><a href="#정보-전파-Information-Cascading-및-바이럴-마케팅-Viral-Marketing-문제" class="headerlink" title="정보 전파(Information Cascading) 및 바이럴 마케팅(Viral Marketing) 문제"></a>정보 전파(Information Cascading) 및 바이럴 마케팅(Viral Marketing) 문제</h2><ul>
+<li>정보 전달을 최대화</li>
+</ul>
+<h1 id="그래프의-유형-및-분류"><a href="#그래프의-유형-및-분류" class="headerlink" title="그래프의 유형 및 분류"></a>그래프의 유형 및 분류</h1><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802744-58eb4280-75dc-11eb-8ed6-8d9c4b729e91.png" alt="image-20210223115720602"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802747-58eb4280-75dc-11eb-9ed5-384a4ea41557.png" alt="image-20210223115746262"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802748-5983d900-75dc-11eb-9f8e-97c4da9cf980.png" alt="image-20210223115803381"></li>
+</ul>
+<h2 id="표현-방식"><a href="#표현-방식" class="headerlink" title="표현 방식"></a>표현 방식</h2><ul>
+<li><p>일반적으로 정점들의 집합을 _V_, 간선들의 집합을 _E_, 그래프를 _G_=(_V_,_E_)로 적는다.</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/108802741-57ba1580-75dc-11eb-822c-41c90fb74ee1.png" alt="image-20210223114334189"></p>
+</li>
+<li>방향성이 있는 그래프에서는 나가는 이웃들의 집합을 $N_{out}{(v)}$ 들어오는 이웃들의 집합을 $N_{in}{(v)}$으로 표시</li>
+<li>간선 리스트(Edge List) - 그래프를 간선들의 리스트로 저장한다<ul>
+<li>간선이 연결하는 두 정점들의 순서쌍(Pair)로 저장된다.</li>
+<li>방향성이 있는 간선의 경우 (출발점, 도착점) 순서로 저장</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802751-5983d900-75dc-11eb-9387-aadf995641f0.png" alt="image-20210223120744121"></li>
+</ul>
+</li>
+<li>인접 리스트(Adjacent List) - 각 정점들의 이웃들을 리스트로 저장한다.<ul>
+<li>방향성이 없는 경우<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802753-5a1c6f80-75dc-11eb-90d4-dfa8d81c9255.png" alt="image-20210223120844329"></li>
+</ul>
+</li>
+<li>방향성이 있는 경우<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802758-5a1c6f80-75dc-11eb-89e0-924cafb398b9.png" alt="image-20210223120901521"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>인접 행렬(Adjacent Matrix)<ul>
+<li>방향성이 없는 경우<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802759-5ab50600-75dc-11eb-8f45-5256034097f7.png" alt="image-20210223120955560"></li>
+</ul>
+</li>
+<li>방향성이 있는 경우<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802761-5ab50600-75dc-11eb-9991-0374273e9bc2.png" alt="image-20210223121021010"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802764-5b4d9c80-75dc-11eb-8414-901d19ee87df.png" alt="image-20210223121240289"><ul>
+<li>행렬의 원소가 대부분 0이 아닌 경우에 일반행렬이 더 빠르다</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="실제-그래프와-랜덤-그래프"><a href="#실제-그래프와-랜덤-그래프" class="headerlink" title="실제 그래프와 랜덤 그래프"></a>실제 그래프와 랜덤 그래프</h2><ul>
+<li>실제 그래프(RealGraph)란 다양한 복잡계로 부터 얻어진 그래프<ul>
+<li>MSN</li>
+</ul>
+</li>
+<li>랜덤 그래프(RandomGraph)는 확률적 과정을 통해 생성한 그래프<ul>
+<li>에르되스(Erdős)와 레니(Rényi)가 제안한 랜덤 그래프 모델<ul>
+<li>임의의 두 정점 사이에 간선이 존재하는지 여부는 동일한 확률 분포에 의해 결정됩니다</li>
+<li>에르되스-레니 랜덤그래프 $G(n,p)$는<ul>
+<li>n개의 정점을 가지고</li>
+<li>임의의 두 개의 정점 사이에 간선이 존재할 확률은 p</li>
+<li>정점 간의 연결은 서로 독립적</li>
+</ul>
+</li>
+<li>Q. G(3,0.3) 에 의해 생성될 수 있는 그래프와 각각의 확률은?</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802743-5852ac00-75dc-11eb-9dd1-708e6d764e52.png" alt="image-20210223114623627"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="작은-세상-효과"><a href="#작은-세상-효과" class="headerlink" title="작은 세상 효과"></a>작은 세상 효과</h2><ul>
+<li>경로와 거리<ul>
+<li>정점 <em>u</em>와 _v_ 사이의 <strong><code>경로(Path)</code></strong>는 아래 조건을 만족하는 정점들의 순열(Sequence)이다<ol>
+<li><em>u</em>에서 시작하여 <em>v</em>에서 끝난다.</li>
+<li>순열에서 연속된 정점은 간선으로 연결되어 있어야 한다.</li>
+</ol>
+</li>
+<li><code>경로의 길이</code>는 해당 경로 상에 놓이는 간선의 수로 정의된다.<ul>
+<li>경로의 길이= 순열에 존재하는 정점들의 수-1</li>
+</ul>
+</li>
+<li>정점 u<em>와 </em>v<em> 사이의 <code>거리(Distance)</code>는 </em>u<em>와 </em>v* 사이 최단경로의 길이이다.</li>
+<li><code>지름(Diameter)</code>은 정점 간 거리의 최댓값이다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802767-5b4d9c80-75dc-11eb-92cb-40bc5a41c886.png" alt="image-20210223121919073"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>작은 세상 효과<ul>
+<li>임의의 두 사람을 골랐을 때, 몇 단계의 지인을 거쳐 연결되어 있을까?<ul>
+<li>평균적으로 6단계만을 거쳤습니다</li>
+</ul>
+</li>
+<li>MSN메신저 그래프에서는 어떨까요?<ul>
+<li>정점 간의 평균 거리는 7 정도 밖에 되지 않습니다</li>
+</ul>
+</li>
+<li>작은 세상 효과는 높은 확률로 랜덤 그래프에도 존재<ul>
+<li>모든 사람이 100명의 지인이 있다고 가정해봅시다 다섯 단계를 거치면 최대 100억(= $100^5$)명의 사람과 연결될 수 있습니다</li>
+</ul>
+</li>
+<li>하지만 모든 그래프에서 작은 세상 효과가 존재하는 것은 아닙니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802770-5be63300-75dc-11eb-9753-126df567fb87.png" alt="image-20210223122304321"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="연결성의-두터운-꼬리-분포"><a href="#연결성의-두터운-꼬리-분포" class="headerlink" title="연결성의 두터운 꼬리 분포"></a>연결성의 두터운 꼬리 분포</h2><ul>
+<li>연결성<ul>
+<li>정점의 연결성(Degree)은 그 정점과 연결된 간선의 수를 의미합니다</li>
+<li>정점 V의 연결성은 해당 정점의 이웃들의 수와 같습니다 보통 정점 V의 연결성은 $d(v)$, $d_v$혹은 $|N(v)|$ 로 적습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802772-5c7ec980-75dc-11eb-914f-3c12b0375791.png" alt="image-20210223122531540"></li>
+</ul>
+</li>
+<li>두터운 꼬리 분포<ul>
+<li>실제 그래프의 연결성 분포는 두터운 꼬리(HeavyTail)를 갖습니다</li>
+<li>즉,연결성이 매우 높은 허브(Hub) 정점이 존재함을 의미합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802773-5c7ec980-75dc-11eb-9746-9c53365fa814.png" alt="image-20210223122627251"></li>
+</ul>
+</li>
+<li>랜덤 그래프의 연결성 분포는 높은 확률로 정규 분포와 유사합니다</li>
+<li>연결성이 매우 높은 허브(Hub) 정점이 존재할 가능성은 0</li>
+<li>정규 분포와 유사한 예시로는 키의 분포가 있습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802774-5d176000-75dc-11eb-9c3e-d666d58ffb1d.png" alt="image-20210223122722259"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802775-5daff680-75dc-11eb-85a6-cf6c5593a1f6.png" alt="image-20210223122738022"></li>
+</ul>
+</li>
+</ul>
+<h2 id="거대-연결-요소"><a href="#거대-연결-요소" class="headerlink" title="거대 연결 요소"></a>거대 연결 요소</h2><ul>
+<li>연결 요소<ul>
+<li>연결 요소(ConnectedComponent)는 다음 조건들을 만족하는 정점들의 집합을 의미합니다<ol>
+<li>연결 요소에 속하는 정점들은 경로로 연결될 수 있습니다</li>
+<li>1의 조건을 만족하면서 정점을 추가할 수 없습니다</li>
+</ol>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802776-5daff680-75dc-11eb-8bfe-12b5dd14470c.png" alt="image-20210223122832410"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802778-5e488d00-75dc-11eb-91cd-5b539648f710.png" alt="image-20210223122900416"></li>
+</ul>
+</li>
+<li>거대 연결 요소<ul>
+<li>실제 그래프에는 거대 연결 요소(GiantConnectedComponent)가 존재합니다 거대 연결 요소는 대다수의 정점을 포함합니다</li>
+<li>MSN메신저 그래프에는 99.9%의 정점이 하나의 거대 연결 요소에 포함됩니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802781-5ee12380-75dc-11eb-8652-8f3e83aa28d6.png" alt="image-20210223122936506"></li>
+</ul>
+</li>
+<li>랜덤 그래프에도 높은 확률로 거대 연결 요소(GiantConnectedComponent)가 존재합니다</li>
+<li>단,정점들의 평균 연결성이 1보다 충분히 커야 합니다</li>
+<li>는 RandomGraphTheory<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802782-5ee12380-75dc-11eb-9b91-92b24c63945a.png" alt="image-20210223123007297"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="군집-계수"><a href="#군집-계수" class="headerlink" title="군집 계수"></a>군집 계수</h2><ul>
+<li>군집<ul>
+<li>군집(Community)이란 다음 조건들을 만족하는 정점들의 집합입니다<ol>
+<li>집합에 속하는 정점 사이에는 많은 간선이 존재합니다</li>
+<li>집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재합니다</li>
+</ol>
+</li>
+<li>수학적으로 엄밀한 정의는 아니다.</li>
+</ul>
+</li>
+<li>지역적 군집 계수<ul>
+<li>지역적 군집 계수(LocalClusteringCoefficient)는 한 정점에서 군집의 형성 정도를 측정합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802786-5f79ba00-75dc-11eb-879a-21f37c13d893.png" alt="image-20210223130649731"></li>
+<li>지역적 군집 계수(LocalClusteringCoefficient)는 한 정점에서 군집의 형성 정도를 측정합니다</li>
+<li>연결성이 0인 정점에서는 지역적 군집 계수가 정의되지 않습니다</li>
+<li>지역적 군집 계수가 군집이랑 어떻게 연결되는 것이죠?<ul>
+<li>정점 i의 지역적 군집 계수가 매우 높다고 합시다 즉,정점 i의 이웃들도 높은 확률로 서로 간선으로 연결되어 있습니다 정점 i와 그 이웃들은 높은 확률로 군집을 형성합니다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>전역 군집 계수<ul>
+<li>전역 군집 계수(GlobalClusteringCoefficient)는 전체 그래프에서 군집의 형성 정도를 측정합니다</li>
+<li>그래프 G의 전역 군집 계수는 각 정점에서의 지역적 군집 계수의 평균입니다 단,지역적 군집 계수가 정의되지 않는 정점은 제외합니다</li>
+</ul>
+</li>
+<li>높은 군집 계수<ul>
+<li>실제 그래프에서는 군집 계수가 높다. 즉, <strong>많은 군집이 존재</strong>한다. 이유에는 여러가지가 있다.</li>
+<li><code>동질성(Homophily)</code> : 서로 유사한 정점끼리 간선으로 연결될 가능성이 높다.<ul>
+<li>같은 동네에 사는 같은 나이의 아이들이 친구가 되는 경우가 그 예시입니다</li>
+</ul>
+</li>
+<li><code>전이성(Transitivity)</code> : 공통 이웃이 있는 경우, 공통 이웃이 매개 역할을 해줄 수 있다.<ul>
+<li>친구를 서로에게 소개해주는 경우가 그 예시입니다</li>
+</ul>
+</li>
+<li>반면 랜덤 그래프에서는 지역적 혹은 전역 군집 계수가 높지 않습니다<ul>
+<li>구체적으로 랜덤 그래프 G(n,p)에서의 군집 계수는 p입니다</li>
+<li>랜덤 그래프에서의 간선 연결이 독립적인 것을 고려하면 당연한 결과입니다</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108802789-60125080-75dc-11eb-8867-a63aa8c0eae2.png" alt="image-20210223131725442"></li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day21</p><p><a href="https://keonwoochoi.github.io/2021/02/23/BoostCamp/Day21/">https://keonwoochoi.github.io/2021/02/23/BoostCamp/Day21/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><ul class="menu-list"><li><a class="level is-mobile" href="#그래프"><span class="level-left"><span class="level-item">그래프</span></span></a></li><li><a class="level is-mobile" href="#정점-분류-Node-Classification-문제"><span class="level-left"><span class="level-item">정점 분류(Node Classification) 문제</span></span></a></li><li><a class="level is-mobile" href="#연결-예측-Link-Prediction-문제"><span class="level-left"><span class="level-item">연결 예측(Link Prediction) 문제</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#군집-분석-Community-Detection-문제"><span class="level-left"><span class="level-item">군집 분석(Community Detection) 문제</span></span></a></li><li><a class="level is-mobile" href="#랭킹-Ranking-및-정보-검색-Information-Retrieval-문제"><span class="level-left"><span class="level-item">랭킹(Ranking) 및 정보 검색(Information Retrieval) 문제</span></span></a></li></ul></li><li><a class="level is-mobile" href="#정보-전파-Information-Cascading-및-바이럴-마케팅-Viral-Marketing-문제"><span class="level-left"><span class="level-item">정보 전파(Information Cascading) 및 바이럴 마케팅(Viral Marketing) 문제</span></span></a></li></ul><li><a class="level is-mobile" href="#그래프의-유형-및-분류"><span class="level-left"><span class="level-item">그래프의 유형 및 분류</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#표현-방식"><span class="level-left"><span class="level-item">표현 방식</span></span></a></li><li><a class="level is-mobile" href="#실제-그래프와-랜덤-그래프"><span class="level-left"><span class="level-item">실제 그래프와 랜덤 그래프</span></span></a></li><li><a class="level is-mobile" href="#작은-세상-효과"><span class="level-left"><span class="level-item">작은 세상 효과</span></span></a></li><li><a class="level is-mobile" href="#연결성의-두터운-꼬리-분포"><span class="level-left"><span class="level-item">연결성의 두터운 꼬리 분포</span></span></a></li><li><a class="level is-mobile" href="#거대-연결-요소"><span class="level-left"><span class="level-item">거대 연결 요소</span></span></a></li><li><a class="level is-mobile" href="#군집-계수"><span class="level-left"><span class="level-item">군집 계수</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
