@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day23 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="군집 구조와 군집 탐색 문제 군집(Community)이란 다음 조건들을 만족하는 정점들의 집합 집합에 속하는 정점 사이에는 많은 간선이 존재 집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재   실제 그래프에서의 군집들 온라인 소셜 네트워크의 군집들은 사회적 무리(Social Circle)을 의미하는 경우가 많다    온라인 소셜 네트"><meta property="og:type" content="blog"><meta property="og:title" content="Day23"><meta property="og:url" content="https://keonwoochoi.github.io/2021/02/25/BoostCamp/Day23/"><meta property="og:site_name" content="blog"><meta property="og:description" content="군집 구조와 군집 탐색 문제 군집(Community)이란 다음 조건들을 만족하는 정점들의 집합 집합에 속하는 정점 사이에는 많은 간선이 존재 집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재   실제 그래프에서의 군집들 온라인 소셜 네트워크의 군집들은 사회적 무리(Social Circle)을 의미하는 경우가 많다    온라인 소셜 네트"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-02-25T03:28:58.000Z"><meta property="article:modified_time" content="2021-02-25T03:34:38.980Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/02/25/BoostCamp/Day23/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-02-25T03:28:58.000Z","dateModified":"2021-02-25T03:34:38.980Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"군집 구조와 군집 탐색 문제 군집(Community)이란 다음 조건들을 만족하는 정점들의 집합 집합에 속하는 정점 사이에는 많은 간선이 존재 집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재   실제 그래프에서의 군집들 온라인 소셜 네트워크의 군집들은 사회적 무리(Social Circle)을 의미하는 경우가 많다    온라인 소셜 네트"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/02/25/BoostCamp/Day23/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day23"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-25T03:28:58.000Z" title="2021-2-25 12:28:58 ├F10: PM┤">2021-02-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-25T03:34:38.980Z" title="2021-2-25 12:34:38 ├F10: PM┤">2021-02-25</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">21 minutes read (About 3091 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day23</h1><div class="content"><h1 id="군집-구조와-군집-탐색-문제"><a href="#군집-구조와-군집-탐색-문제" class="headerlink" title="군집 구조와 군집 탐색 문제"></a>군집 구조와 군집 탐색 문제</h1><ul>
+<li>군집(Community)이란 다음 조건들을 만족하는 정점들의 집합<ol>
+<li>집합에 속하는 정점 사이에는 많은 간선이 존재</li>
+<li>집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재</li>
+</ol>
+</li>
+<li>실제 그래프에서의 군집들<ul>
+<li>온라인 소셜 네트워크의 군집들은 사회적 무리(Social Circle)을 의미하는 경우가 많다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098575-f5d8e780-7764-11eb-919a-f5bbfc2e7654.png" alt="image-20210224093907324"></li>
+</ul>
+</li>
+<li>온라인 소셜 네트워크의 군집들이 부정 행위와 관련된 경우도 많다.</li>
+<li>조직 내의 분란이 소셜 네트워크 상의 군집으로 표현된 경우도 있다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098576-f6717e00-7764-11eb-8003-52cbd83c9256.png" alt="image-20210224094033233"></li>
+</ul>
+</li>
+<li>키워드 – 광고주 그래프에서는 동일한 주제의 키워드들이 군집을 형성합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098580-f70a1480-7764-11eb-8362-5d27c8d8681b.png" alt="image-20210224094118211"></li>
+</ul>
+</li>
+<li>뉴런간 연결 그래프에서는 군집들이 뇌의 기능적 구성 단위를 의미합니다</li>
+</ul>
+</li>
+<li>군집 탐색 문제<ul>
+<li>그래프를 여러 군집으로 ‘잘’ 나누는 문제를 군집 탐색(Community Detection) 문제라고 합니다<ul>
+<li>보통은 각 정점이 한 개의 군집에 속하도록 군집을 나눕니다</li>
+<li>비지도 기계학습 문제인 클러스터링(Clustering)과 상당히 유사합니다<ul>
+<li>클러스터링 : 피쳐들의 벡터형태로 표현된 인스턴스들을 그룹으로 묶음</li>
+<li>군집탐색문제 : 정점들을 그룹으로 묶음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="군집-구조의-통계적-유의성과-군집성"><a href="#군집-구조의-통계적-유의성과-군집성" class="headerlink" title="군집 구조의 통계적 유의성과 군집성"></a>군집 구조의 통계적 유의성과 군집성</h1><ul>
+<li>비교 대상: 배치 모형<ul>
+<li>성공적인 군집탐색은 비교를 통해 정의 , 그 비교의 대상이 되는 것이 배치모형(Configuration Model)이다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098581-f7a2ab00-7764-11eb-9967-4baa9c8a099d.png" alt="image-20210224094631721"></li>
+</ul>
+</li>
+<li>군집성의 정의<ul>
+<li>군집 탐색의 성공 여부를 판단 하기 위해서, 군집성(Modularity)가 사용됩니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098582-f83b4180-7764-11eb-8f62-d13f07344040.png" alt="image-20210224094817164"></li>
+<li>기댓값을 사용하는 이유는 배치모형이 무작위성을 포함하고 있기 때문</li>
+<li>차이가 클수록 그래프에서 군집s내부 간선의 수가 많음을 의미-&gt;군집의 성질을 잘 만족함</li>
+<li>-1&lt;=군집성&lt;=1</li>
+</ul>
+</li>
+<li>즉, 군집성은 무작위로 연결된 배치 모형과의 비교를 통해 통계적 유의성을 판단합니다</li>
+<li>군집성은 항상 –1과 +1 사이의 값을 갖습니다</li>
+<li>보통 군집성이 0.3 ~ 0.7 정도의 값을 가질 때, 그래프에 존재하는 통계적으로 유의미한 군집들을 찾아냈다고 할 수 있습니다</li>
+</ul>
+<h1 id="군집-탐색-알고리즘"><a href="#군집-탐색-알고리즘" class="headerlink" title="군집 탐색 알고리즘"></a>군집 탐색 알고리즘</h1><ul>
+<li><p>Girvan-Newman 알고리즘</p>
+<ul>
+<li><p>하향식(Top-Down) 군집 탐색 알고리즘입니다</p>
+</li>
+<li><p>전체 그래프에서 탐색을 시작합니다 군집들이 서로 분리되록, 간선을 순차적으로 제거합니다</p>
+</li>
+<li><p>어떤 간선을 제거해야 군집들이 분리될까요?</p>
+<ul>
+<li>바로 서로 다른 군집을 연결하는 다리(Bridge) 역할의 간선입니다</li>
+</ul>
+</li>
+<li><p>서로 다른 군집을 연결하는 다리 역할의 간선을 어떻게 찾아낼 수 있을까요?</p>
+<ul>
+<li>간선의 매개 중심성(Betweenness Centrality)을 사용합니다 이는 해당 간선이 정점 간의 최단 경로에 놓이는 횟수를 의미합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098585-f83b4180-7764-11eb-9318-1b8f60869b8a.png" alt="image-20210224095424640"></li>
+<li>매개 중심성을 통해 서로 다른 군집을 연결하는 다리 역할의 간선을 찾아낼 수 있습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098587-f8d3d800-7764-11eb-9d4b-68fe22374e88.png" alt="image-20210224095455618"></li>
+</ul>
+</li>
+<li><p>Girvan-Newman 알고리즘은 매개 중심성이 높은 간선을 순차적으로 제거합니다</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/109098590-f8d3d800-7764-11eb-8f49-17dd49321729.png" alt="image-20210224095609411"></p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/109098592-f96c6e80-7764-11eb-98c3-d5cb18346c4a.png" alt="image-20210224095623587"></p>
+</li>
+<li><p>간선이 모두 제거될 때까지 반복합니다</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/109098594-fa050500-7764-11eb-9eb7-bb62c8cf9fdd.png" alt="image-20210224095709009"></p>
+</li>
+<li><p>간선을 어느 정도 제거하는 것이 가장 적합할까요?</p>
+<ul>
+<li>앞서 정의한 군집성을 그 기준으로 삼습니다 즉, 군집성이 최대가 되는 지점까지 간선을 제거합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098596-fa050500-7764-11eb-9820-6766f6e3b60c.png" alt="image-20210224095854257"></li>
+</ul>
+</li>
+<li><p>정리</p>
+<ol>
+<li>전체 그래프에서 시작합니다</li>
+<li>매개 중심성이 높은 순서로 간선을 제거하면서, 군집성을 변화를 기록합니다</li>
+<li>군집성이 가장 커지는 상황을 복원합니다</li>
+<li>이 때, 서로 연결된 정점들, 즉 연결 요소를 하나의 군집으로 간주합니다</li>
+</ol>
+<p>즉, 전체 그래프에서 시작해서 점점 작은 단위를 검색하는 하향식(Top-Down) 방법입니다</p>
+</li>
+</ul>
+</li>
+<li><p>Louvain 알고리즘</p>
+<ul>
+<li>상향식(Bottom-Up) 군집 탐색 알고리즘입니다</li>
+<li>각 정점이 하나의 군집을 형성한다고 가정한 상태에서 시작</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098598-fa9d9b80-7764-11eb-9bb3-341486cef08d.png" alt="image-20210224100142281"></li>
+<li>그러면 어떤 기준으로 군집을 합쳐야 할까요?<ul>
+<li>군집성</li>
+</ul>
+</li>
+<li>과정<ol>
+<li>Louvain 알고리즘은 개별 정점으로 구성된 크기 1의 군집들로부터 시작합니다</li>
+<li>각 정점 𝑢를 기존 혹은 새로운 군집으로 이동합니다 이 때, 군집성이 최대화되도록 군집을 결정합니다</li>
+<li>더 이상 군집성이 증가하지 않을 때까지 2)를 반복합니다</li>
+<li>각 군집을 하나의 정점으로하는 군집 레벨의 그래프를 얻은 뒤 3)을 수행합니다</li>
+<li>한 개의 정점이 남을 때까지 4)를 반복합니다</li>
+</ol>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098601-fb363200-7764-11eb-9469-361dbb6c0fa9.png" alt="image-20210224100401905"></li>
+</ul>
+</li>
+</ul>
+<h1 id="중첩이-있는-군집-탐색"><a href="#중첩이-있는-군집-탐색" class="headerlink" title="중첩이 있는 군집 탐색"></a>중첩이 있는 군집 탐색</h1><ul>
+<li>중첩이 있는 군집 구조<ul>
+<li>실제 그래프의 군집들을 중첩되어 있는 경우가 많습니다</li>
+<li>예를 들어 소셜 네트워크에서의 개인은 여러 사회적 역할을 수행합니다 그 결과 여러 군집에 속하게 됩니다</li>
+<li>앞서 배운 Girvan-Newman 알고리즘, Louvain 알고리즘은 군집 간의 중첩이 없다고 가정합니다 그러면 중첩이 있는 군집은 어떻게 찾아낼 수 있을까요?<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098602-fb363200-7764-11eb-9e2a-6b6addaf5251.png" alt="image-20210224100542795"></li>
+</ul>
+</li>
+<li>이를 위해 아래와 같은 중첩 군집 모형을 가정합니다<ol>
+<li>각 정점은 여러 개의 군집에 속할 수 있습니다</li>
+<li>각 군집 𝐴에 대하여, 같은 군집에 속하는 두 정점은 𝑃𝐴 확률로 간선으로 직접 연결됩니다</li>
+<li>두 정점이 여러 군집에 동시에 속할 경우 간선 연결 확률은 독립적입니다 예를 들어, 두 정점이 군집 𝐴와 𝐵에 동시에 속할 경우 두 정점이 간선으로 직접 연결될 확률은 1 − (1 − 𝑃𝐴)(1 − 𝑃𝐵)입니다</li>
+<li>어느 군집에도 함께 속하지 않는 두 정점은 낮은 확률 𝜖으로 직접 연결됩니다</li>
+</ol>
+</li>
+<li>중첩 군집 모형이 주어지면, 주어진 그래프의 확률을 계산할 수 있습니다</li>
+<li>그래프의 확률은 다음 확률들의 곱입니다<ul>
+<li>그래프의 각 간선의 두 정점이 (모형에 의해) 직접 연결될 확률</li>
+<li>그래프에서 직접 연결되지 않은 각 정점 쌍이 (모형에 의해) 직접 연결되지 않을 확률</li>
+</ul>
+</li>
+<li>현실의 많은 경우 그래프는 주어져 있지만 중첩군집모형은 주어지지 않는 경우가 많음</li>
+<li>따라서 중첩 군집 탐색은 주어진 그래프의 확률을 최대화하는 중첩 군집 모형을 찾는 과정입니다 -&gt;최대우도추정치<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098605-fbcec880-7764-11eb-89f7-ecb5e4e0346a.png" alt="image-20210224101151987"></li>
+</ul>
+</li>
+<li>중첩 군집 탐색을 용이하게 하기 위하여 완화된 중첩 군집 모형을 사용합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098606-fc675f00-7764-11eb-9715-903f3f4b8dc7.png" alt="image-20210224101212737"></li>
+<li>완화된 중첩 군집 모형에서는 각 정점이 각 군집에 속해 있는 정도를 실숫값으로 표현합니다</li>
+<li>즉, 기존 모형에서는 각 정점이 각 군집에 속하거나 속하지 않거나 둘 중 하나였는데, 중간 상태를 표현할 수 있게 된 것입니다</li>
+<li>최적화 관점에서는, 모형의 매개변수들이 실수 값을 가지기 때문에 익숙한 최적화 도구 (경사하강법 등)을 사용하여 모형을 탐색할 수 있다는 장점이 있습니다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="우리-주변의-추천-시스템"><a href="#우리-주변의-추천-시스템" class="headerlink" title="우리 주변의 추천 시스템"></a>우리 주변의 추천 시스템</h1><ul>
+<li>추천 시스템과 그래프<ul>
+<li>사용자 각각이 구매할 만한 혹은 선호할 만한 상품을 추천합니다</li>
+<li>구매 기록이라는 암시적(Implicit)인 선호만 있는 경우도 있고, 평점이라는 명시적(Explicit)인 선호가 있는 경우도 있습니다</li>
+<li>그래프 관점에서 추천 시스템은 “<code>미래의 간선을 예측하는 문제</code>” 혹은 “<code>누락된 간선의 가중치를 추정하는 문제</code>”로 해석할 수 있습니다</li>
+</ul>
+</li>
+</ul>
+<h1 id="내용-기반-추천시스템"><a href="#내용-기반-추천시스템" class="headerlink" title="내용 기반 추천시스템"></a>내용 기반 추천시스템</h1><ul>
+<li><p>내용 기반 추천시스템의 원리</p>
+<ul>
+<li>내용 기반(Content-based) 추천은 각 사용자가 구매/만족했던 상품(부가정보)과 유사한 것을 추천하는 방법입니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098609-fcfff580-7764-11eb-9bba-78b2f2406d22.png" alt="image-20210224105759072"><ol>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098610-fcfff580-7764-11eb-852c-ef0d8cb72984.png" alt="image-20210224105841531"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098614-fd988c00-7764-11eb-91d8-203969bb5806.png" alt="image-20210224105904795"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098615-fe312280-7764-11eb-8cd5-49e8ef7550e1.png" alt="image-20210224110310572"></li>
+<li>마지막 단계는 사용자에게 상품을 추천하는 단계입니다 코사인 유사도가 높은 상품들을 추천합니다</li>
+</ol>
+</li>
+<li>내용 기반 추천시스템은 다음 장점을 갖습니다<ul>
+<li>다른 사용자의 구매 기록이 필요하지 않습니다-&gt; 본인의 기록만</li>
+<li>독특한 취향의 사용자에게도 추천이 가능합니다</li>
+<li>새 상품에 대해서도 추천이 가능합니다-&gt;상품 프로필</li>
+<li>추천의 이유를 제공할 수 있습니다</li>
+</ul>
+</li>
+<li>내용 기반 추천시스템은 다음 단점을 갖습니다<ul>
+<li>상품에 대한 부가 정보가 없는 경우에는 사용할 수 없습니다</li>
+<li>구매 기록이 없는 사용자에게는 사용할 수 없습니다-&gt;사용자 프로필x</li>
+<li>과적합(Overfitting)으로 지나치게 협소한 추천을 할 위험이 있습니다</li>
+</ul>
+</li>
+</ul>
+<h1 id="협업-필터링-추천시스템"><a href="#협업-필터링-추천시스템" class="headerlink" title="협업 필터링 추천시스템"></a>협업 필터링 추천시스템</h1><p>​</p>
+</li>
+<li><p>​ 협업 필터링의 원리</p>
+<ul>
+<li>사용자-사용자 협업 필터링은 다음 세 단계로 이루어집니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098616-fe312280-7764-11eb-9e1d-7b62419521fd.png" alt="image-20210224110937832"></li>
+</ul>
+</li>
+<li>사용자-사용자 협업 필터링의 핵심은 유사한 취향의 사용자를 찾는 것입니다 그런데 취향의 유사도는 어떻게 계산할까요?<ul>
+<li>취향의 유사성은 상관 계수(Correlation Coefficient)를 통해 측정합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098618-fec9b900-7764-11eb-89db-32df27a69a47.png" alt="image-20210224111923584"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098620-fec9b900-7764-11eb-9208-2102bf0add60.png" alt="image-20210224112801261"></li>
+<li>마지막 단계는 추정한 평점이 가장 높은 상품을 추천하는 단계입니다</li>
+<li>추천의 대상 사용자를 𝑥라고 합시다 앞서 설명한 방법을 통해, 𝑥가 아직 구매하지 않은 상품 각각에 대해 평점을 추정합니다 추정한 평점이 가장 높은 상품들을 𝑥에게 추천합니다</li>
+<li>협업 필터링은 다음 장점과 단점 갖습니다<ul>
+<li>(+) 상품에 대한 부가 정보가 없는 경우에도 사용할 수 있습니다</li>
+<li>(−) 충분한 수의 평점 데이터가 누적되어야 효과적입니다</li>
+<li>(−) 새 상품, 새로운 사용자에 대한 추천이 불가능합니다</li>
+<li>(−) 독특한 취향의 사용자에게 추천이 어렵습니다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="추천-시스템의-평가"><a href="#추천-시스템의-평가" class="headerlink" title="추천 시스템의 평가"></a>추천 시스템의 평가</h1><ul>
+<li>데이터 분리<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098621-ff624f80-7764-11eb-9c29-bd7d7b76bdcf.png" alt="image-20210224113213272"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109098622-fffae600-7764-11eb-86c8-c8d88394fcb4.png" alt="image-20210224113230529"></li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day23</p><p><a href="https://keonwoochoi.github.io/2021/02/25/BoostCamp/Day23/">https://keonwoochoi.github.io/2021/02/25/BoostCamp/Day23/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-25</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-02-25</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#군집-구조와-군집-탐색-문제"><span class="level-left"><span class="level-item">군집 구조와 군집 탐색 문제</span></span></a></li><li><a class="level is-mobile" href="#군집-구조의-통계적-유의성과-군집성"><span class="level-left"><span class="level-item">군집 구조의 통계적 유의성과 군집성</span></span></a></li><li><a class="level is-mobile" href="#군집-탐색-알고리즘"><span class="level-left"><span class="level-item">군집 탐색 알고리즘</span></span></a></li><li><a class="level is-mobile" href="#중첩이-있는-군집-탐색"><span class="level-left"><span class="level-item">중첩이 있는 군집 탐색</span></span></a></li><li><a class="level is-mobile" href="#우리-주변의-추천-시스템"><span class="level-left"><span class="level-item">우리 주변의 추천 시스템</span></span></a></li><li><a class="level is-mobile" href="#내용-기반-추천시스템"><span class="level-left"><span class="level-item">내용 기반 추천시스템</span></span></a></li><li><a class="level is-mobile" href="#협업-필터링-추천시스템"><span class="level-left"><span class="level-item">협업 필터링 추천시스템</span></span></a></li><li><a class="level is-mobile" href="#추천-시스템의-평가"><span class="level-left"><span class="level-item">추천 시스템의 평가</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
