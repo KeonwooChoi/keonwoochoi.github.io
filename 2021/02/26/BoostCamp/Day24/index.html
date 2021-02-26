@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day24 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="정점 표현 학습정점 표현 학습이란 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것입니다 정점 표현 학습은 간단히 정점 임베딩(Node Embedding)이라고도 부릅니다 정점 임베딩은 벡터 형태의 표현 그 자체를 의미하기도 합니다 정점이 표현되는 벡터 공간을 임베딩 공간이라고 부릅시다   정점 표현 학습의 이유 정점 임베딩의 결과로, 벡터"><meta property="og:type" content="blog"><meta property="og:title" content="Day24"><meta property="og:url" content="https://keonwoochoi.github.io/2021/02/26/BoostCamp/Day24/"><meta property="og:site_name" content="blog"><meta property="og:description" content="정점 표현 학습정점 표현 학습이란 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것입니다 정점 표현 학습은 간단히 정점 임베딩(Node Embedding)이라고도 부릅니다 정점 임베딩은 벡터 형태의 표현 그 자체를 의미하기도 합니다 정점이 표현되는 벡터 공간을 임베딩 공간이라고 부릅시다   정점 표현 학습의 이유 정점 임베딩의 결과로, 벡터"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-02-26T05:58:26.000Z"><meta property="article:modified_time" content="2021-02-26T06:04:20.477Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/02/26/BoostCamp/Day24/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-02-26T05:58:26.000Z","dateModified":"2021-02-26T06:04:20.477Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"정점 표현 학습정점 표현 학습이란 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것입니다 정점 표현 학습은 간단히 정점 임베딩(Node Embedding)이라고도 부릅니다 정점 임베딩은 벡터 형태의 표현 그 자체를 의미하기도 합니다 정점이 표현되는 벡터 공간을 임베딩 공간이라고 부릅시다   정점 표현 학습의 이유 정점 임베딩의 결과로, 벡터"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/02/26/BoostCamp/Day24/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day24"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-26T05:58:26.000Z" title="2021-2-26 2:58:26 ├F10: PM┤">2021-02-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-02-26T06:04:20.477Z" title="2021-2-26 3:04:20 ├F10: PM┤">2021-02-26</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">20 minutes read (About 2992 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day24</h1><div class="content"><h1 id="정점-표현-학습"><a href="#정점-표현-학습" class="headerlink" title="정점 표현 학습"></a>정점 표현 학습</h1><h2 id="정점-표현-학습이란"><a href="#정점-표현-학습이란" class="headerlink" title="정점 표현 학습이란"></a>정점 표현 학습이란</h2><ul>
+<li>정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것입니다</li>
+<li>정점 표현 학습은 간단히 정점 임베딩(Node Embedding)이라고도 부릅니다</li>
+<li>정점 임베딩은 벡터 형태의 표현 그 자체를 의미하기도 합니다 정점이 표현되는 벡터 공간을 임베딩 공간이라고 부릅시다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261281-f47dec80-7842-11eb-860e-ea60bd7db502.png" alt="image-20210225103605447"></li>
+</ul>
+<h2 id="정점-표현-학습의-이유"><a href="#정점-표현-학습의-이유" class="headerlink" title="정점 표현 학습의 이유"></a>정점 표현 학습의 이유</h2><ul>
+<li>정점 임베딩의 결과로, 벡터 형태의 데이터를 위한 도구들을 그래프에도 적용할 수 있습니다</li>
+<li>분류기(로지스틱 회귀분석, 다층 퍼셉트론 등) 그리고 군집 분석 알고리즘(K-Means, DBSCAN 등)은 벡터 형태로 표현된 사례(Instance)들을 입력으로 받습니다</li>
+<li>정점 분류(Node Classification), 군집 분석(Community Detection) 등에 활용</li>
+</ul>
+<h2 id="정점-표현-학습의-목표"><a href="#정점-표현-학습의-목표" class="headerlink" title="정점 표현 학습의 목표"></a>정점 표현 학습의 목표</h2><ul>
+<li>어떤 기준으로 정점을 벡터로 변환해야할까요?<ul>
+<li>그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것을 목표로 합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261283-f5168300-7842-11eb-9e5a-120f8f2d33da.png" alt="image-20210225103834225"></li>
+<li>임베딩 공간에서의 유사도로는 내적(Inner Product)를 사용합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261284-f5168300-7842-11eb-99fa-a3f6a23163aa.png" alt="image-20210225104001731"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261285-f5af1980-7842-11eb-8d22-e6f5857240f3.png" alt="image-20210225104305559"></li>
+<li>먼저 인접성을 바탕으로 한 접근법</li>
+</ul>
+</li>
+</ul>
+<h1 id="인접성-기반-접근법"><a href="#인접성-기반-접근법" class="headerlink" title="인접성 기반 접근법"></a>인접성 기반 접근법</h1><h2 id="인접성-기반-접근법-1"><a href="#인접성-기반-접근법-1" class="headerlink" title="인접성 기반 접근법"></a>인접성 기반 접근법</h2><ul>
+<li>인접성(Adjacency) 기반 접근법에서는 두 정점이 인접할 때 유사하다고 간주합니다</li>
+<li>두 정점 𝑢와 𝑣가 인접하다는 것은 둘을 직접 연결하는 간선 (𝑢, 𝑣)가 있음을 의미합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261287-f5af1980-7842-11eb-97dd-0116a42ab597.png" alt="image-20210225104509964"></li>
+<li>인접성 기반 접근법의 손실 함수<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261288-f647b000-7842-11eb-9906-dd6dd31a4f2c.png" alt="image-20210225104540249"></li>
+</ul>
+</li>
+<li>인접성만으로 유사도를 판단하는 것은 한계가 있습니다<ul>
+<li>빨간색 정점과 파란색 정점은 거리가 3인 반면 초록색 정점과 파란색 정점은 거리가 2입니다</li>
+<li>인접성만을 고려할 경우 이러한 사실에 대한 고려 없이, 두 경우의 유사도는 0으로 같습니다</li>
+<li>군집 관점에서는 빨간색 정점과 파란색 정점은 다른 군집에 속하는 반면 초록색 정점과 파란색 정점은 같은 군집에 속합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261289-f647b000-7842-11eb-9d75-fcb2cdebd8f8.png" alt="image-20210225105104693"></li>
+</ul>
+</li>
+</ul>
+<h1 id="거리-경로-중첩-기반-접근법"><a href="#거리-경로-중첩-기반-접근법" class="headerlink" title="거리/경로/중첩 기반 접근법"></a>거리/경로/중첩 기반 접근법</h1><h2 id="거리-기반-접근법"><a href="#거리-기반-접근법" class="headerlink" title="거리 기반 접근법"></a>거리 기반 접근법</h2><ul>
+<li>거리 기반 접근법에서는 두 정점 사이의 거리가 충분히 가까운 경우 유사하다고 간주합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261291-f6e04680-7842-11eb-88b0-bf607dc865c2.png" alt="image-20210225105312470"></li>
+</ul>
+<h2 id="경로-기반-접근법"><a href="#경로-기반-접근법" class="headerlink" title="경로 기반 접근법"></a>경로 기반 접근법</h2><ul>
+<li>경로 기반 접근법에서는 두 정점 사이의 경로가 많을 수록 유사하다고 간주합니다<ul>
+<li>복습</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261294-f778dd00-7842-11eb-8937-2f509cbb0d0b.png" alt="image-20210225105528816"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261368-03fd3580-7843-11eb-9a10-b140db1e0f1b.png" alt="image-20210225202814595"></li>
+<li>1 4 6 8</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261295-f778dd00-7842-11eb-9854-3e04e9c8abf8.png" alt="image-20210225105735510"></li>
+</ul>
+<h2 id="중첩-기반-접근법"><a href="#중첩-기반-접근법" class="headerlink" title="중첩 기반 접근법"></a>중첩 기반 접근법</h2><ul>
+<li>중첩 기반 접근법에서는 두 정점이 많은 이웃을 공유할 수록 유사하다고 간주합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261297-f8117380-7842-11eb-8657-84eb0f11fc40.png" alt="image-20210225105857781"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261299-f8117380-7842-11eb-86c6-0425d1fea443.png" alt="image-20210225110007261"></li>
+<li>공통 이웃 수 대신 자카드 유사도 혹은 Adamic Adar 점수를 사용할 수도 있습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261303-f942a080-7842-11eb-873f-339cbce40391.png" alt="image-20210225110053574"></li>
+<li>$N_u=N_v$일때 즉,두 정점의 이웃들의 집합이 같을 떄 자카드 유사도 1</li>
+<li>W(u와v의 공통이웃)의 연결성이 클수록 가중치 낮다 why?<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261305-f942a080-7842-11eb-8965-6451efb3f9e7.png" alt="image-20210225110942133"></li>
+<li>u와v가 트와이스를 팔로우한다고 서로 가까운 것은 아님-&gt;낮은 가중치</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="임의-보행-기반-접근법"><a href="#임의-보행-기반-접근법" class="headerlink" title="임의 보행 기반 접근법"></a>임의 보행 기반 접근법</h1><h2 id="임의보행-기반-접근법"><a href="#임의보행-기반-접근법" class="headerlink" title="임의보행 기반 접근법"></a>임의보행 기반 접근법</h2><ul>
+<li>임의보행 기반 접근법에서는 한 정점에서 시작하여 임의보행을 할 때 다른 정점에 도달할 확률 을 유사도로 간주합니다</li>
+<li>임의보행이란 현재 정점의 이웃 중 하나를 균일한 확률로 선택하는 이동하는 과정을 반복하는 것을 의미합니다</li>
+<li>임의보행을 사용할 경우 시작 정점 주변의 지역적 정보와 그래프 전역 정보를 모두 고려한다는 장점이 있습니다<ul>
+<li>기존의 거리,경로 기반 접근법은 거리를 k로 제한, 하지만 임의보행 접근법에서는 제한하지 않음, 그런 의미에서 그래프 전역정보 고려</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261306-f9db3700-7842-11eb-957e-2c9cf1650ba1.png" alt="image-20210225111859789"></li>
+<li>어떻게 임베딩으로부터 도달 확률을 추정할까요?<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261307-f9db3700-7842-11eb-8d70-8f5cc259c39f.png" alt="image-20210225111943572"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261310-fa73cd80-7842-11eb-947f-f81348e1aa1d.png" alt="image-20210225112028514"></li>
+</ul>
+</li>
+</ul>
+<h2 id="DeepWalk-Node2Vec"><a href="#DeepWalk-Node2Vec" class="headerlink" title="DeepWalk, Node2Vec"></a>DeepWalk, Node2Vec</h2><ul>
+<li>임의보행의 방법에 따라 DeepWalk와 Node2Vec이 구분됩니다</li>
+<li>DeepWalk는 앞서 설명한 기본적인 임의보행을 사용합니다 즉, 현재 정점의 이웃 중 하나를 균일한 확률로 선택하는 이동하는 과정을 반복합니다</li>
+<li>Node2Vec은 2차 치우친 임의보행(Second-order Biased Random Walk)을 사용합니다<ul>
+<li>현재 정점(예시에서 𝑣)과 직전에 머물렀던 정점(예시에서 𝑢)을 모두 고려하여 다음 정점을 선택합니다</li>
+<li>직전 정점의 거리를 기준으로 경우를 구분하여 차등적인 확률을 부여합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261311-fb0c6400-7842-11eb-9a3b-aa04d9868e65.png" alt="image-20210225112308400"></li>
+<li>Node2Vec에서는 부여하는 확률에 따라서 다른 종류의 임베딩을 얻습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261312-fba4fa80-7842-11eb-8916-38506aa334e0.png" alt="image-20210225112417345"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261315-fba4fa80-7842-11eb-95f3-08bd135ecd2d.png" alt="image-20210225112449054"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261316-fc3d9100-7842-11eb-82d6-e8a065224624.png" alt="image-20210225112506606"><br>-</li>
+</ul>
+</li>
+</ul>
+<h2 id="손실-함수-근사"><a href="#손실-함수-근사" class="headerlink" title="손실 함수 근사"></a>손실 함수 근사</h2><ul>
+<li>임의보행 기법의 손실함수는 계산에 정점의 수의 제곱에 비례하는 시간이 소요됩니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261318-fc3d9100-7842-11eb-884f-33114e80f3b6.png" alt="image-20210225112816322"></li>
+<li>따라서 많은 경우 근사식을 사용합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261320-fcd62780-7842-11eb-8dd7-7bcea7e986d4.png" alt="image-20210225112844742"></li>
+<li>연결성에 비례하는 확률로 네거티브 샘플을 뽑으며, 네거티브 샘플이 많을 수록 학습이 더욱 안정적입니다</li>
+<li>네거티브 샘플을 많이 뽑을 수록 학습이 안정적임</li>
+</ul>
+<h1 id="변환식-정점-표현-학습의-한계"><a href="#변환식-정점-표현-학습의-한계" class="headerlink" title="변환식 정점 표현 학습의 한계"></a>변환식 정점 표현 학습의 한계</h1><h2 id="변환식-정점-표현-학습과-귀납식-정점-표현-학습"><a href="#변환식-정점-표현-학습과-귀납식-정점-표현-학습" class="headerlink" title="변환식 정점 표현 학습과 귀납식 정점 표현 학습"></a>변환식 정점 표현 학습과 귀납식 정점 표현 학습</h2><ul>
+<li><p>지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법입니다</p>
+</li>
+<li><p>변환식(Transdctive) 방법은 학습의 결과로 정점의 임베딩 자체를 얻는다는 특성이 있습니다 정점을 임베딩으로 변화시키는 함수, 즉 인코더를 얻는 귀납식(Inductive) 방법과 대조됩 니다</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/109261322-fcd62780-7842-11eb-8d2f-599a90078e89.png" alt="image-20210225113320988"></p>
+</li>
+<li><p>변환식 임베딩 방법은 여러 한계를 갖습니다</p>
+<ol>
+<li>학습이 진행된 이후에 추가된 정점에 대해서는 임베딩을 얻을 수 없습니다</li>
+</ol>
+<p>​ 입력그래프에 변화가 있는 경우 임베딩을 다시 수행</p>
+<ol>
+<li><p>모든 정점에 대한 임베딩을 미리 계산하여 저장해두어야 합니다</p>
+</li>
+<li><p>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 없습니다</p>
+</li>
+</ol>
+</li>
+<li><p>귀납식 임베딩 방법-&gt; GNN</p>
+</li>
+</ul>
+<h1 id="넷플릭스-챌린지"><a href="#넷플릭스-챌린지" class="headerlink" title="넷플릭스 챌린지"></a>넷플릭스 챌린지</h1><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261323-fd6ebe00-7842-11eb-854b-5174c3769b79.png" alt="image-20210225170001631"></li>
+<li>넷플릭스 챌린지의 목표는 추천시스템의 성능을 10%이상 향상시키는 것이었습니다</li>
+<li>평균 제곱근 오차 0.9514을 0.8563까지 낮출 경우 100만불의 상금을 받는 조건이었습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261326-fe075480-7842-11eb-9fab-50b952254207.png" alt="image-20210225170127758"></li>
+</ul>
+<h1 id="잠재-인수-모형"><a href="#잠재-인수-모형" class="headerlink" title="잠재 인수 모형"></a>잠재 인수 모형</h1><h2 id="잠재-인수-모형-개요"><a href="#잠재-인수-모형-개요" class="headerlink" title="잠재 인수 모형 개요"></a>잠재 인수 모형 개요</h2><ul>
+<li>잠재 인수 모형(Latent Factor Model)의 핵심은 사용자와 상품을 벡터로 표현하는 것입니다<ul>
+<li>uv decomposition</li>
+<li>SVD</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261328-fe9feb00-7842-11eb-9060-9130a6d9bc22.png" alt="image-20210225170314752"></li>
+<li>수치적으로 표현하는 것은 쉬운 일이 아님</li>
+<li>잠재 인수 모형에서는 고정된 인수 대신 효과적인 인수를 학습하는 것을 목표로 합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261330-fe9feb00-7842-11eb-8918-0e9ec3b96a45.png" alt="image-20210225170458921"></li>
+</ul>
+</li>
+</ul>
+<h2 id="손실-함수"><a href="#손실-함수" class="headerlink" title="손실 함수"></a>손실 함수</h2><ul>
+<li>사용자와 상품을 임베딩하는 기준은 무엇인가요?<ul>
+<li>사용자와 상품의 임베딩의 내적(Inner Product)이 평점과 최대한 유사하도록 하는 것입니다</li>
+<li>사용자 𝑥의 임베딩을 𝑝𝑥, 상품 𝑖의 임베딩을 𝑞𝑖라고 합시다 사용자 𝑥의 상품 𝑖에 대한 평점을 𝑟𝑥𝑖라고 합시다 임베딩의 목표는 𝑝𝑥 ⊺ 𝑞𝑖이 𝑟𝑥𝑖와 유사하도록 하는 것입니다</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261333-ff388180-7842-11eb-879d-44fe5ba83e88.png" alt="image-20210225170833623"></li>
+<li>과적합을 방지하기 위하여 정규화 항을 손실 함수에 더해줍니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261336-ff388180-7842-11eb-8623-8dc93925f533.png" alt="image-20210225170850192"></li>
+<li>임베딩이 너무 크면 훈련 데이터에 있는 잡음들까지 배울 수 있다</li>
+<li>정규화의 세기가 클수록 모형 복잡도에 집중하여 최소화</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261337-ffd11800-7842-11eb-9e6b-f4695b005f09.png" alt="image-20210225171218512"></li>
+</ul>
+</li>
+</ul>
+<h2 id="최적화"><a href="#최적화" class="headerlink" title="최적화"></a>최적화</h2><ul>
+<li>손실함수를 최소화하는 𝑃와 𝑄를 찾기 위해서는 (확률적) 경사하강법을 사용합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261338-ffd11800-7842-11eb-86ea-07f32a25f700.png" alt="image-20210225171324056"></li>
+</ul>
+<h1 id="고급-잠재-인수-모형"><a href="#고급-잠재-인수-모형" class="headerlink" title="고급 잠재 인수 모형"></a>고급 잠재 인수 모형</h1><h2 id="사용자와-상품의-편향을-고려한-잠재-인수-모형"><a href="#사용자와-상품의-편향을-고려한-잠재-인수-모형" class="headerlink" title="사용자와 상품의 편향을 고려한 잠재 인수 모형"></a>사용자와 상품의 편향을 고려한 잠재 인수 모형</h2><ul>
+<li>각 사용자의 편향은 해당 사용자의 평점 평균과 전체 평점 평균의 차입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261339-0069ae80-7843-11eb-8b7b-821e813b22b8.png" alt="image-20210225171938430"></li>
+</ul>
+</li>
+<li>각 상품의 편향은 해당 상품에 대한 평점 평균과 전체 평점 평균의 차입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261342-0069ae80-7843-11eb-969d-2d549be1b0e0.png" alt="image-20210225172005439"></li>
+</ul>
+</li>
+<li><p>개선된 잠재 인수 모형에서는 평점을 전체 평균, 사용자 편향, 상품 편향, 상호작용으로 분리합니다</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261347-01024500-7843-11eb-974d-c181004112ec.png" alt="image-20210225172108647"></li>
+</ul>
+</li>
+<li><p>개선된 잠재 인수 모형의 손실 함수는 아래와 같습니다</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261350-019adb80-7843-11eb-8d47-9f52c5c1e149.png" alt="image-20210225172248712"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261351-02337200-7843-11eb-8445-ae6ae5810cc7.png" alt="image-20210225172404000"></li>
+</ul>
+</li>
+</ul>
+<h2 id="시간적-편향을-고려한-잠재-인수-모형"><a href="#시간적-편향을-고려한-잠재-인수-모형" class="headerlink" title="시간적 편향을 고려한 잠재 인수 모형"></a>시간적 편향을 고려한 잠재 인수 모형</h2><ul>
+<li>넷플릭스 시스템의 변화로 평균 평점이 크게 상승하는 사건이 있었습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261354-02337200-7843-11eb-99f1-e4a5292feb9c.png" alt="image-20210225172446600"></li>
+</ul>
+</li>
+<li>영화의 평점은 출시일 이후 시간이 지남에 따라 상승하는 경향을 갖습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261359-02cc0880-7843-11eb-9a58-88d3d146166d.png" alt="image-20210225172529255"></li>
+</ul>
+</li>
+<li>개선된 잠재 인수 모형에서는 이러한 시간적 편향을 고려합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261363-03649f00-7843-11eb-94db-6e1e5ce0e04c.png" alt="image-20210225172647321"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109261366-03649f00-7843-11eb-9edf-0329b91a5e2a.png" alt="image-20210225172711517"></li>
+</ul>
+<h1 id="넷플릭스-챌린지의-결과"><a href="#넷플릭스-챌린지의-결과" class="headerlink" title="넷플릭스 챌린지의 결과"></a>넷플릭스 챌린지의 결과</h1><h2 id="앙상블-학습"><a href="#앙상블-학습" class="headerlink" title="앙상블 학습"></a>앙상블 학습</h2><ul>
+<li>BellKor 팀은 앙상블 학습을 사용하여 처음으로 목표 성능에 도달하였습니다</li>
+<li>BellKor 팀의 독주에 위기감을 느낀 다른 팀들은 연합팀 Ensemble을 만들었습니다</li>
+<li>넷플릭스 챌린지 종료 시점에 BellKor 팀 Ensemble 팀의 오차는 정확히 동일했습니다 하지만 BellKor 팀의 제출이 20분 빨랐습니다.</li>
+</ul>
+<p>​</p>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day24</p><p><a href="https://keonwoochoi.github.io/2021/02/26/BoostCamp/Day24/">https://keonwoochoi.github.io/2021/02/26/BoostCamp/Day24/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-26</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-02-26</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#정점-표현-학습"><span class="level-left"><span class="level-item">정점 표현 학습</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#정점-표현-학습이란"><span class="level-left"><span class="level-item">정점 표현 학습이란</span></span></a></li><li><a class="level is-mobile" href="#정점-표현-학습의-이유"><span class="level-left"><span class="level-item">정점 표현 학습의 이유</span></span></a></li><li><a class="level is-mobile" href="#정점-표현-학습의-목표"><span class="level-left"><span class="level-item">정점 표현 학습의 목표</span></span></a></li></ul></li><li><a class="level is-mobile" href="#인접성-기반-접근법"><span class="level-left"><span class="level-item">인접성 기반 접근법</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#인접성-기반-접근법-1"><span class="level-left"><span class="level-item">인접성 기반 접근법</span></span></a></li></ul></li><li><a class="level is-mobile" href="#거리-경로-중첩-기반-접근법"><span class="level-left"><span class="level-item">거리/경로/중첩 기반 접근법</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#거리-기반-접근법"><span class="level-left"><span class="level-item">거리 기반 접근법</span></span></a></li><li><a class="level is-mobile" href="#경로-기반-접근법"><span class="level-left"><span class="level-item">경로 기반 접근법</span></span></a></li><li><a class="level is-mobile" href="#중첩-기반-접근법"><span class="level-left"><span class="level-item">중첩 기반 접근법</span></span></a></li></ul></li><li><a class="level is-mobile" href="#임의-보행-기반-접근법"><span class="level-left"><span class="level-item">임의 보행 기반 접근법</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#임의보행-기반-접근법"><span class="level-left"><span class="level-item">임의보행 기반 접근법</span></span></a></li><li><a class="level is-mobile" href="#DeepWalk-Node2Vec"><span class="level-left"><span class="level-item">DeepWalk, Node2Vec</span></span></a></li><li><a class="level is-mobile" href="#손실-함수-근사"><span class="level-left"><span class="level-item">손실 함수 근사</span></span></a></li></ul></li><li><a class="level is-mobile" href="#변환식-정점-표현-학습의-한계"><span class="level-left"><span class="level-item">변환식 정점 표현 학습의 한계</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#변환식-정점-표현-학습과-귀납식-정점-표현-학습"><span class="level-left"><span class="level-item">변환식 정점 표현 학습과 귀납식 정점 표현 학습</span></span></a></li></ul></li><li><a class="level is-mobile" href="#넷플릭스-챌린지"><span class="level-left"><span class="level-item">넷플릭스 챌린지</span></span></a></li><li><a class="level is-mobile" href="#잠재-인수-모형"><span class="level-left"><span class="level-item">잠재 인수 모형</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#잠재-인수-모형-개요"><span class="level-left"><span class="level-item">잠재 인수 모형 개요</span></span></a></li><li><a class="level is-mobile" href="#손실-함수"><span class="level-left"><span class="level-item">손실 함수</span></span></a></li><li><a class="level is-mobile" href="#최적화"><span class="level-left"><span class="level-item">최적화</span></span></a></li></ul></li><li><a class="level is-mobile" href="#고급-잠재-인수-모형"><span class="level-left"><span class="level-item">고급 잠재 인수 모형</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#사용자와-상품의-편향을-고려한-잠재-인수-모형"><span class="level-left"><span class="level-item">사용자와 상품의 편향을 고려한 잠재 인수 모형</span></span></a></li><li><a class="level is-mobile" href="#시간적-편향을-고려한-잠재-인수-모형"><span class="level-left"><span class="level-item">시간적 편향을 고려한 잠재 인수 모형</span></span></a></li></ul></li><li><a class="level is-mobile" href="#넷플릭스-챌린지의-결과"><span class="level-left"><span class="level-item">넷플릭스 챌린지의 결과</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#앙상블-학습"><span class="level-left"><span class="level-item">앙상블 학습</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
