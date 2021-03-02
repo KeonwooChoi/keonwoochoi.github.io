@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day25 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="정점 표현 학습 복습 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것 정점 임베딩(Node Embedding) 그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것 그래프에서 두 정점의 유사도는 어떻게 정의할까    지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법    출력으로 임베딩 자체를 얻는 변환식"><meta property="og:type" content="blog"><meta property="og:title" content="Day25"><meta property="og:url" content="https://keonwoochoi.github.io/2021/03/02/BoostCamp/Day25/"><meta property="og:site_name" content="blog"><meta property="og:description" content="정점 표현 학습 복습 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것 정점 임베딩(Node Embedding) 그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것 그래프에서 두 정점의 유사도는 어떻게 정의할까    지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법    출력으로 임베딩 자체를 얻는 변환식"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-03-02T06:01:15.000Z"><meta property="article:modified_time" content="2021-03-02T06:05:56.627Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/03/02/BoostCamp/Day25/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-03-02T06:01:15.000Z","dateModified":"2021-03-02T06:05:56.627Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"정점 표현 학습 복습 정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것 정점 임베딩(Node Embedding) 그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것 그래프에서 두 정점의 유사도는 어떻게 정의할까    지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법    출력으로 임베딩 자체를 얻는 변환식"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/03/02/BoostCamp/Day25/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day25"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-02T06:01:15.000Z" title="2021-3-2 3:01:15 ├F10: PM┤">2021-03-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-02T06:05:56.627Z" title="2021-3-2 3:05:56 ├F10: PM┤">2021-03-02</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">18 minutes read (About 2748 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day25</h1><div class="content"><h1 id="정점-표현-학습-복습"><a href="#정점-표현-학습-복습" class="headerlink" title="정점 표현 학습 복습"></a>정점 표현 학습 복습</h1><ul>
+<li>정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것</li>
+<li>정점 임베딩(Node Embedding)</li>
+<li>그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것</li>
+<li>그래프에서 두 정점의 유사도는 어떻게 정의할까<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605141-11c6f980-7b68-11eb-865e-966f1c409d9a.png" alt="image-20210226093909989"></li>
+</ul>
+</li>
+<li>지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605142-125f9000-7b68-11eb-82ca-23867baee200.png" alt="image-20210226094153894"></li>
+</ul>
+</li>
+<li>출력으로 임베딩 자체를 얻는 변환식 임베딩 방법은 여러 한계를 갖습니다<ol>
+<li>학습이 진행된 이후에 추가된 정점에 대해서는 임베딩을 얻을 수 없습니다</li>
+<li>모든 정점에 대한 임베딩을 미리 계산하여 저장해두어야 합니다</li>
+<li>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 없습니다</li>
+</ol>
+</li>
+<li>출력으로 인코더를 얻는 귀납식 임베딩 방법은 여러 장점을 갖습니다</li>
+</ul>
+<ol>
+<li>학습이 진행된 이후에 추가된 정점에 대해서도 임베딩을 얻을 수 있습니다</li>
+<li>모든 정점에 대한 임베딩을 미리 계산하여 저장해둘 필요가 없습니다</li>
+<li>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 있습니다</li>
+</ol>
+<h1 id="그래프-신경망-기본"><a href="#그래프-신경망-기본" class="headerlink" title="그래프 신경망 기본"></a>그래프 신경망 기본</h1><h2 id="그래프-신경망-구조"><a href="#그래프-신경망-구조" class="headerlink" title="그래프 신경망 구조"></a>그래프 신경망 구조</h2><ul>
+<li>그래프 신경망은 그래프와 정점의 속성 정보를 입력으로 받습니다</li>
+<li>정점의 속성의 예시는 다음과 같습니다<ul>
+<li>온라인 소셜 네트워크에서 사용자의 지역, 성별, 연령, 프로필 사진 등</li>
+<li>논문 인용 그래프에서 논문에 사용된 키워드에 대한 원-핫 벡터</li>
+<li>PageRank 등의 정점 중심성, 군집 계수(Clustering Coefficient) 등</li>
+</ul>
+</li>
+<li>그래프 신경망은 이웃 정점들의 정보를 집계하는 과정을 반복하여 임베딩을 얻습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605144-125f9000-7b68-11eb-8bc1-1f113097bf9a.png" alt="image-20210226095242773"></li>
+</ul>
+</li>
+<li>각 집계 단계를 층(Layer)이라고 부르고, 각 층마다 임베딩을 얻습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605146-12f82680-7b68-11eb-8d10-6a017869e476.png" alt="image-20210226095302247"></li>
+</ul>
+</li>
+</ul>
+<h2 id="그래프-신경망-구조-1"><a href="#그래프-신경망-구조-1" class="headerlink" title="그래프 신경망 구조"></a>그래프 신경망 구조</h2><ul>
+<li>대상 정점 마다 집계되는 정보가 상이합니다<ul>
+<li>대상 정점 별 집계되는 구조를 계산 그래프(Computation Graph)라고 부릅니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605150-1390bd00-7b68-11eb-9b59-aef8ed6602ed.png" alt="image-20210226095524752"></li>
+</ul>
+</li>
+<li>서로 다른 대상 정점간에도 층 별 집계 함수는 공유합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605151-1390bd00-7b68-11eb-9ddd-3d656fb3d0ca.png" alt="image-20210226100451998"></li>
+</ul>
+</li>
+<li>서로 다른 구조의 계산 그래프를 처리하기 위해서는 어떤 형태의 집계 함수가 필요할까요?<ul>
+<li>집계 함수는 (1) 이웃들 정보의 평균을 계산하고 (2) 신경망에 적용하는 단계를 거칩니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605152-14295380-7b68-11eb-8617-38114d578cde.png" alt="image-20210226100555822"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605154-14295380-7b68-11eb-8f79-52fed981cd4c.png" alt="image-20210226100618238"></li>
+</ul>
+</li>
+<li>마지막 층에서의 정점 별 임베딩이 해당 정점의 출력 임베딩입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605155-14c1ea00-7b68-11eb-8fdd-5a98ffefcb6b.png" alt="image-20210226100815736"></li>
+</ul>
+</li>
+</ul>
+<h2 id="그래프-신경망의-학습"><a href="#그래프-신경망의-학습" class="headerlink" title="그래프 신경망의 학습"></a>그래프 신경망의 학습</h2><ul>
+<li>그래프 신경망의 학습 변수(Trainable Parameter)는 층 별 신경망의 가중치입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605158-14c1ea00-7b68-11eb-9ac6-b00ea57645a3.png" alt="image-20210226101307119"></li>
+</ul>
+</li>
+<li>먼저 손실함수를 결정합니다. 정점간 거리를 “보존”하는 것을 목표로 할 수 있습니다<ul>
+<li>(그래프 신경망은 비지도 학습, 지도 학습이 모두 가능합니다)</li>
+<li>비지도 학습에서는 정점간 거리를 “보존”하는 것을 목표로 합니다</li>
+<li>지도 학습에서는 후속 과제의 손실함수를 이용해 종단종 학습을 합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605159-155a8080-7b68-11eb-808c-3cd8c3a27dfb.png" alt="image-20210226101351951"></li>
+</ul>
+</li>
+<li>후속 과제(Downstream Task)의 손실함수를 이용한 종단종(End-to-End) 학습도 가능합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605160-15f31700-7b68-11eb-95ae-559655f4f009.png" alt="image-20210226101411794"></li>
+<li>임베딩이 그래프의 유사도를 보존하는지 여부는 관심이 아니고 분류기의 정확도를 높이는 것이 목표</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605162-15f31700-7b68-11eb-9371-45c6782e0dbf.png" alt="image-20210226101557375"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605163-168bad80-7b68-11eb-9573-3301b3064996.png" alt="image-20210226101654895"></li>
+</ul>
+</li>
+<li>그래프 신경망과 변환적 정점 임베딩을 이용한 정점 분류<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605165-168bad80-7b68-11eb-9d06-4485ff209e1b.png" alt="image-20210226101746055"></li>
+</ul>
+</li>
+<li>손실함수를 정의한 후 학습에 사용할 대상 정점을 결정하여 학습 데이터를 구성합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605167-17244400-7b68-11eb-9222-68492883e5e6.png" alt="image-20210226101903383"></li>
+</ul>
+</li>
+<li>마지막으로 오차역전파(Backpropagation)을 통해 손실함수를 최소화합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605168-17244400-7b68-11eb-8954-51320720515e.png" alt="image-20210226101920599"></li>
+</ul>
+</li>
+</ul>
+<h2 id="그래프-신경망의-활용"><a href="#그래프-신경망의-활용" class="headerlink" title="그래프 신경망의 활용"></a>그래프 신경망의 활용</h2><ul>
+<li>학습된 신경망을 적용하여, 학습에 사용되지 않은 정점의 임베딩을 얻을 수 있습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605169-17bcda80-7b68-11eb-88b6-56624412c88d.png" alt="image-20210226101958027"></li>
+</ul>
+</li>
+<li>마찬가지로, 학습 이후에 추가된 정점의 임베딩도 얻을 수 있습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605171-17bcda80-7b68-11eb-952f-6a1d720a3d41.png" alt="image-20210226102022878"></li>
+</ul>
+</li>
+<li>학습된 그래프 신경망을, 새로운 그래프에 적용할 수도 있습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605172-18557100-7b68-11eb-9439-4ecb97dc2fea.png" alt="image-20210226102046596"></li>
+</ul>
+</li>
+</ul>
+<h1 id="그래프-신경망-변형"><a href="#그래프-신경망-변형" class="headerlink" title="그래프 신경망 변형"></a>그래프 신경망 변형</h1><h2 id="그래프-합성곱-신경망"><a href="#그래프-합성곱-신경망" class="headerlink" title="그래프 합성곱 신경망"></a>그래프 합성곱 신경망</h2><ul>
+<li>소개한 것 이외에도 다양한 형태의 집계 함수를 사용할 수 있습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605173-18557100-7b68-11eb-97ae-37a12b1b1d9a.png" alt="image-20210226102159031"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605175-18ee0780-7b68-11eb-83ca-e97d9fd7f5fa.png" alt="image-20210226102220785"></li>
+</ul>
+<h2 id="GraphSAGE"><a href="#GraphSAGE" class="headerlink" title="GraphSAGE"></a>GraphSAGE</h2><ul>
+<li>GraphSAGE의 집계 함수입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605177-19869e00-7b68-11eb-887b-78f3626c3828.png" alt="image-20210226102310506"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605179-1a1f3480-7b68-11eb-9f9b-fa480c63bc62.png" alt="image-20210226102336009"></li>
+</ul>
+</li>
+</ul>
+<h1 id="합성곱-신경망과의-비교"><a href="#합성곱-신경망과의-비교" class="headerlink" title="합성곱 신경망과의 비교"></a>합성곱 신경망과의 비교</h1><h2 id="합성곱-신경망과-그래프-신경망의-유사성"><a href="#합성곱-신경망과-그래프-신경망의-유사성" class="headerlink" title="합성곱 신경망과 그래프 신경망의 유사성"></a>합성곱 신경망과 그래프 신경망의 유사성</h2><ul>
+<li>합성곱 신경망과 그래프 신경망은 모두 이웃의 정보를 집계하는 과정을 반복합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605180-1a1f3480-7b68-11eb-8631-167ec7b95918.png" alt="image-20210226102504509"></li>
+</ul>
+</li>
+<li>합성곱 신경망에서는 이웃의 수가 균일하지만, 그래프 신경망에서는 아닙니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605181-1ab7cb00-7b68-11eb-830e-526dfd490c3c.png" alt="image-20210226102536470"></li>
+</ul>
+</li>
+<li>그래프의 인접 행렬에 합성곱 신경망을 적용하면 효과적일까요?<ul>
+<li>그래프에는 합성곱 신경망이 아닌 그래프 신경망을 적용하여야 합니다! 많은 분들이 흔히 범하는 실수입니다</li>
+<li>합성곱 신경망이 주로 쓰이는 이미지에서는 인접 픽셀이 유용한 정보를 담고 있을 가능성이 높습니다</li>
+<li>하지만, 그래프의 인접 행렬에서의 인접 원소는 제한된 정보를 가집니다 특히나, 인접 행렬의 행과 열의 순서는 임의로 결정되는 경우가 많습니다</li>
+</ul>
+</li>
+</ul>
+<h1 id="그래프-신경망에서의-어텐션"><a href="#그래프-신경망에서의-어텐션" class="headerlink" title="그래프 신경망에서의 어텐션"></a>그래프 신경망에서의 어텐션</h1><h2 id="기본-그래프-신경망의-한계"><a href="#기본-그래프-신경망의-한계" class="headerlink" title="기본 그래프 신경망의 한계"></a>기본 그래프 신경망의 한계</h2><ul>
+<li>기본 그래프 신경망에서는 이웃들의 정보를 동일한 가중치로 평균을 냅니다</li>
+<li>그래프 합성곱 신경망에서 역시 단순히 연결성을 고려한 가중치로 평균을 냅니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605185-1b506180-7b68-11eb-88b9-42cf1b10e7be.png" alt="image-20210226111652422"></li>
+</ul>
+</li>
+<li>그래프 어텐션 신경망(Graph Attention Network, GAT)에서는 가중치 자체도 학습합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605186-1be8f800-7b68-11eb-93fe-b38766e8904d.png" alt="image-20210226111708990"></li>
+</ul>
+</li>
+<li>각 층에서 정점 𝑖로부터 이웃 𝑗로의 가중치 𝜶𝒊𝒋는 세 단계를 통해 계산합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605187-1c818e80-7b68-11eb-9b6e-1c007d2e3104.png" alt="image-20210226111748352"></li>
+</ul>
+</li>
+<li>여러 개의 어텐션을 동시에 학습한 뒤, 결과를 연결하여 사용할 수 있다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605188-1c818e80-7b68-11eb-9b93-e93ebfc377f5.png" alt="image-20210226111854772"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605189-1d1a2500-7b68-11eb-95df-502379b2961c.png" alt="image-20210226111912416"></li>
+</ul>
+<h2 id="그래프-표현-학습과-그래프-풀링"><a href="#그래프-표현-학습과-그래프-풀링" class="headerlink" title="그래프 표현 학습과 그래프 풀링"></a>그래프 표현 학습과 그래프 풀링</h2><h2 id="그래프-표현-학습"><a href="#그래프-표현-학습" class="headerlink" title="그래프 표현 학습"></a>그래프 표현 학습</h2><ul>
+<li>그래프 표현 학습, 혹은 그래프 임베딩이란 정점이 아닌 그래프 전체를 벡터의 형태로 표현하는 것입니다</li>
+<li>개별 정점을 벡터의 형태로 표현하는 정점 표현 학습과 구분됩니다</li>
+<li>그래프 임베딩은 벡터의 형태로 표현된 그래프 자체를 의미하기도 합니다</li>
+<li>그래프 임베딩은 그래프 분류 등에 활용됩니다<ul>
+<li>그래프 형태로 표현된 화합물의 분자 구조로부터 특성을 예측하는 것이 한가지 예시입니다</li>
+</ul>
+</li>
+</ul>
+<h2 id="그래프-풀링"><a href="#그래프-풀링" class="headerlink" title="그래프 풀링"></a>그래프 풀링</h2><ul>
+<li>그래프 풀링(Graph Pooling)이란 정점 임베딩들로부터 그래프 임베딩(그래프 전체를 표현하는 벡터)을 얻는 과정입니다</li>
+<li>평균 등 단순한 방법보다 그래프의 구조를 고려한 방법을 사용할 경우 그래프 분류 등의 후속 과제에서 더 높은 성능을 얻는 것으로 알려져 있습니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605191-1db2bb80-7b68-11eb-8594-f158c00124ca.png" alt="image-20210226112121596"><ul>
+<li>미분 가능한 풀링은 그래프 신경망의 여러곳에서 사용 가능<ul>
+<li>개별정점의 임베딩을 얻는데</li>
+<li>군집을 찾는데</li>
+<li>군집을 합산하는데</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="지나친-획일화-문제"><a href="#지나친-획일화-문제" class="headerlink" title="지나친 획일화 문제"></a>지나친 획일화 문제</h1><h2 id="지나친-획일화-문제-1"><a href="#지나친-획일화-문제-1" class="headerlink" title="지나친 획일화 문제"></a>지나친 획일화 문제</h2><ul>
+<li>지나친 획일화(Over-smoothing) 문제란 그래프 신경망의 층의 수가 증가하면서 정점의 임베딩이 서로 유사해지는 현상을 의미합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605193-1db2bb80-7b68-11eb-90c3-2c105c227d8a.png" alt="image-20210226112522775"></li>
+<li>수 많은 정점들로부터 정보를 합산하기 떄문에 그래프의 전반을 집계하는 효과가 있다</li>
+</ul>
+</li>
+<li>지나친 획일화의 결과로 그래프 신경망의 층의 수를 늘렸을 때, 후속 과제에서의 정확도가 감소하는 현상이 발견되었습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605195-1e4b5200-7b68-11eb-9664-6a970da427ac.png" alt="image-20210226112644804"></li>
+</ul>
+</li>
+</ul>
+<h2 id="지나친-획일화-문제에-대한-대응"><a href="#지나친-획일화-문제에-대한-대응" class="headerlink" title="지나친 획일화 문제에 대한 대응"></a>지나친 획일화 문제에 대한 대응</h2><ul>
+<li>획일화 문제에 대한 대응으로 JK 네트워크(Jumping Knowledge Network)는 마지막 층의 임베딩 뿐 아니라, 모든 층의 임베딩을 함께 사용합니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605197-1ee3e880-7b68-11eb-87b7-a41c719cd206.png" alt="image-20210226112742714"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605199-1ee3e880-7b68-11eb-9a53-b54394cfd22a.png" alt="image-20210226112822802"><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605200-1f7c7f00-7b68-11eb-8dad-6e94da152c29.png" alt="image-20210226112911814"></li>
+</ul>
+</li>
+</ul>
+<h1 id="그래프-데이터의-증강"><a href="#그래프-데이터의-증강" class="headerlink" title="그래프 데이터의 증강"></a>그래프 데이터의 증강</h1><h2 id="그래프-데이터-증강"><a href="#그래프-데이터-증강" class="headerlink" title="그래프 데이터 증강"></a>그래프 데이터 증강</h2><ul>
+<li>데이터 증강(Data Augmentation)은 다양한 기계학습 문제에서 효과적입니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605204-20151580-7b68-11eb-8b27-6a342e7d391e.png" alt="image-20210226113004671"></li>
+</ul>
+</li>
+<li>그래프 데이터 증강의 결과 정점 분류의 정확도가 개선되는 것을 확인했습니다<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/109605206-20151580-7b68-11eb-8eae-55f938b877a3.png" alt="image-20210226113057726"></li>
+</ul>
+</li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day25</p><p><a href="https://keonwoochoi.github.io/2021/03/02/BoostCamp/Day25/">https://keonwoochoi.github.io/2021/03/02/BoostCamp/Day25/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-03-02</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-03-02</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#정점-표현-학습-복습"><span class="level-left"><span class="level-item">정점 표현 학습 복습</span></span></a></li><li><a class="level is-mobile" href="#그래프-신경망-기본"><span class="level-left"><span class="level-item">그래프 신경망 기본</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#그래프-신경망-구조"><span class="level-left"><span class="level-item">그래프 신경망 구조</span></span></a></li><li><a class="level is-mobile" href="#그래프-신경망-구조-1"><span class="level-left"><span class="level-item">그래프 신경망 구조</span></span></a></li><li><a class="level is-mobile" href="#그래프-신경망의-학습"><span class="level-left"><span class="level-item">그래프 신경망의 학습</span></span></a></li><li><a class="level is-mobile" href="#그래프-신경망의-활용"><span class="level-left"><span class="level-item">그래프 신경망의 활용</span></span></a></li></ul></li><li><a class="level is-mobile" href="#그래프-신경망-변형"><span class="level-left"><span class="level-item">그래프 신경망 변형</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#그래프-합성곱-신경망"><span class="level-left"><span class="level-item">그래프 합성곱 신경망</span></span></a></li><li><a class="level is-mobile" href="#GraphSAGE"><span class="level-left"><span class="level-item">GraphSAGE</span></span></a></li></ul></li><li><a class="level is-mobile" href="#합성곱-신경망과의-비교"><span class="level-left"><span class="level-item">합성곱 신경망과의 비교</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#합성곱-신경망과-그래프-신경망의-유사성"><span class="level-left"><span class="level-item">합성곱 신경망과 그래프 신경망의 유사성</span></span></a></li></ul></li><li><a class="level is-mobile" href="#그래프-신경망에서의-어텐션"><span class="level-left"><span class="level-item">그래프 신경망에서의 어텐션</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#기본-그래프-신경망의-한계"><span class="level-left"><span class="level-item">기본 그래프 신경망의 한계</span></span></a></li><li><a class="level is-mobile" href="#그래프-표현-학습과-그래프-풀링"><span class="level-left"><span class="level-item">그래프 표현 학습과 그래프 풀링</span></span></a></li><li><a class="level is-mobile" href="#그래프-표현-학습"><span class="level-left"><span class="level-item">그래프 표현 학습</span></span></a></li><li><a class="level is-mobile" href="#그래프-풀링"><span class="level-left"><span class="level-item">그래프 풀링</span></span></a></li></ul></li><li><a class="level is-mobile" href="#지나친-획일화-문제"><span class="level-left"><span class="level-item">지나친 획일화 문제</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#지나친-획일화-문제-1"><span class="level-left"><span class="level-item">지나친 획일화 문제</span></span></a></li><li><a class="level is-mobile" href="#지나친-획일화-문제에-대한-대응"><span class="level-left"><span class="level-item">지나친 획일화 문제에 대한 대응</span></span></a></li></ul></li><li><a class="level is-mobile" href="#그래프-데이터의-증강"><span class="level-left"><span class="level-item">그래프 데이터의 증강</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#그래프-데이터-증강"><span class="level-left"><span class="level-item">그래프 데이터 증강</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
