@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Day32 - blog</title><meta name="robots" content="noindex"><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Problems with deeper layersGoing deeper with convolutions larger receptive fields more capacity and non linearity but gradient vanishing&amp;#x2F;exploding, computationally complex degradation problem, not ove"><meta property="og:type" content="blog"><meta property="og:title" content="Day32"><meta property="og:url" content="https://keonwoochoi.github.io/2021/03/10/BoostCamp/Day32/"><meta property="og:site_name" content="blog"><meta property="og:description" content="Problems with deeper layersGoing deeper with convolutions larger receptive fields more capacity and non linearity but gradient vanishing&amp;#x2F;exploding, computationally complex degradation problem, not ove"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/boostcamp.png"><meta property="article:published_time" content="2021-03-10T06:23:14.000Z"><meta property="article:modified_time" content="2021-03-10T06:27:42.646Z"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/boostcamp.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io/2021/03/10/BoostCamp/Day32/"},"headline":"blog","image":["https://keonwoochoi.github.io/img/boostcamp.png"],"datePublished":"2021-03-10T06:23:14.000Z","dateModified":"2021-03-10T06:27:42.646Z","author":{"@type":"Person","name":"Keonwoo Choi"},"description":"Problems with deeper layersGoing deeper with convolutions larger receptive fields more capacity and non linearity but gradient vanishing&#x2F;exploding, computationally complex degradation problem, not ove"}</script><link rel="canonical" href="https://keonwoochoi.github.io/2021/03/10/BoostCamp/Day32/"><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/boostcamp.png" alt="Day32"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-10T06:23:14.000Z" title="2021-3-10 3:23:14 ├F10: PM┤">2021-03-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-10T06:27:42.646Z" title="2021-3-10 3:27:42 ├F10: PM┤">2021-03-10</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">11 minutes read (About 1606 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Day32</h1><div class="content"><h1 id="Problems-with-deeper-layers"><a href="#Problems-with-deeper-layers" class="headerlink" title="Problems with deeper layers"></a>Problems with deeper layers</h1><h2 id="Going-deeper-with-convolutions"><a href="#Going-deeper-with-convolutions" class="headerlink" title="Going deeper with convolutions"></a>Going deeper with convolutions</h2><ul>
+<li>larger receptive fields</li>
+<li>more capacity and non linearity</li>
+<li>but gradient vanishing/exploding, computationally complex</li>
+<li>degradation problem, not overfitting</li>
+</ul>
+<h1 id="CNN-artchitectures-for-image-classification"><a href="#CNN-artchitectures-for-image-classification" class="headerlink" title="CNN artchitectures for image classification"></a>CNN artchitectures for image classification</h1><h2 id="GoogLenet"><a href="#GoogLenet" class="headerlink" title="GoogLenet"></a>GoogLenet</h2><ul>
+<li><p>여러 합성곱 및 풀링 레이어에 대한 병렬적 연산을 수행-&gt;concat</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585642-727fb300-81b4-11eb-8f0f-ba86c6795084.png" alt="image-20210309091646305"></p>
+</li>
+<li>The increased network size increases the use of computational resources -&gt; 1x1 conv<ul>
+<li>필터 수가 출력의 채널이 되어, 채널을 줄일 수 있게 됨</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585644-73184980-81b4-11eb-9667-108221994f06.png" alt="image-20210309091759394"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585647-73184980-81b4-11eb-8c5f-cebb63f266ca.png" alt="image-20210309092141934"><ul>
+<li>각 Inception 블록마다 단계별로 loss값을 구하는 경로를 마련</li>
+<li>최종 Output에 대한 loss와 Auxiliary Classifier로부터 얻은 loss를 모두 종합하여 역전파 수행</li>
+</ul>
+</li>
+</ul>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><ul>
+<li>depth가 성능에 중요</li>
+<li>overfitting이 아니라 degradation problem</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585649-73b0e000-81b4-11eb-9642-83d24d1927b5.png" alt="image-20210309093050034"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585650-73b0e000-81b4-11eb-9821-0880873bafb9.png" alt="image-20210309093132356"><ul>
+<li>Skip-Connection을 하나 추가할 때마다 Gradient 전파경로의 경우의 수가 2배 증가하여, Gradient 전파에 대한 시간 복잡도는 O(2^n)</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1605.06431.pdf">[참고]Residual Networks Behave Like Ensembles of Relatively Shallow Networks</a></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585653-74497680-81b4-11eb-8b65-d4659e7d30d8.png" alt="image-20210309093258843"></li>
+</ul>
+<h2 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h2><ul>
+<li>이전의 모든 레이어에 대한 정보들을 입력값으로 넣어줌-&gt; Concat하며 학습</li>
+<li>채널이 늘어남으로 메모리도 늘어남 ,but feature 보존</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585657-757aa380-81b4-11eb-989f-a22351e490a2.png" alt="image-20210309094132892"></li>
+</ul>
+<h2 id="SENet"><a href="#SENet" class="headerlink" title="SENet"></a>SENet</h2><ul>
+<li><p><strong>Squeeze &amp; Excitation Block</strong></p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585659-757aa380-81b4-11eb-9527-52052db5ff04.png" alt="image-20210309094258516"></p>
+</li>
+</ul>
+<h2 id="EfficientNet"><a href="#EfficientNet" class="headerlink" title="EfficientNet"></a>EfficientNet</h2><ul>
+<li>성능을 높이는 방법에 따라 Saturation Point가 다름</li>
+<li><p>각각의 유용한 방법들을 적절한 비율로 동시 scaling 함</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585663-76abd080-81b4-11eb-9cf6-f671e5d36b72.png" alt="image-20210309094415737"></p>
+</li>
+</ul>
+<h2 id="Deformable-convolution"><a href="#Deformable-convolution" class="headerlink" title="Deformable convolution"></a>Deformable convolution</h2><ul>
+<li>사람과 동물같은 deformable한 형태를 고려</li>
+<li><p>리드를 활용하여 객체를 유연하게 파악</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585665-77dcfd80-81b4-11eb-9522-a8db2e012546.png" alt="image-20210309094743706"></p>
+</li>
+</ul>
+<h1 id="Semantic-segmentation"><a href="#Semantic-segmentation" class="headerlink" title="Semantic segmentation"></a>Semantic segmentation</h1><ul>
+<li>이미지 분류를 영상 단위가 아니라 픽셀 별로 하는 것. 단, 같은 클래스(종류)이면서 서로 다른 물체(개체)를 구분하지는 않는다</li>
+</ul>
+<h1 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h1><h2 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h2><ul>
+<li>입력부터 출력까지 모두 인공신경망으로만 구성된 end-to-end 구조</li>
+<li>어떤 사이즈의 이미지도 입력할 수 있고, 입력 이미지와 동일한 크기의 Segmentation 결과를 얻을 수 있음</li>
+<li>Fully Connected 구조를 사용하지 않고 업샘플링을 적용하여 저해상도 문제를 해결<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585666-77dcfd80-81b4-11eb-8fab-4fb8c8ff1bfc.png" alt="image-20210309101313587"></li>
+</ul>
+</li>
+<li>1×1 Conv 레이어를 활용하여 Spatial Information을 유지-&gt;히트맵을 얻음<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585668-78759400-81b4-11eb-9910-4034bf304129.png" alt="image-20210309101701902"></li>
+<li>1×1 Conv 레이어를 활용하면 채널 간 압축 과정 일어남</li>
+<li>이는 기존의 Feature Map을 채널을 주축으로 Flatten하여 FC 레이어를 적용하는 것과 같음</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585838-9b07ad00-81b4-11eb-902d-65550b438112.png" alt="image-20210310132814603"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Upsampling"><a href="#Upsampling" class="headerlink" title="Upsampling"></a>Upsampling</h2><ul>
+<li>저해상도 문제를 회피하기 위한 방법</li>
+<li>Conv, Pooling 레이어를 줄일수록 receptive field가 줄어들기 떄문에 일단은 작게 만들어서 receptive field 키워서 영상의 전반적인 context 파악할 수 있게 함</li>
+<li><p>이후 upsampling을 통해 강제로 해상도 맞춰줌</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585669-790e2a80-81b4-11eb-8c7f-3021367be96e.png" alt="image-20210309102112044"></p>
+</li>
+<li>Tranposed convolution<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585839-9b07ad00-81b4-11eb-9aae-8ef4ccac3448.png" alt="image-20210310133454920"></li>
+<li>입력 이미지에 필터를 적용하여 사이즈를 크게 변환하는 방법</li>
+<li>연산 과정에서 중첩 문제가 발생하는데 (checkboard artifact), 때문에 필터 사이즈와 Stride에 대한 튜닝이 필수적</li>
+<li>overlap되는 구간은 다른 구간들보다 상대적으로 출력값이 높아 진해짐</li>
+</ul>
+</li>
+<li>upsample and convolution<ul>
+<li>interpolution과 convolution을 분리</li>
+<li>upsampling을 통해 중첩 문제가 없이 골고루 영향을 받게 함</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585670-79a6c100-81b4-11eb-85fc-1264294a779d.png" alt="image-20210309102334856"></li>
+</ul>
+</li>
+<li>low-level의 detail, local + high-leve의 global<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585671-79a6c100-81b4-11eb-82e2-dd584518ab98.png" alt="image-20210309102435541"></li>
+<li>높은 layer의 activation map을 upsampling하여 해상도를 크게 끌어올린다.</li>
+<li>이에 맞추어 중간 layer의 activation map을 upsampling하여 가져오고, concat한다.</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585674-7a3f5780-81b4-11eb-8d2c-aa0fe4b79d3e.png" alt="image-20210309102546068"></li>
+</ul>
+<h2 id="Hypercolumns-for-object-segmentation"><a href="#Hypercolumns-for-object-segmentation" class="headerlink" title="Hypercolumns for object segmentation"></a>Hypercolumns for object segmentation</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585676-7ad7ee00-81b4-11eb-8564-ed6fb656d312.png" alt="image-20210309102627045"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585677-7b708480-81b4-11eb-8487-e0aa45fc0567.png" alt="image-20210309102645821"></li>
+</ul>
+<h2 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h2><ul>
+<li><p>FCN기반</p>
+</li>
+<li><p>낮은 레이어와 높은 레이어에 있는 결과를 더 잘 결합하는 방법을 제시함</p>
+</li>
+<li>Contracting Path<ul>
+<li>풀링하면서 receptive field를 크게 확보하기 위해 해상도를 낮추고 채널수를 늘림</li>
+</ul>
+</li>
+<li><p>Expanding Path</p>
+<ul>
+<li>채널 사이즈가 점점 줄어들지만 해상도는 늘어남</li>
+<li>대칭되는 Contracting path의 layer에서 skip connection을 통해 대칭되는 feature map들을 가져와서 concat</li>
+<li>한번에 Upsampling 하지 않고 차례대로 단계적으로 해상도를 올려줌</li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110585680-7c091b00-81b4-11eb-8df0-b7deecea8cb0.png" alt="image-20210309102718011"></p>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585681-7c091b00-81b4-11eb-8ec9-e7e2bb327e2e.png" alt="image-20210309102801471"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585683-7ca1b180-81b4-11eb-92e8-26e681db668e.png" alt="image-20210309102812247"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585687-7ca1b180-81b4-11eb-9b00-0d8177c03100.png" alt="image-20210309102900873"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585690-7d3a4800-81b4-11eb-8f69-e8b0d1f0863a.png" alt="image-20210309102912950"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585693-7dd2de80-81b4-11eb-9463-d10cfa6fa7c7.png" alt="image-20210309102925369"></li>
+<li>이미지 사이즈를 모두 짝수로 유지해야 함<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585695-7dd2de80-81b4-11eb-92e6-7605f09878e4.png" alt="image-20210309102939118"></li>
+</ul>
+</li>
+</ul>
+<h2 id="DeepLab"><a href="#DeepLab" class="headerlink" title="DeepLab"></a>DeepLab</h2><ul>
+<li>후처리에 CRFs 사용<ul>
+<li>픽셀과 픽셀 사이의 관계 이어줌</li>
+<li>regular한 pixel map을 그리드로 봄→ 최적화를 통해 경계 잘 찾을 수 있도록 모델링</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585697-7e6b7500-81b4-11eb-89d6-4382ddc15e9d.png" alt="image-20210309104221164"></li>
+</ul>
+</li>
+<li>Atrous convolution<ul>
+<li>컨볼루션 필터 사이에 Dilation factor 만큼 일정한 공간을 넣어줌</li>
+<li>파라미터 수는 늘리지 않으면서 receptive field는 exponential하게 키울 수 있다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585699-7f040b80-81b4-11eb-86ee-840b32229dd2.png" alt="image-20210309104357419"></li>
+</ul>
+</li>
+<li>Depthwise separable convolution<ul>
+<li>기존의 convolution 연산은 하나의 필터를 모든 input 채널에 대입시켰다.</li>
+<li>기본 convolution 연산을 둘로 나눠서 conv 의 표현력을 어느정도 유지하면서 계산량은 획기적으로 줄어듦</li>
+<li>채널 별로 conv 해서 각각 값을 뽑음 + 1x1 conv 통해 하나의 값으로 출력되게 만듦</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585700-7f9ca200-81b4-11eb-9155-26bd1eb08655.png" alt="image-20210309104416065"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585704-80353880-81b4-11eb-8891-7bdb21048ce1.png" alt="image-20210309104555324"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585706-80cdcf00-81b4-11eb-945b-f727edcb2181.png" alt="image-20210309104605246"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110585709-81666580-81b4-11eb-8923-7bb34e41dad7.png" alt="image-20210309104614535"></li>
+</ul>
+<!-- flag of hidden posts --></div><div class="article-licensing box"><div class="licensing-title"><p>Day32</p><p><a href="https://keonwoochoi.github.io/2021/03/10/BoostCamp/Day32/">https://keonwoochoi.github.io/2021/03/10/BoostCamp/Day32/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Keonwoo Choi</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-03-10</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-03-10</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><!--!--></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Post</p><a href="/archives"><p class="title">1</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#Problems-with-deeper-layers"><span class="level-left"><span class="level-item">Problems with deeper layers</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Going-deeper-with-convolutions"><span class="level-left"><span class="level-item">Going deeper with convolutions</span></span></a></li></ul></li><li><a class="level is-mobile" href="#CNN-artchitectures-for-image-classification"><span class="level-left"><span class="level-item">CNN artchitectures for image classification</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#GoogLenet"><span class="level-left"><span class="level-item">GoogLenet</span></span></a></li><li><a class="level is-mobile" href="#ResNet"><span class="level-left"><span class="level-item">ResNet</span></span></a></li><li><a class="level is-mobile" href="#DenseNet"><span class="level-left"><span class="level-item">DenseNet</span></span></a></li><li><a class="level is-mobile" href="#SENet"><span class="level-left"><span class="level-item">SENet</span></span></a></li><li><a class="level is-mobile" href="#EfficientNet"><span class="level-left"><span class="level-item">EfficientNet</span></span></a></li><li><a class="level is-mobile" href="#Deformable-convolution"><span class="level-left"><span class="level-item">Deformable convolution</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Semantic-segmentation"><span class="level-left"><span class="level-item">Semantic segmentation</span></span></a></li><li><a class="level is-mobile" href="#Architecture"><span class="level-left"><span class="level-item">Architecture</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#FCN"><span class="level-left"><span class="level-item">FCN</span></span></a></li><li><a class="level is-mobile" href="#Upsampling"><span class="level-left"><span class="level-item">Upsampling</span></span></a></li><li><a class="level is-mobile" href="#Hypercolumns-for-object-segmentation"><span class="level-left"><span class="level-item">Hypercolumns for object segmentation</span></span></a></li><li><a class="level is-mobile" href="#U-Net"><span class="level-left"><span class="level-item">U-Net</span></span></a></li><li><a class="level is-mobile" href="#DeepLab"><span class="level-left"><span class="level-item">DeepLab</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
