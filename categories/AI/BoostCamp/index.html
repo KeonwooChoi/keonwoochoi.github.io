@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: BoostCamp - blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="blog"><meta property="og:url" content="https://keonwoochoi.github.io/"><meta property="og:site_name" content="blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/og_image.png"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io"},"headline":"blog","image":["https://keonwoochoi.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Keonwoo Choi"},"description":""}</script><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/AI/">AI</a></li><li class="is-active"><a href="#" aria-current="page">BoostCamp</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/11/BoostCamp/Day33/"><img class="fill" src="/img/boostcamp.png" alt="Day33"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-11T07:10:49.000Z" title="2021-3-11 4:10:49 ├F10: PM┤">2021-03-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-11T07:21:20.429Z" title="2021-3-11 4:21:20 ├F10: PM┤">2021-03-11</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">24 minutes read (About 3569 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/11/BoostCamp/Day33/">Day33</a></h1><div class="content"><h1 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h1><h2 id="What-is-object-detection"><a href="#What-is-object-detection" class="headerlink" title="What is object detection"></a>What is object detection</h2><ul>
+<li>semantic segmentation보다 더 구체적</li>
+<li>객체가 달라도 구분이 됨</li>
+<li>Instance segmentation ⊂ Panoptic sementation</li>
+<li>object detection=Classification + Box localization<ul>
+<li>two-stage: box localization → classfication</li>
+<li>one-stage: box + classfication 한번에</li>
+</ul>
+</li>
+</ul>
+<h2 id="What-are-the-applications"><a href="#What-are-the-applications" class="headerlink" title="What are the applications"></a>What are the applications</h2><ul>
+<li>autonomous driveing</li>
+<li>ocr</li>
+</ul>
+<h1 id="Two-stage-detector"><a href="#Two-stage-detector" class="headerlink" title="Two-stage detector"></a>Two-stage detector</h1><h2 id="Traditional"><a href="#Traditional" class="headerlink" title="Traditional"></a>Traditional</h2><ul>
+<li>Gradient-based detector<ul>
+<li>과거에는 경계선을 특징으로 모델링 , gradient 방향성을 활용한 선형 모델 사용</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749394-78dd6000-8284-11eb-8939-33f4b781b27e.png" alt="image-20210310091730224"></li>
+</ul>
+</li>
+<li>selective search<ul>
+<li>사람이나 특정 물체 뿐만 아니라, 다양한 물체 후보군의 영역 후보군을 지정해주는 방식</li>
+<li>bounding box 제안-&gt; Proposal Algorithm</li>
+<li>Over-segmentation: 영상을 색끼리 잘게 분할</li>
+<li>merginig: 비슷한 feature를 가지는 영역들을 합침</li>
+<li>반복해서 합쳐주다보면 object를 소수로 특정지음</li>
+<li>특정지은 소수의 object 위치를 바운딩 박스로 나타냄</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749396-7975f680-8284-11eb-9a67-3e54ab12e29b.png" alt="image-20210310092048339"></li>
+</ul>
+</li>
+</ul>
+<h2 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h2><ul>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749518-927ea780-8284-11eb-8b6b-19c497d8f97d.png" alt="image-20210311104814315"></p>
+</li>
+<li><p>Selective Search를 통해 Region Proposal을 진행 → 2K 이하로 설정</p>
+</li>
+<li>각 Region Proposal을 CNN의 input size로 Warping</li>
+<li>기존에 pre-trained된 CNN에 input으로 넣어서 Classification을 진행</li>
+<li>SVM의 linear classifier만을 이용해서 클래스를 학습(fine-tuning)</li>
+<li>단점<ul>
+<li>모든 region proposal이 CNN에 입력값으로 들어가기 때문에 느림</li>
+<li>Hand Designed된 selective search-&gt; 학습을 통한 성능향상에 한계</li>
+</ul>
+</li>
+</ul>
+<h2 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749399-7a0e8d00-8284-11eb-93bc-ea409f518ab2.png" alt="image-20210310092641179"></li>
+<li>영상 전체에 대한 Feature을 한번에 추출하고 이를 재활용해서 object detection</li>
+</ul>
+<ol>
+<li>Conv layer를 통해 feature map 검출<ul>
+<li>conv layer를 거쳤으므로 tensor형태가 된다</li>
+<li>Fully Convolutional Network는 입력사이즈와 상관없이 Feature Map을 뽑아낼 수 있기 때문에 warp 필요 없다</li>
+</ul>
+</li>
+<li>RoI Pooling: Feature를 여러번 재활용, Region Proposal이 제시한 물체의 후보 위치들(Bounding Box)에 대해서 RoI에 해당하는 Feature만 추출한다.<ul>
+<li>RoI feature를 고정된 사이즈로 resampling한다</li>
+</ul>
+</li>
+<li>classification : softmax, bbx regression로 위치 조정</li>
+</ol>
+<ul>
+<li>selective search를 사용했으므로 성능 향상 한계</li>
+</ul>
+<h2 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h2><ul>
+<li>IoU<ul>
+<li>두 영역의 OVERLAP 측정</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749401-7a0e8d00-8284-11eb-8126-cf48f190ea43.png" alt="image-20210310092844050"></li>
+</ul>
+</li>
+<li>anchor box 각 위치에서 발생할 것 같은 박스를 미리 정의해둔 후보군<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749404-7aa72380-8284-11eb-9011-51add2eb2350.png" alt="image-20210310092945166"></li>
+<li>box의 개수와 종류는 hyperparameter</li>
+<li>Faster R-CNN에서는 9개 (scale 3 * 비율3)</li>
+</ul>
+</li>
+<li>selective search 대신 RPN 모듈 제안<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749406-7aa72380-8284-11eb-8f51-62d5eae5554d.png" alt="image-20210310093216117"></li>
+<li>Fast R-CNN과 마찬가지로 각각의 영상에서 공유되는 Feature Map을 미리 뽑아두고, 해당 Feature Map을 바탕으로 RPN에서 Region Proposal을 여러 개 제공하고 RoI Pooling을 실시한 다음 Classifier를 통해 정답을 예측</li>
+</ul>
+</li>
+<li>Region Proposal Network<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749407-7b3fba00-8284-11eb-81d1-43144ac30ad2.png" alt="image-20210310093418147"></li>
+<li>Conv Layer를 통해 나온 Feature Map에 Sliding Window 방식으로 돌면서 매 위치마다 미리 정의해둔 K개의 Anchor Box를 고려<ol>
+<li>각 위치에서 256-d의 feature vector를 하나 추출</li>
+<li>각 vector로 부터 Object인지 아닌지에 대한 score인 2K개 classification score (object, non-object)</li>
+<li>k개의 Bounding Box위치를 regression하는 4k 개의 Coordinates (x,y,w,h 4개)<ul>
+<li>Anchor Box를 촘촘하게 만들면 계산 속도가 느려지므로 대표적인 비율과 Scale만 정해두고 정교한 위치는 Regression 문제로 분할 정복</li>
+</ul>
+</li>
+<li>각각의 Loss → Cross Entropy Loss + Regression Loss를 사용<ul>
+<li>이 2가지 Loss가 RPN을 위한 요소가 되며, 전체 Target Task를 위한 RoI별 Classification Loss는 따로 하나가 추가가 되서 전체적으로 End-to-End로 학습을 진행한다.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>RPN에서 object를 완전히 class로 분류한게 아니라, object인지 아닌지만 판단</li>
+<li>RPN에서 classifier, regressor 두개의 모델이 필요하고, 마지막으로 classifier가 필요하다. 또 맨 처음 feature map을 뽑아낼 CNN도 필요하다. 총 4개의 모델이 각각이 아니라 한번에 학습된다.</li>
+</ul>
+</li>
+<li>non maximum suppression<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749409-7bd85080-8284-11eb-9a84-cfd804c87e2e.png" alt="image-20210310093530590"></li>
+<li>IoU스코어가 낮은 박스들은 제거하는 방식의 NMS 알고리즘을 추가한다.</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749411-7c70e700-8284-11eb-922c-d2d10de4c07a.png" alt="image-20210310093600826"></li>
+</ul>
+<h1 id="Single-stage-detector"><a href="#Single-stage-detector" class="headerlink" title="Single-stage-detector"></a>Single-stage-detector</h1><h2 id="Comparison-with-two-stage-detector"><a href="#Comparison-with-two-stage-detector" class="headerlink" title="Comparison with two-stage detector"></a>Comparison with two-stage detector</h2><ul>
+<li>성능을 조금 포기하고 계산 속도를 확보해서 real-time detection 이 가능하도록한 모델</li>
+<li>ROI pooling을 하지 않기 때문에 구조가 매우 간단한 편</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749412-7c70e700-8284-11eb-8c45-473994cb8d33.png" alt="image-20210310093821561"></li>
+</ul>
+<h2 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749413-7d097d80-8284-11eb-9609-7988796876ae.png" alt="image-20210310093908226"></li>
+<li>input image를 SxS grid로 나눈다</li>
+<li>각 grid마다 바운딩박스 정보 4개 + object여부 1개 + Class 분류 확률 C개 = 5+C개의 정보를 한꺼번에 예측한다.</li>
+<li>Faster R-CNN의 RPN과 마찬가지로, ground truth와의 IoU스코어가 높은 Anchor box를 positive로 간주하여 loss 계산</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749416-7d097d80-8284-11eb-94be-293724797c46.png" alt="image-20210310094058186"><ul>
+<li>30 channel= 앵커박스를 grid마다 2개만 사용했고, class 개수는 총 20개여서 5*2+20=30</li>
+<li>s는 convolution layer에서의 마지막 해상도로 결정됨</li>
+<li>마지막 layer에서만 prediction을 수행하기 떄문에 localization 정확도 떨어짐</li>
+</ul>
+</li>
+</ul>
+<h2 id="single-shot-multibox-detector-SSD"><a href="#single-shot-multibox-detector-SSD" class="headerlink" title="single shot multibox detector(SSD)"></a>single shot multibox detector(SSD)</h2><ul>
+<li>SSD는 Multi Scale object를 더 잘 처리하기 위해서 중간 Feature를 각 해상도에 적절한 Bounding Box 들을 출력할 수 있도록하는 Multi Scale구조를 만들었다.</li>
+<li>각기 다른 크기의 feature map에서 정해진 크기의 anchor box를 사용하면, feature map 사이즈에 따라 anchor box가 scaling된다.</li>
+<li>feature map 사이즈마다, anchor box를 적용하여 object를 탐지한다. 때문에 YOLO에 비해 계산량이 늘어난다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749418-7da21400-8284-11eb-9014-aac4a48e9928.png" alt="image-20210310094304705"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749420-7e3aaa80-8284-11eb-9413-98015b4b5f28.png" alt="image-20210310094408490"><ul>
+<li>SSD는 각 층마다 classifier적용</li>
+<li>각 layer마다 (class수+위치정보4)에 anchor box개수를 곱해준다</li>
+</ul>
+</li>
+</ul>
+<h1 id="Two-stage-vs-One-stage"><a href="#Two-stage-vs-One-stage" class="headerlink" title="Two-stage vs One-stage"></a>Two-stage vs One-stage</h1><h2 id="Focal-loss"><a href="#Focal-loss" class="headerlink" title="Focal loss"></a>Focal loss</h2><ul>
+<li>일반적으로object보다 background가 더 넗음-&gt; class imbalance</li>
+<li>모든 구역에 대해 object detection하는 경우 negative를 결과로 내는 anchor boxrk 많아진다.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749421-7ed34100-8284-11eb-8e38-af8862cfade9.png" alt="image-20210310094634765"></li>
+</ul>
+</li>
+<li>focal loss= cross entropy의 확장<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749423-7ed34100-8284-11eb-9e64-9c90ba6c20cb.png" alt="image-20210310094659841"></li>
+<li>파란색 그래프가 기존의 Cross Entropy</li>
+<li>나머지가 FL함수에서 $\gamma$값을 바꿔주었을 때의 그래프다.</li>
+<li>학률term을 통해 잘 맞춘 애들은 더 낮은 loss를 주고 맞추지 못한 애들은 더 높은 loss를 준다.</li>
+<li>FL함수는 정답률이 높을수록 gradient를 0에 가깝게 만들고, 정답률이 낮을수록 gradient가 가팔라지게</li>
+<li>Loss 값 자체가 중요한게 아니라 gradient</li>
+<li>$\gamma$값을 크게줄수록 적용 폭이 강해진다.</li>
+<li>Q) gamma가 높을수록 loss가 낮아지지만 잘 찾지 못할 때 loss는 소폭 줄어들게 하고 잘 찾은 경우에서는 loss를 대폭 줄어들게 합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749520-93173e00-8284-11eb-968e-c751c79106fd.png" alt="image-20210311133620851"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749522-93173e00-8284-11eb-9964-c4b4683ea665.png" alt="image-20210311133647011"></li>
+</ul>
+</li>
+</ul>
+<h2 id="RetinaNet"><a href="#RetinaNet" class="headerlink" title="RetinaNet"></a>RetinaNet</h2><ul>
+<li>FPN<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749425-7f6bd780-8284-11eb-924f-92c5964eb125.png" alt="image-20210310094941624"></li>
+<li>U-Net과 비슷한 구조다.</li>
+<li>residual을 활용하여 더해줌으로써, low-level의 특징과 high-level의 특징을 둘 다 활용하면서 각 scale별로 object를 잘 찾기 위한 multi-scale 구조를 갖게된다. (concat이 아닌 더하기)</li>
+<li>class 분류와 box 회귀 예측을 진행한다.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Detection-with-Transform"><a href="#Detection-with-Transform" class="headerlink" title="Detection with Transform"></a>Detection with Transform</h1><ul>
+<li>DETR</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749426-7f6bd780-8284-11eb-9011-080928167227.png" alt="image-20210310095209241"></li>
+<li>CNN으로 Feature추출 후, Positional encoding을 더해준다.</li>
+<li>encoder 학습 후, decoder에 query를 입력으로 준다. (query는 object 정보이거나, positional encoding 정보) 추가로, 최대 몇개의 box를 찾아줄지에 대한 값도 함께 준다. (N)</li>
+<li>해당 query에 맞는 object를 찾아 box를 찾아준다. positional encoding의 경우 해당 위치 근처의 바운딩 박스와 class를 찾아준다</li>
+</ul>
+<h1 id="Visualizing-CNN"><a href="#Visualizing-CNN" class="headerlink" title="Visualizing CNN"></a>Visualizing CNN</h1><h2 id="What-is-CNN-visualization"><a href="#What-is-CNN-visualization" class="headerlink" title="What is CNN visualization"></a>What is CNN visualization</h2><ul>
+<li>딥러닝 네트워크= black box</li>
+<li>CNN의 경우 시각화가 가능하다.</li>
+<li>visualization as debugging tool</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749427-80046e00-8284-11eb-845a-face0dfb2896.png" alt="image-20210310101554404"><ul>
+<li>low-level feature는 방향성이 있는 선, 동그란 블록</li>
+<li>high-level로 갈수록 의미있는 feature</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vanilla-example-filter-visualization"><a href="#Vanilla-example-filter-visualization" class="headerlink" title="Vanilla example: filter visualization"></a>Vanilla example: filter visualization</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749428-809d0480-8284-11eb-9807-59b73cd6e9fb.png" alt="image-20210310101738368"><ul>
+<li>AlexNet 첫번째 층의 필터를 시각화</li>
+<li>해당 필터를 이미지에 적용했을 때의 결과(하나의 필터만 적용했기 때문에 밝기값만 가지는 1채널 이미지)</li>
+<li>높은 층으로 갈수록 필터도 채널 수가 늘어나 고차원의 필터를 시각화하기도 어렵고, 시각화 하더라도 사람이 해석할 수 없다</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-to-visualize-neural-network"><a href="#How-to-visualize-neural-network" class="headerlink" title="How to visualize neural network"></a>How to visualize neural network</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749431-809d0480-8284-11eb-8320-f9de1cd8fdf5.png" alt="image-20210310102033215"><ul>
+<li>왼쪽으로 갈수록 모델 자체를 분석</li>
+<li>른쪽으로 갈수록 모델의 출력 결과가 왜 그렇게 나타났는지 분석</li>
+</ul>
+</li>
+</ul>
+<h1 id="Analysis-of-model-behaviors"><a href="#Analysis-of-model-behaviors" class="headerlink" title="Analysis of model behaviors"></a>Analysis of model behaviors</h1><h2 id="Embedding-feature-analysis"><a href="#Embedding-feature-analysis" class="headerlink" title="Embedding feature analysis"></a>Embedding feature analysis</h2><p>High-level layer에서 얻는 High-level feature들을 분석하는 방법</p>
+<ul>
+<li><p>nearest neighbors in a feature space</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749433-81359b00-8284-11eb-82bd-232d7dd73a71.png" alt="image-20210310102318653"></p>
+<ul>
+<li>잘 군집되어 있음을 확인할 수 있으며 픽셀단위로 학습했음에도 불구하고 포즈도 다르고 방향도 다른 이미지들이 제대로 보여지는 것을 확인할 수 있다.</li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749526-93afd480-8284-11eb-911a-23f29b5fffac.png" alt="image-20210311140648670"></p>
+<ul>
+<li>각각의 이미지에 대해 feature들을 뽑아놓고 임베딩 공간에 저장해둔다.</li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749434-81359b00-8284-11eb-8994-3e369a335947.png" alt="image-20210310103825771"></p>
+<ul>
+<li>후 입력이 들어오면, 해당 feature와 비슷하게 임베딩된 feature들을 탐색한다. 유사도 탐색으로 찾아낸 k개의 feature들의 원본 image를 가져와서 반환해준다.</li>
+</ul>
+<p>이 feature들은 매우 고차원 공간에 위치하므로 인간이 해석하기가 너무 어렵다.</p>
+</li>
+<li><p>Demensionality reduction</p>
+<ul>
+<li>고차원 상상 힘들기 때문에 차원축소를 통해 각 클래스마다 다른 색상으로 구분한다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749435-81ce3180-8284-11eb-87b0-eda48fdbcede.png" alt="image-20210310104046674"></li>
+<li>각 클래스간의 분포가 비슷한 위치에 존재한다면 해당 클래스들을 유사하게 보고 있다는 것으로 해석 가능</li>
+<li>3, 8 , 5 분포가 가까움 -&gt; 경계에서 헷갈릴 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="Activation-investigation"><a href="#Activation-investigation" class="headerlink" title="Activation investigation"></a>Activation investigation</h2><p>레이어의 activation을 분석하여 모델의 특성을 파악하는 방법</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749438-8266c800-8284-11eb-9c35-436ab37ae221.png" alt="image-20210310104403875"><ul>
+<li>AlexNet 다섯번째 층의 138번째 채널 값을 thresholding을 통해 시각화-&gt;사람의 얼굴을 detection</li>
+<li>각 hidden node들의 역할(activation)을 파악하는 방법</li>
+</ul>
+</li>
+<li>Maximully activating patch<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749528-93afd480-8284-11eb-8d2a-1c77c03d8166.png" alt="image-20210311141249702"></li>
+<li>레이어를 하나 골라서 해당 레이어에서 feature map 중 하나의 채널을 고른다.</li>
+<li>해당 채널에서 가장 큰 값을 가지는 픽셀을 찾는다. 해당 픽셀의 receptive field가 되는 원본 이미지에서의 영역을 출력해본다.</li>
+<li>입력 이미지 여러개에 대해 반복해보면, hidden node들이 어떤 작업을 하는지 파악할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-visualization"><a href="#Class-visualization" class="headerlink" title="Class visualization"></a>Class visualization</h2><p>예제 데이터를 사용하지 않고, 네트워크가 기억하고 있는 이미지를 시각화하여 판단하는 방법</p>
+<ul>
+<li><p>Gradient ascent</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749440-8266c800-8284-11eb-9284-423822c3e63e.png" alt="image-20210310110456446"></li>
+</ul>
+</li>
+<li><p>image synthesis</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749442-82ff5e80-8284-11eb-97eb-3b26f7c0ffbd.png" alt="image-20210310110547935"></li>
+</ul>
+<ol>
+<li>아무런 이미지나 입력으로 준다</li>
+<li>타겟 class의 스코어를 계산한 후 스코어를 최대화하는 방향으로 역전파를 통해 입력 이미지를 업데이트 해준다.(gradient를 더해준다)</li>
+<li>점점 타겟 클래스에 맞게 필터들이 어떻게 학습했는지 알 수 있다.</li>
+</ol>
+</li>
+</ul>
+<h1 id="Model-decision-explanation"><a href="#Model-decision-explanation" class="headerlink" title="Model decision explanation"></a>Model decision explanation</h1><p>모델이 특정 입력을 어떤 각도로 바라보고 있는지 해석하는 방법</p>
+<h2 id="Saliency-test"><a href="#Saliency-test" class="headerlink" title="Saliency test"></a>Saliency test</h2><p>영상이 판정되기 위한 각 영역의 중요도를 추출하는 방법</p>
+<ul>
+<li>occlusion map<ul>
+<li>이미지를 일부 가리고 해당 클래스에 대한 스코어가 얼마일지 예측</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749443-8397f500-8284-11eb-9a09-11d03ede5613.png" alt="image-20210310110822001"></li>
+</ul>
+</li>
+<li>via backpropagation<ul>
+<li>gradient ascent 방법과 유사하다. 하지만 입력 이미지를 업데이트하는 것이 아니라, 입력 이미지의gradient를 새로운 이미지로 그린다.<ol>
+<li>입력 이미지를 CNN에 넣어 class score를 얻는다.</li>
+<li>backpropagation으로 입력 이미지의 gradient를 구한다.</li>
+<li>gradient에 절댓값 또는 제곱을 하여 절대적인 크기(magnitude)를 구한다.<ul>
+<li>어느 방향으로 바뀌는지 보다 해당 영역의 얼마나 큰 영향을 끼치는지가 중요</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749531-94486b00-8284-11eb-8719-30e9efb3a419.png" alt="image-20210311142809698"><ul>
+<li>gradient가 높은 지점이 집중한 곳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Rectified unit(backward pass)<ul>
+<li>위에서 단순하게 gradient만 그려냈다면, 이번에는 gradient를 그린 것보다 더 선명한 패턴을 시각화해 보고자 한다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749446-84308b80-8284-11eb-963e-9673f3a2c98b.png" alt="image-20210310113229492"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749532-94e10180-8284-11eb-8ce0-2a3fdabc78f4.png" alt="image-20210311144038328"><ul>
+<li>Forward pass : 음수가 0으로 마스킹</li>
+<li>Backward pass:-backpropagation: 현재 값들을 기준으로 음수를 마스킹하지 않고 Forward 시에 0이하였던 unit들을 음수 마스킹</li>
+<li>Backward pass-Deconvnet: Backward 시에 Forward시점의 값 기준이 아니라 Backpropagation 시점의 값을 기준으로 음수 마스킹. 마치 역방향으로 ReLU를 재적용</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749451-84c92200-8284-11eb-85ba-c57f8952ea4a.png" alt="image-20210310113352367"><ul>
+<li>Guided backpropagation : Backward 시에 Forward 패턴도 마스킹하고, 현재 패턴 기준으로도 마스킹</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-Activation-mapping"><a href="#Class-Activation-mapping" class="headerlink" title="Class Activation mapping"></a>Class Activation mapping</h2><ul>
+<li>CAM<ul>
+<li>Heatmap을 이용하여 분석하는 방법</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749453-8561b880-8284-11eb-9674-f57cc7fa4d95.png" alt="image-20210310113531264"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749455-8561b880-8284-11eb-8b1c-2c9b2b26cf4e.png" alt="image-20210310113546947"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749458-85fa4f00-8284-11eb-9333-f992bf533fdc.png" alt="image-20210310113613397"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749460-85fa4f00-8284-11eb-92c4-01f65897c7bf.png" alt="image-20210310113830111"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749461-8692e580-8284-11eb-943c-d2168394d82a.png" alt="image-20210310113851709"></li>
+</ul>
+</li>
+<li>Grad-CAM<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749463-872b7c00-8284-11eb-9a4c-aaf626162be1.png" alt="image-20210310114035791"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749464-872b7c00-8284-11eb-9d98-7975ebbed619.png" alt="image-20210310114049349"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749465-87c41280-8284-11eb-9d0e-12fc0dc7bf03.png" alt="image-20210310114107077"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749467-885ca900-8284-11eb-8ee7-1e7504f5314c.png" alt="image-20210310114135696"></li>
+</ul>
+</li>
+<li>SCOUTER<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749468-88f53f80-8284-11eb-85c9-d3e5d3b17c96.png" alt="image-20210310114219576"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749470-898dd600-8284-11eb-85db-0ac6de6513ce.png" alt="image-20210310114237549"></li>
+</ul>
+</div></article></div></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/"><span class="level-start"><span class="level-item">BoostCamp</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-11T07:10:49.000Z">2021-03-11</time></p><p class="title"><a href="/2021/03/11/BoostCamp/Day33/">Day33</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-25T04:51:41.000Z">2021-01-25</time></p><p class="title"><a href="/2021/01/25/Pytorch/Pytorch1/">Pytorch1</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/Pytorch/">Pytorch</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
