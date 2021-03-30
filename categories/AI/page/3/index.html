@@ -1,5 +1,128 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: AI - blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="blog"><meta property="og:url" content="https://keonwoochoi.github.io/"><meta property="og:site_name" content="blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/og_image.png"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io"},"headline":"blog","image":["https://keonwoochoi.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Keonwoo Choi"},"description":""}</script><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">AI</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/18/BoostCamp/Day18/"><img class="fill" src="/img/boostcamp.png" alt="Day18"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-17T16:42:43.000Z" title="2021-2-18 1:42:43 ├F10: AM┤">2021-02-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:31:18.011Z" title="2021-3-22 6:31:18 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">6 minutes read (About 916 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/18/BoostCamp/Day18/">Day18</a></h1><div class="content"><h1 id="seq2seq-Model"><a href="#seq2seq-Model" class="headerlink" title="seq2seq Model"></a>seq2seq Model</h1><ul>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: AI - blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="blog"><meta property="og:url" content="https://keonwoochoi.github.io/"><meta property="og:site_name" content="blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/og_image.png"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io"},"headline":"blog","image":["https://keonwoochoi.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Keonwoo Choi"},"description":""}</script><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li class="is-active"><a href="#" aria-current="page">AI</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/19/BoostCamp/Day19/"><img class="fill" src="/img/boostcamp.png" alt="Day19"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-19T06:28:49.000Z" title="2021-2-19 3:28:49 ├F10: PM┤">2021-02-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:31:23.074Z" title="2021-3-22 6:31:23 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">6 minutes read (About 876 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/19/BoostCamp/Day19/">Day19</a></h1><div class="content"><h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p>Attention만을 사용해 RNN대체</p>
+<ul>
+<li><p>기존 RNN 모델의 한계</p>
+<ul>
+<li>long-term dependecy problem</li>
+</ul>
+</li>
+<li><p>Bi-Directional RNNs</p>
+<ul>
+<li>왼쪽, 오른쪽 정보 같이 포함할 수 있도록 forward, backward RNN 두 개의 모듈을 병렬적으로 만듦</li>
+</ul>
+</li>
+<li><h2 id="Transformer-1"><a href="#Transformer-1" class="headerlink" title="Transformer"></a>Transformer</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466533-1fa69000-72c7-11eb-896f-2d45c0db1895.png" alt="image-20210219150756178"></li>
+</ul>
+</li>
+<li><h2 id="인코더"><a href="#인코더" class="headerlink" title="인코더"></a>인코더</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466475-13223780-72c7-11eb-8d16-cb9fbcf4146b.png" alt="image-20210218100814381"></li>
+</ul>
+</li>
+<li><p>input vector는 각각 query벡터로 변환</p>
+</li>
+<li><p>query vector 와 key vector 내적을 통해 새로운 vector 생성</p>
+</li>
+<li><p>key vector: query vector와 내적, 여러개의 key vector들 중 어느것이 query와 연관있는 지</p>
+</li>
+<li><p>value: 가중평균 구하는데 쓰이는 재료 vector</p>
+</li>
+<li><p>value 벡터에 대한 가중편균-&gt; 모든 단어의 정보 고려</p>
+</li>
+<li><p>seq 길이가 길어도 동일한 key value들로 변환되고 query와 유사도만 높다면 멀리있는 정보도 쉽게 가져올 수 있다.</p>
+</li>
+<li><p>input을그대로 사용하면 자기 자신과의 내적이 가장 커지는 문제</p>
+</li>
+<li><p>input q (k,v)</p>
+<ul>
+<li>q,k의 차원은 같지만 v의 차원은 달라도 됨</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466479-14ebfb00-72c7-11eb-91b2-cdc1dc03f327.png" alt="image-20210218101313910"></li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/108466482-14ebfb00-72c7-11eb-8202-a8266ec65768.png" alt="image-20210218101348806"></p>
+</li>
+<li><p>query가 여러개</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466483-15849180-72c7-11eb-8f16-8f0c0f16b206.png" alt="image-20210218102201393"></li>
+</ul>
+</li>
+<li><p>병렬적인 행렬 연산을 통해 학습이 빠름</p>
+</li>
+<li><p>Scaled dot product</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466484-161d2800-72c7-11eb-8eb9-d568f68daada.png" alt="image-20210218102425223"></li>
+<li>분산이 작을수록 표준편차가 작고 확률분포가 uniform distribution(30~50%)에 가깝게 나타난다</li>
+<li>어느 한 key에만 극단적으로 몰리는것을 방지</li>
+<li>분산이 1인 형태로 유지</li>
+<li>한쪽으로 몰리는 경우 gradient vanishing 발생 가능</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi Head Attention"></a>Multi Head Attention</h2><p>여러개의 attention을 사용하여 여러 문장이 있을 때 다양한 관점에서 정보를 뽑는다.</p>
+<p>Multi-head attention을 사용하는 이유는 같은 문장에서도 <strong>중점을 두어야 할 단어들이 다를 수 있기 때문</strong></p>
+<hr>
+<h2 id="복잡도"><a href="#복잡도" class="headerlink" title="복잡도"></a>복잡도</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466487-161d2800-72c7-11eb-8f76-ae74f3068e23.png" alt="image-20210218112126839"></li>
+<li>self-attention의 메모리 사용은 seq에 따라 커질 수 있지만 병렬적으로 수행 사능<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466488-16b5be80-72c7-11eb-9912-e299fc79f9c9.png" alt="image-20210218112206563"></li>
+</ul>
+</li>
+<li>RNN은 dimension으로 조절할 수 있지만 병렬 수행 불가<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466492-16b5be80-72c7-11eb-9d17-a217454a1555.png" alt="image-20210218112341946"></li>
+</ul>
+</li>
+<li>Block-Based Model<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466493-174e5500-72c7-11eb-9313-d24633b02624.png" alt="image-20210218113026170"></li>
+<li>2개의 sub layers<ul>
+<li>multi-head attention</li>
+<li>feed-forward NN with ReLU (Fully connected)</li>
+</ul>
+</li>
+<li>각각 2개의 step<ul>
+<li>residual conneciton and layer normalization</li>
+<li>LayerNorm(x+sublayer(x))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Layer Normalization<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466502-19b0af00-72c7-11eb-9d9f-6e85d7c9dd15.png" alt="image-20210218213709260"></li>
+<li>평균0 분산1으로 만듦</li>
+<li>step1: 각 단어 vector를 평균0 분산1이되도록 normalization</li>
+<li>step2: Affine transformation?</li>
+</ul>
+</li>
+<li>Positional Encoding<ul>
+<li>순서를 무시</li>
+<li>따라서 순서 정보를 포함 시킴</li>
+<li>상수vector를 입력vector에 더해줌(주기함수 사용)</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466494-17e6eb80-72c7-11eb-80ec-dfd431ba890e.png" alt="image-20210218115117713"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466498-187f8200-72c7-11eb-849e-7ffa7a227617.png" alt="image-20210218115135167"></li>
+</ul>
+</li>
+<li>Learning Rate Scheduling<ul>
+<li>Learning Rate를 학습하면서 변화</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466499-187f8200-72c7-11eb-8d1e-df1d203f915f.png" alt="image-20210218115458743"></li>
+</ul>
+</li>
+<li>Decoder<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466534-203f2680-72c7-11eb-819b-d88eac10abd3.png" alt="image-20210219152619612"></li>
+<li>디코더에서 만든 hidden state vector가 query로 사용<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466500-19181880-72c7-11eb-864f-d78c2193c45a.png" alt="image-20210218120258199"></li>
+</ul>
+</li>
+<li>Masked Self attention<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/108466501-19181880-72c7-11eb-8131-f2448eb66a62.png" alt="image-20210218120848978"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Further-Question"><a href="#Further-Question" class="headerlink" title="Further Question"></a><strong>Further Question</strong></h2><ul>
+<li>Attention은 이름 그대로 어떤 단어의 정보를 얼마나 가져올 지 알려주는 직관적인 방법처럼 보입니다. Attention을 모델의 Output을 설명하는 데에 활용할 수 있을까요?</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/18/BoostCamp/Day18/"><img class="fill" src="/img/boostcamp.png" alt="Day18"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-17T16:42:43.000Z" title="2021-2-18 1:42:43 ├F10: AM┤">2021-02-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:31:18.011Z" title="2021-3-22 6:31:18 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">6 minutes read (About 916 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/18/BoostCamp/Day18/">Day18</a></h1><div class="content"><h1 id="seq2seq-Model"><a href="#seq2seq-Model" class="headerlink" title="seq2seq Model"></a>seq2seq Model</h1><ul>
 <li>many to many</li>
 <li>인코더와 디코더로 구성</li>
 <li>인코더의 마지막 hidden state vector는 디코더의 $h_0$로 사용</li>
@@ -788,104 +911,7 @@
 <h2 id="further-question"><a href="#further-question" class="headerlink" title="further question"></a>further question</h2><ul>
 <li>확률 VS 가능도</li>
 </ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/01/28/BoostCamp/Day9/"><img class="fill" src="/img/boostcamp.png" alt="Day9"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-28T14:25:06.000Z" title="2021-1-28 11:25:06 ├F10: PM┤">2021-01-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:30:32.415Z" title="2021-3-22 6:30:32 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">6 minutes read (About 877 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/01/28/BoostCamp/Day9/">Day9</a></h1><div class="content"><h2 id="Groupby"><a href="#Groupby" class="headerlink" title="Groupby"></a>Groupby</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h_index = df.groupby([<span class="string">&quot;Team&quot;</span>, <span class="string">&quot;Year&quot;</span>])[<span class="string">&quot;Points&quot;</span>].<span class="built_in">sum</span>()</span><br><span class="line">h_index</span><br></pre></td></tr></table></figure>
-<pre><code>Team    Year
-Devils  2014    863
-        2015    673
-Kings   2014    741
-        2016    756
-        2017    788
-Riders  2014    876
-        2015    789
-        2016    694
-        2017    690
-Royals  2014    701
-        2015    804
-kings   2015    812
-Name: Points, dtype: int64
-</code></pre><ul>
-<li>sort_index()</li>
-<li>sort_values()</li>
-<li>agg(aggregation)</li>
-<li>transform</li>
-<li>filter</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> dateutil</span><br><span class="line"></span><br><span class="line">df_phone[<span class="string">&quot;date&quot;</span>] = df_phone[<span class="string">&quot;date&quot;</span>].apply(dateutil.parser.parse, dayfirst=<span class="literal">True</span>)</span><br><span class="line">df_phone.dtypes</span><br></pre></td></tr></table></figure>
-<pre><code>index                    int64
-date            datetime64[ns]
-duration               float64
-item                    object
-month                   object
-network                 object
-network_type            object
-dtype: object
-</code></pre><ul>
-<li>add_prefix</li>
-<li>pivot_table</li>
-<li>crosstab</li>
-<li>merge(a,b,on=’ ‘)</li>
-<li>merge(left, right, left_on=’ ‘,right_on=’ ‘)</li>
-<li>merge(how=’ ‘) left,right,outer</li>
-<li>concat</li>
-<li>db conneciton</li>
-</ul>
-<hr>
-<h1 id="확률론"><a href="#확률론" class="headerlink" title="확률론"></a>확률론</h1><ul>
-<li>손실함수(lossfunction)들의 작동원리는데이터 공간을 통계적으로 해석해서 유도</li>
-<li>회귀분석에서 손실함수로 사용되는 L2-노름은 예측오차의 분산을 가장 최소화하는 방향으로 학습하도록 유도</li>
-<li>교차엔트로피(cross-entropy)는 모델예측의 불확실성을 최소화하는 방향으로 학습하도록 유도</li>
-<li>이산확률변수 vs 연속확률변수<ul>
-<li>데이터공간 xy에 의해 결정되는 것으로 오해를 하지만 확률변수의분포D에 의해 결정된다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152004-4ee24980-61c0-11eb-8bba-2a145b5d467b.png" alt="image-20210128110619296"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152012-50ac0d00-61c0-11eb-82ad-42808db79e29.png" alt="image-20210128113243715"></li>
-<li>회귀문제의 경우 연속활률 변수를 다뤄 밀도함수로 해석</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152019-530e6700-61c0-11eb-8b32-6bdee36a5431.png" alt="image-20210128113329252"></li>
-<li>데이터가 robust하면 중앙값을 사용하기도 함</li>
-<li><strong>로버스트(robust) 한 통계량은</strong> <strong>이상치/에러값으로 부터 영향을 크게 받지 않는 (건장한) 통계량</strong></li>
-<li>기대값?</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152025-54d82a80-61c0-11eb-8af7-4ac600736d1e.png" alt="image-20210128114915484"></li>
-<li>연속 : 확률밀도함수-&gt;적분, 이산 : 확률질량함수-&gt;sum</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152031-5570c100-61c0-11eb-9a8a-b7d110e22e1e.png" alt="image-20210128115104516"></li>
-</ul>
-</li>
-</ul>
-<h2 id="몬테카를로-샘플링"><a href="#몬테카를로-샘플링" class="headerlink" title="몬테카를로 샘플링"></a>몬테카를로 샘플링</h2><ul>
-<li>밀도함수나 질량함수를 알고있으면 기대값을 계산할 때 적분이사 sum을 해주면 되지만 확률분포를 명시적으로 모르는 상황에서 샘플링하는 방법을 알고있으면 적분이나 sum대신에 샘플링을 통해 기대값을 계산할 수 있다.<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152035-56a1ee00-61c0-11eb-9c93-8a62ff60570a.png" alt="image-20210128115921876"></li>
-<li>x자리에 샘플링한 데이터를 대입</li>
-<li>$f(x^(i))$값들의 산술평균이 기대값에 근사, 독립적으로 샘플링을 해야한다.</li>
-<li>독립추출이 보장되면 대수의법치겡 의해 수렴성을 보장</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152040-57d31b00-61c0-11eb-8ba5-ffdfb148d376.png" alt="image-20210128120207036"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/106152044-59044800-61c0-11eb-853f-88c0f58f1e65.png" alt="image-20210128120341997"></li>
-<li>샘플사이즈가 적으면 오차범위가 커질 수 있다.</li>
-</ul>
-</li>
-</ul>
-<h2 id="further-queston"><a href="#further-queston" class="headerlink" title="further queston"></a>further queston</h2><ul>
-<li><p>몬테카를로 방법으로 원주율 계산하기</p>
-<ul>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/106152053-5b66a200-61c0-11eb-84b2-5ca727a0607a.png" alt="image-20210128152117681"></p>
-</li>
-<li><p>정사각형넓이 =$4r^2$ ,원의 넓이=$\pi r^2$</p>
-</li>
-<li><p>정사각형 안의 임의의 점이 원안에 있을 확율=$\pi r^2\over4r^2$=$\pi\over4$</p>
-</li>
-<li><p>(정사각형 안의 임의의 점이 원안에 있을 확율)*4=$\pi$</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> random</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_in</span>(<span class="params">r</span>):</span></span><br><span class="line">    x=random()*r*<span class="number">2</span></span><br><span class="line">    y=random()*r*<span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (x-r)**<span class="number">2</span>+(y-r)**<span class="number">2</span>&lt;=r**<span class="number">2</span></span><br><span class="line"></span><br><span class="line">total=<span class="number">5000</span></span><br><span class="line">success=<span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(total):</span><br><span class="line">    <span class="keyword">if</span> random_in(<span class="number">1</span>)==<span class="literal">True</span>:</span><br><span class="line">        success+=<span class="number">1</span></span><br><span class="line">pi=success/total*<span class="number">4</span></span><br><span class="line">print(pi)</span><br></pre></td></tr></table></figure>
-<pre><code>3.1904
-</code></pre></li>
-</ul>
-</li>
-</ul>
-<h2 id="question"><a href="#question" class="headerlink" title="question"></a>question</h2><p><img src="https://user-images.githubusercontent.com/46857207/106152049-5a357500-61c0-11eb-9a4a-a4a3b7eeff5d.png" alt="image-20210128141914202"></p>
-<ul>
-<li>각 벡터마다 max값을 뺴는 이유?<ul>
-<li>softmax함수는 exp()힘수를 사용하므로 오버플로우가 발생할 수 있다. 따라서 max값을 벡터의 모든 요소에서 빼면 벡터의 요소들은 -max~0의 값을 가져 exp()함수의 출력은 0~1의 값을 가지게 된다.</li>
-</ul>
-</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/AI/page/2/">Previous</a></div><div class="pagination-next"><a href="/categories/AI/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/AI/">1</a></li><li><a class="pagination-link" href="/categories/AI/page/2/">2</a></li><li><a class="pagination-link is-current" href="/categories/AI/page/3/">3</a></li><li><a class="pagination-link" href="/categories/AI/page/4/">4</a></li></ul></nav></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">39</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">39</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/"><span class="level-start"><span class="level-item">BoostCamp</span></span><span class="level-end"><span class="level-item tag">38</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/Project-Stage/"><span class="level-start"><span class="level-item">Project Stage</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-29T16:00:24.000Z">2021-03-30</time></p><p class="title"><a href="/2021/03/30/BoostCamp/Project%20Stage/Day41/">Day41</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-22T06:59:30.000Z">2021-03-22</time></p><p class="title"><a href="/2021/03/22/BoostCamp/Day40/">Day40</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-19T06:59:34.000Z">2021-03-19</time></p><p class="title"><a href="/2021/03/19/BoostCamp/Day39/">Day39</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-18T06:38:26.000Z">2021-03-18</time></p><p class="title"><a href="/2021/03/18/BoostCamp/Day38/">Day38</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-18T06:38:19.000Z">2021-03-18</time></p><p class="title"><a href="/2021/03/18/BoostCamp/Day37/">Day37</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/AI/page/2/">Previous</a></div><div class="pagination-next"><a href="/categories/AI/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/AI/">1</a></li><li><a class="pagination-link" href="/categories/AI/page/2/">2</a></li><li><a class="pagination-link is-current" href="/categories/AI/page/3/">3</a></li><li><a class="pagination-link" href="/categories/AI/page/4/">4</a></li></ul></nav></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">40</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">40</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/"><span class="level-start"><span class="level-item">BoostCamp</span></span><span class="level-end"><span class="level-item tag">39</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/Project-Stage/"><span class="level-start"><span class="level-item">Project Stage</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-30T16:32:26.000Z">2021-03-31</time></p><p class="title"><a href="/2021/03/31/BoostCamp/Project%20Stage/Day42/">Day42-Augmentation</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-29T16:00:24.000Z">2021-03-30</time></p><p class="title"><a href="/2021/03/30/BoostCamp/Project%20Stage/Day41/">Day41-EDA</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-22T06:59:30.000Z">2021-03-22</time></p><p class="title"><a href="/2021/03/22/BoostCamp/Day40/">Day40</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-19T06:59:34.000Z">2021-03-19</time></p><p class="title"><a href="/2021/03/19/BoostCamp/Day39/">Day39</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-18T06:38:26.000Z">2021-03-18</time></p><p class="title"><a href="/2021/03/18/BoostCamp/Day38/">Day38</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
