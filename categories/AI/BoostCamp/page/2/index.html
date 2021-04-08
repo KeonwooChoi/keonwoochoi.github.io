@@ -1,5 +1,629 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: BoostCamp - blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="blog"><meta property="og:url" content="https://keonwoochoi.github.io/"><meta property="og:site_name" content="blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/og_image.png"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io"},"headline":"blog","image":["https://keonwoochoi.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Keonwoo Choi"},"description":""}</script><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/AI/">AI</a></li><li class="is-active"><a href="#" aria-current="page">BoostCamp</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/10/BoostCamp/Day32/"><img class="fill" src="/img/boostcamp.png" alt="Day32"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-10T06:23:14.000Z" title="2021-3-10 3:23:14 ├F10: PM┤">2021-03-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:32:51.989Z" title="2021-3-22 6:32:51 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">11 minutes read (About 1606 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/10/BoostCamp/Day32/">Day32</a></h1><div class="content"><h1 id="Problems-with-deeper-layers"><a href="#Problems-with-deeper-layers" class="headerlink" title="Problems with deeper layers"></a>Problems with deeper layers</h1><h2 id="Going-deeper-with-convolutions"><a href="#Going-deeper-with-convolutions" class="headerlink" title="Going deeper with convolutions"></a>Going deeper with convolutions</h2><ul>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Category: BoostCamp - blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="blog"><meta name="msapplication-TileImage" content="./img/favicon3.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="blog"><meta property="og:url" content="https://keonwoochoi.github.io/"><meta property="og:site_name" content="blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://keonwoochoi.github.io/img/og_image.png"><meta property="article:author" content="Keonwoo Choi"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://keonwoochoi.github.io"},"headline":"blog","image":["https://keonwoochoi.github.io/img/og_image.png"],"author":{"@type":"Person","name":"Keonwoo Choi"},"description":""}</script><link rel="icon" href="/./img/favicon3.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-10-tablet is-10-desktop is-10-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/categories">Categories</a></li><li><a href="/categories/AI/">AI</a></li><li class="is-active"><a href="#" aria-current="page">BoostCamp</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/18/BoostCamp/Day38/"><img class="fill" src="/img/boostcamp.png" alt="Day38"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-18T06:38:26.000Z" title="2021-3-18 3:38:26 ├F10: PM┤">2021-03-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-18T06:41:52.164Z" title="2021-3-18 3:41:52 ├F10: PM┤">2021-03-18</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">9 minutes read (About 1339 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/18/BoostCamp/Day38/">Day38</a></h1><div class="content"><h1 id="Acceleration"><a href="#Acceleration" class="headerlink" title="Acceleration"></a>Acceleration</h1><ul>
+<li>대기시간(Latency)은 요청한 데이터가 도달할 때까지 걸리는 시간이다.</li>
+<li>대역폭(Bandwidth)은 단위시간 동안 전달할 수 있는 데이터의 최대치이다.</li>
+<li>처리량(Throughput)은 단위시간 동안 실제로 전달되는 데이터의 양으로, 병렬 처리(Parallel processing)은 처리량을 늘리기 위한 것이다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583668-1c3bf100-8800-11eb-88c2-79ab98f52be6.png" alt="image-20210318014304499"></li>
+<li>GPU를 사용하는 이유, 병렬 처리가 가능한 라이브러리를 사용하는 이유, 모두 <strong>가속화</strong>와 밀접한 관련이 있다.</li>
+</ul>
+<h2 id="Hardware-acceleration"><a href="#Hardware-acceleration" class="headerlink" title="Hardware acceleration"></a>Hardware acceleration</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583669-1c3bf100-8800-11eb-8ec0-9504ab822a25.png" alt="image-20210318103611350"></li>
+<li>SoC(System on Chip)는 CPU, GPU 등 다양한 시스템의 구성요소를 칩 하나에 집약한 것으로, 이를 사용하는 대표적인 제품에는 Apple의 M1이 있다.</li>
+<li>FPGA(Field-programmable gate array)는 사용자가 원하는 용도에 따라 내부 회로를 코딩해서 바꿔 사용할 수 있는 칩이다.</li>
+</ul>
+<h3 id="공간-복잡도와-관련있는-압축은-소프트웨어에서-해결하고-시간-복잡도와-관련있는-가속은-하드웨어에서-해결"><a href="#공간-복잡도와-관련있는-압축은-소프트웨어에서-해결하고-시간-복잡도와-관련있는-가속은-하드웨어에서-해결" class="headerlink" title="공간 복잡도와 관련있는 압축은 소프트웨어에서 해결하고, 시간 복잡도와 관련있는 가속은 하드웨어에서 해결"></a>공간 복잡도와 관련있는 압축은 소프트웨어에서 해결하고, 시간 복잡도와 관련있는 가속은 하드웨어에서 해결</h3><h2 id="Deep-learning-compiler"><a href="#Deep-learning-compiler" class="headerlink" title="Deep learning compiler"></a>Deep learning compiler</h2><ul>
+<li><p>딥러닝 모델을 특정 디바이스에서 효율적으로 동작시키기 위해서는 해당 디바이스에 최적화된 코드가 필요하다.  이러한 작업을 자동으로 지원해주는 도구가 바로 DL compiler</p>
+</li>
+<li><p>LLVM</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583670-1cd48780-8800-11eb-8858-22fc6e9a9c6b.png" alt="image-20210318104309130"></li>
+<li>원래는  ‘언어의 종류 x 아키텍처의 종류’만큼 복수의 컴파일러가 필요하다</li>
+<li>LLVM IR을 사용하면 Frontend에서 어떤 언어가 들어오던 원하는 architecture로 변환해</li>
+</ul>
+</li>
+<li>MLIR<ul>
+<li>MLIR은 LLVM의 Machine Learning 버전</li>
+<li>MLIR에서는 중간에 있는 compiler들을 조립 후 통합해서 “통합 Framework”를 사용할 수 있게 만들었다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583671-1cd48780-8800-11eb-9835-3c809b2ec075.png" alt="image-20210318104901155"></li>
+</ul>
+</li>
+<li>DL complier에 적용하는 Hardware-specific optimizations<ul>
+<li>Hardware Intrinsic Mapping</li>
+<li>Memory Allocation &amp; Fetching</li>
+<li>Memory Latency Hiding</li>
+<li>Loop Oriented Optimization Techniques</li>
+<li>Parallelization</li>
+</ul>
+</li>
+</ul>
+<h2 id="Pruning"><a href="#Pruning" class="headerlink" title="Pruning"></a>Pruning</h2><ul>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/111583674-1d6d1e00-8800-11eb-91e7-2e02a8d736cd.png" alt="image-20210318105045016"></p>
+</li>
+<li><p>Pruning이란 중요하지 않고 반복되는 부분을 잘라내는 것을 뜻한다. 이를 통해 정보의 손실은 일어나겠지만, 모델의 복잡도를 줄여 일반화 성능을 높이고 속도를 높이는 효과를 낸다.</p>
+</li>
+<li>딥러닝에서는 Pruning을 통해 중요하지 않은 것(weight이 0에 가까운 것)을 줄인다.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583675-1d6d1e00-8800-11eb-8285-6890580eca16.png" alt="image-20210318105106354"></li>
+</ul>
+</li>
+<li>Pruning과 Dropout은 비슷해보이지만, Pruning은 Dropout과 달리 버린 부분을 되살릴 수 없다. 또한 Dropout은 학습 시 사용하는 뉴런의 조합의 바꿔서 앙상블 효과를 낼 뿐 테스트를 할 때는 모든 뉴런을 전부 사용한다.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583676-1e05b480-8800-11eb-9380-6f0d8c4a2872.png" alt="image-20210318105138679"></li>
+</ul>
+</li>
+<li>L1, L2 regularization<ul>
+<li>모델 과적합을 방지하기 위한 방법 중 하나도 weight regularization이 있다.</li>
+<li>loss function 에 weight L1 norm, L2 norm 항을 추가한 것을 각각 L1, L2 regulation 이라 칭한다.</li>
+<li>pruning 비율에 따른 accuracy 감소 비율<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583678-1e05b480-8800-11eb-928e-4724bd9a32ff.png" alt="image-20210318113255066"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583679-1e9e4b00-8800-11eb-9a07-4a8542db5985.png" alt="image-20210318122725337"><ul>
+<li>pruning 후 retrain 할 때 weight regularization 항을 추가하여 과적합(파란점)을 방지(빨간점)한다. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583681-1e9e4b00-8800-11eb-8e13-6b78230e8c34.png" alt="image-20210318122805894"><ul>
+<li>pruning 하면 parameter 수가 감소하고, accuracy도 낮아진다. 동일 accuracy를 보일 경우 속도는 느려진다.  (tradeoff)</li>
+</ul>
+</li>
+</ul>
+<h1 id="Pruning-category"><a href="#Pruning-category" class="headerlink" title="Pruning category"></a>Pruning category</h1><p><img src="https://user-images.githubusercontent.com/46857207/111583682-1f36e180-8800-11eb-916b-0e852787c2bd.png" alt="image-20210318123052587"></p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583684-1f36e180-8800-11eb-9919-57ad6d543d89.png" alt="image-20210318123146640"><ul>
+<li>Unstructured Pruning : weight를 아무 규격 없이 잘라내는 pruning</li>
+<li>Structured Pruning : weight를 channel / layer 단위로 규격을 잡아 제거하는 pruning, 규격을 잡아 제거했기 때문에 hardward optimization이 잘 된다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Iterative-pruning"><a href="#Iterative-pruning" class="headerlink" title="Iterative pruning"></a><strong>Iterative pruning</strong></h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583689-1fcf7800-8800-11eb-9164-b95e4ac5fcea.png" alt="image-20210318124855689"><ul>
+<li>Pruning을 한 번에 많이 수행하게 되면, 많은 weight가 사라지게되어 pruning loss가 줄어든 후 Accuracy가 다시 올라가지 않아서 Iterative (반복적)으로 수행</li>
+<li>pruning loss -&gt; retraining -&gt; pruning loss -&gt; retraining …</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lottery-ticket-hypothesis"><a href="#Lottery-ticket-hypothesis" class="headerlink" title="Lottery ticket hypothesis"></a>Lottery ticket hypothesis</h2><ul>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/111583691-20680e80-8800-11eb-8cb2-9a9cf4680133.png" alt="image-20210318125107838"></p>
+</li>
+<li><p>pruning하기 전 얻었던 Accuracy (91%)를 pruning하고 나서도 얻을 수 있는 subnetwork가 원래 network 안에 존재할 것이다라는 가설</p>
+</li>
+<li>original network의 initialization된 parameter를 그대로 사용해야 Accuracy가 잘 나오는 subnetwork.</li>
+<li>한계점은 subnetwork를 찾기 위해서는 어짜피 original network를 train해서 찾아야 한다는 것</li>
+<li>한계점을 극복하기 위해 차후에 나온 방법(적은 cost)</li>
+<li>Iterative Magnitude pruning<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583693-20680e80-8800-11eb-90fd-9c269f4f9c2f.png" alt="image-20210318132437123"></li>
+<li>weight의 크기 기준으로 정렬해서 크기가 낮은 기준으로 잘라낸다는 의미</li>
+<li>prune-&gt;mask를 씌우고 구조만 가지고 와서 다시 init</li>
+</ul>
+</li>
+<li>Iterative Magnitude Pruning with Rewinding<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111583694-2100a500-8800-11eb-8dd8-1b5ae6a5ca7f.png" alt="image-20210318132705337"></li>
+<li>k번까지만 train 시킨 후, 이때의 네트워크를 저장</li>
+<li>이후 수렴할 때 까지 훈련하고 pruning한 후 마스크를 적용해준다.</li>
+<li>Retrain 시, 마스크가 적용된 네트워크를 k번 학습하고 저장해놓은 네트워크를 이용하여 초기화해준다. </li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/18/BoostCamp/Day37/"><img class="fill" src="/img/boostcamp.png" alt="Day37"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-18T06:38:19.000Z" title="2021-3-18 3:38:19 ├F10: PM┤">2021-03-18</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-21T10:39:21.291Z" title="2021-3-21 7:39:21 ├F10: PM┤">2021-03-21</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">8 minutes read (About 1148 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/18/BoostCamp/Day37/">Day37</a></h1><div class="content"><h2 id="Space-Time-Trade-off"><a href="#Space-Time-Trade-off" class="headerlink" title="Space-Time Trade-off"></a>Space-Time Trade-off</h2><ul>
+<li>공간(space)과 시간(time)은 서로 trade-off 관계에 있음.<ul>
+<li>압축되지 않은(uncompressed) 데이터를 저장한다면 더 많은 공간이 필요한 대신, 더 적은 시간이 걸림.</li>
+<li>데이터를 압축(compressed)해 저장한다면 더 적은 공간이 필요한 대신, 더 많은 시간이 걸림.</li>
+</ul>
+</li>
+<li>공간(space)은 problem space(state space)와 search space(solution space)로 이루어져 있음.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901700-e8b9ca80-8a7c-11eb-94c3-758edb66f576.png" alt="image-20210317123006768"><ul>
+<li>problem space는 문제를 해결하는 과정에 존재하는 모든 요소들의 공간이며, search space는 문제의 조건을 만족하는 요소들의 공간</li>
+<li>search space: 모든 노드가 연결되어 있고, cycle이 존재하지 않은 그래프. 정답 후보.</li>
+<li>optimal solution: 그 중 1개(또는 일부)의 cost가 가장 작은 optimal solution. 정답.</li>
+</ul>
+</li>
+<li>시간과 공간의 제약 하에 주어진 문제(problem space)를 풀기 위해 제약 조건을 만족하는 집합(search space; feasible space) 중 가장 높은 performance를 내는 것을 찾음.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901701-e9526100-8a7c-11eb-808c-85153d3bda54.png" alt="image-20210317123048415"></li>
+</ul>
+</li>
+</ul>
+<h2 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h2><ul>
+<li>불확실성의 측정</li>
+<li>정렬된 왼쪽 상태를 Low Entropy, 불규칙한 오른쪽 상태<strong>를 </strong>High Entropy</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901702-e9eaf780-8a7c-11eb-8346-27c5880e5f32.png" alt="image-20210317124127726"><ul>
+<li>문제해결도 엔트로피(entropy) 관점에서 볼 수 있음.</li>
+<li>문제를 푼다는 특정한 initial state에서 무질서한 problem solving 과정을 통해 엔트로피가 낮은 최적의 terminal state에 도달하는 것.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Parameter-search-amp-Hyper-parameter-search"><a href="#Parameter-search-amp-Hyper-parameter-search" class="headerlink" title="Parameter search &amp; Hyper-parameter search"></a>Parameter search &amp; Hyper-parameter search</h2><h3 id="Parameter-Search"><a href="#Parameter-Search" class="headerlink" title="Parameter Search"></a>Parameter Search</h3><ul>
+<li>모델이 학습하며 가중치(weight)를 찾아감.<ul>
+<li>class를 가장 잘 나누는 최적의 결정경계(decision boundary) 탐색.</li>
+<li>loss가 커지거나 작아지는 일종의 binary search 문제. 단, global minima 보장하지 않음.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hyperparameter-Search"><a href="#Hyperparameter-Search" class="headerlink" title="Hyperparameter Search"></a>Hyperparameter Search</h3><ul>
+<li><p>사람이 찾아주는 값.</p>
+</li>
+<li><p>한번의 hyperparameter 탐색에 cost가 너무 큼.</p>
+</li>
+<li><p>적은 cost를 보장하는 hyperparameter를 탐색 최적화 알고리즘 필요.</p>
+</li>
+<li><p><strong>Grid Search</strong></p>
+<ul>
+<li>hyperparameter들의 후보를 골라 조합 탐색.</li>
+<li>선택한 grid의 중간 단계는 탐색하지 않음.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901703-e9eaf780-8a7c-11eb-95a2-5f3f9f2eb20d.png" alt="image-20210317124753800"></li>
+</ul>
+</li>
+<li><p><strong>Random Search</strong></p>
+<ul>
+<li>범위 내의 랜덤한 값을 탐색.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901705-ea838e00-8a7c-11eb-85a7-cf9d8e218fa9.png" alt="image-20210317124812006"></li>
+</ul>
+<p><strong>Bayesian Optimization</strong></p>
+<ul>
+<li>Surrogate model(대리모델)을 만들어 학습해가며 최적의 hyperparameter 조합 탐색.<ul>
+<li>Surrogate Model은 ML 모델을 정의하는 hyperparameter들을 위한 머신러닝 모델</li>
+</ul>
+</li>
+<li>반복연산으로 cost가 크고 모델의 hyperparameter도 찾아야 함.</li>
+<li>Surrogate의 대표적인 process가 Gaussian process<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901706-ea838e00-8a7c-11eb-8e89-e04f32d02ec9.png" alt="image-20210317124842798"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901708-eb1c2480-8a7c-11eb-9208-0d39287d002f.png" alt="image-20210317124906390"><ul>
+<li>파란색 음영 ⇒ covariance</li>
+<li>초록색 함수 ⇒ acquisition function</li>
+<li>검정색 함숫값도 크고, 파란색 음영도 작은 부분을 찾겠다는 것.</li>
+<li>exploitation은 오른쪽 점 근처에 최적값이 존재할 것”이라고 예측</li>
+<li>exploration은 표준편차가 가장 큰 점, 즉, 불확실성이 가장 높은 점 근처에 최적값이 존재하는 것이라고 예측</li>
+<li>Mean과 Variance를 둘 다 고려해서 Acquisㅑtion max를 찾는다</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Neural-Architecture-Search-NAS"><a href="#Neural-Architecture-Search-NAS" class="headerlink" title="Neural Architecture Search(NAS)"></a><strong>Neural Architecture Search(NAS)</strong></h2><ul>
+<li>여러 모델들의 Architecture들을 알고리즘, 딥러닝 등의 모델에 넣어서 가장 좋은 성능의 Architecture를 찾아내는 방법</li>
+<li><strong>Search strategy</strong><ul>
+<li>어디와 어디를 residual connection,fuse,depth-wise-seperate, 몇개의 layer..</li>
+<li>grid search</li>
+</ul>
+</li>
+<li>MnasNet</li>
+<li>PROXYLESSNAS</li>
+<li>ONCE-FOR-ALL</li>
+</ul>
+<h2 id="압축-Compression-amp-압축률-Compression-rate"><a href="#압축-Compression-amp-압축률-Compression-rate" class="headerlink" title="압축 (Compression) &amp; 압축률 (Compression rate)"></a>압축 (Compression) &amp; 압축률 (Compression rate)</h2><ul>
+<li><p>압축은 손실 압축과 비손실 압축으로 나뉘는데, 손실 압축은 압축된 데이터를 복원할 때 손실이 일어나지만 더 높은 압축률을 가진다.</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901711-ebb4bb00-8a7c-11eb-9bdf-4faf5aeb81e2.png" alt="image-20210317125415127"></li>
+</ul>
+</li>
+<li><p>Entropy 관점의 Encoding</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901713-ec4d5180-8a7c-11eb-8f4a-b17da321ad04.png" alt="image-20210317151456034"></li>
+<li>Cross-entropy 부분은 Q(i)라는 codebook의 입장에서 P(i)라는 message(정답 set)를 encoding 했을 때의 나오는 무질서도를 의미</li>
+<li>Entropy 부분은 위에서 주황색 식 H(p)H(p), 즉, P(i)라는 message를 P(i)라는 codebook으로 encoding 했을 때를 무질서도를 의미</li>
+<li>이때 entropy의 값은 0이 나오지는 않고, P(i) 분포가 기본적으로 가지고 있는 minimum entropy가 나옴</li>
+<li>Cross-entropy에서 Entropy를 뺸다는 의미</li>
+</ul>
+</li>
+<li><p>압축 후의 모델 사이즈와 정확도 손실 측면에서 봤을 때, Pruning과 Quantization을 동시에 해주는 것이 좋은 결과를 낸다.</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/111901712-ec4d5180-8a7c-11eb-99dd-3eac78749056.png" alt="image-20210317125509350"></li>
+</ul>
+</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/16/BoostCamp/Day36/"><img class="fill" src="/img/boostcamp.png" alt="Day36"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-16T06:49:53.000Z" title="2021-3-16 3:49:53 ├F10: PM┤">2021-03-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-16T06:51:56.814Z" title="2021-3-16 3:51:56 ├F10: PM┤">2021-03-16</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">7 minutes read (About 1085 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/16/BoostCamp/Day36/">Day36</a></h1><div class="content"><h2 id="연역적-deductive-결정"><a href="#연역적-deductive-결정" class="headerlink" title="연역적 (deductive) 결정"></a>연역적 (deductive) 결정</h2><ul>
+<li>가설 증명을 통해 현상을 추론</li>
+<li>“전제가 참이면, 결론도 참”이라는 논리로 결정</li>
+<li>전제에 따라 결과가 바뀜</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/46857207/111267316-1ebb1100-866f-11eb-8087-29b8730e952f.png" alt="image-20210315091729505"></p>
+<h2 id="귀납적-inductive-결정"><a href="#귀납적-inductive-결정" class="headerlink" title="귀납적 (inductive) 결정"></a>귀납적 (inductive) 결정</h2><ul>
+<li>가설을 경험적 자료와 비교해 추론</li>
+<li>높은 확률로 참, 낮은 확률로 거짓</li>
+<li>머신러닝(결정기)도 이에 해당</li>
+</ul>
+<h2 id="결정기"><a href="#결정기" class="headerlink" title="결정기"></a>결정기</h2><ul>
+<li>결정기는 어떤 데이터를 가지고 최종 판단을 내리는 것을 말한다.</li>
+<li>추천시스템과 같은 가벼운 의사결정부터 암 진단과 같은 무거운 결정까지 다양</li>
+<li>딥러닝이 발전하기 전에는 모델의 성능이 좋지 않았기 때문에 가벼운 결정만 가능하였지만 발전 이후 정확도가 거의 100%에 가까워지면서 무거운 의사결정가지 가능</li>
+</ul>
+<h2 id="가벼운-결정기"><a href="#가벼운-결정기" class="headerlink" title="가벼운 결정기"></a>가벼운 결정기</h2><p>머신러닝(결정기)은 인간의 결정을 대신 해줌</p>
+<p>서비스하기 위해 큰 데이터로 학습한 모델을 경량화해서 edge device에 탑재.</p>
+<ul>
+<li><code>경량화</code>: 필요한 것만 갖고 불필요한 것을 제거하여 규모를 줄이거나 가볍게 만드는 것</li>
+<li><code>소형화</code>: 필요/불필요한 것을 구분하지 않고 규모를 줄이거나 가볍게 만드는 것</li>
+</ul>
+<h2 id="무엇을-경량화"><a href="#무엇을-경량화" class="headerlink" title="무엇을 경량화?"></a>무엇을 경량화?</h2><ul>
+<li>모델이 가진 무의미한 정보량을 줄여서 경량화를 달성하는 것이 목표</li>
+<li>무의미한 정보가 줄어들면, 정보의 밀도가 올라간다</li>
+<li>모델 압축(Compression)과도 같다</li>
+</ul>
+<h2 id="어떻게-경량화"><a href="#어떻게-경량화" class="headerlink" title="어떻게 경량화?"></a>어떻게 경량화?</h2><ul>
+<li>Pruning</li>
+<li>Quantization</li>
+<li>Knowledge Distillation</li>
+<li>Filter Decomposition</li>
+</ul>
+<h2 id="모델-경량화-과정"><a href="#모델-경량화-과정" class="headerlink" title="모델 경량화 과정"></a>모델 경량화 과정</h2><p><img src="https://user-images.githubusercontent.com/46857207/111267389-32667780-866f-11eb-990a-0ef1fa9fcd83.png" alt="image-20210316125544301"></p>
+<h2 id="Edge-device"><a href="#Edge-device" class="headerlink" title="Edge device"></a>Edge device</h2><p> cloud service나 on-premise(자체 서버)를 했을 때에 엄청난 비용이 발생</p>
+<p>사생활 문제와 항상 네트워크에 연결되어 있어야 한다는 문제</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/111267326-211d6b00-866f-11eb-8ced-1b64c5dc8f40.png" alt="image-20210315094052051"></p>
+<ul>
+<li>Low cost</li>
+<li>No privacy concerns</li>
+<li>Stand-alone</li>
+</ul>
+<h2 id="Cloud-intelligence-edge-intelligence"><a href="#Cloud-intelligence-edge-intelligence" class="headerlink" title="Cloud intelligence, edge intelligence"></a>Cloud intelligence, edge intelligence</h2><p><img src="https://user-images.githubusercontent.com/46857207/111267332-224e9800-866f-11eb-8373-d76098b56d67.png" alt="image-20210315094300693"></p>
+<p><img src="https://user-images.githubusercontent.com/46857207/111267335-22e72e80-866f-11eb-8771-0d8105241f9e.png" alt="image-20210315094420318"></p>
+<ul>
+<li>Edge intellignece는 Centralized intelligence와 비교</li>
+<li>좌측은 중앙 서버의 과중이 심한 반면 우측의 Edge intelligence의 경우 비교적 중앙 서버가 과중이 심하지 않음</li>
+<li>Edge intelligence에는 Edge Training, Edge Offloading, Edge Caching, Edge Inference 등이 있다.</li>
+<li>우리가 많이 다루게 될 내용은 Edge Inference </li>
+<li>Edge Inference를 적용하기 위해서는 Pytorch로 모델을 만든 뒤 Edge device에서 사용할 수 있다 </li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/46857207/111267392-32667780-866f-11eb-8780-583471cd7a86.png" alt="image-20210316130537701"></p>
+<ul>
+<li>Edge Inferenced의 depth </li>
+<li>High level에서 사용하는 PyTorch나 Tensorflow 등으로 Model을 대부분 만들고  이것들이 Edge devices로 내려가기 위해서는 Low level IR로 <strong>Graph lowering</strong></li>
+</ul>
+<h1 id="Optimizer"><a href="#Optimizer" class="headerlink" title="Optimizer"></a>Optimizer</h1><p><strong>Computer Optimization</strong></p>
+<ul>
+<li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKwed4%2FbtqZ3eTdRT0%2FmcnaZL0KdrPGjdQuryVKL0%2Fimg.gif" alt="Computer Optimization"></li>
+<li>컴퓨터가 문제를 푸는 과정</li>
+<li>모든 combination을 고려하기 전까지 최적해를 알 수 없음. 반대로, 유한한 모든 combination을 고려하면 무조건 최적해 보장</li>
+</ul>
+<p><strong>ML Optimazation</strong></p>
+<ul>
+<li><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoFGNM%2FbtqZ1I1Cuyt%2FikKgKui9N5mrT1dZAjdZuK%2Fimg.gif" alt="ML"></li>
+<li>머신러닝이 문제를 푸는 과정</li>
+<li>모든 상태를 고려하지 않고 현재 상태보다 낫게 업데이트해 최적화</li>
+</ul>
+<h1 id="Decision-problem-vs-optimization-problem"><a href="#Decision-problem-vs-optimization-problem" class="headerlink" title="Decision problem vs optimization problem"></a>Decision problem vs optimization problem</h1><h2 id="Decision-problem"><a href="#Decision-problem" class="headerlink" title="Decision problem"></a>Decision problem</h2><ul>
+<li>조건을 만족한다면 문제를 푼 것. 하나의 결정.</li>
+<li>무한한 자원으로 최고 성능을 내는 것.</li>
+<li>Decision Spanning Tree (DST)<ul>
+<li>upper bound가 정해져 있고, 그 upper bound만 만족하면 풀리는 문제</li>
+</ul>
+</li>
+</ul>
+<h2 id="Optimazation-problem"><a href="#Optimazation-problem" class="headerlink" title="Optimazation problem"></a>Optimazation problem</h2><ul>
+<li>더이상 못찾을 때까지 decision을 연쇄적으로 반복.</li>
+<li>제약 조건을 만족하면서 최고의 성능을 내는 것<ul>
+<li>Minimum Spanning Tree(MST)</li>
+<li>Dicision problem을 연쇄적으로 반복했을 때 해결</li>
+</ul>
+</li>
+</ul>
+<h2 id="Constraints"><a href="#Constraints" class="headerlink" title="Constraints"></a><strong>Constraints</strong></h2><p>무엇을 원하느냐에 따라 굉장히 달라짐(시간,돈…)</p>
+<p><img src="https://user-images.githubusercontent.com/46857207/111267395-32ff0e00-866f-11eb-95ec-6155326423ff.png" alt="image-20210316133450139"></p>
+<ul>
+<li>Decision problem에서 무한한 자원 (infinite amount of resoources)을 사용한다고 가정</li>
+<li>Optimization problem에서는 각각의 Decision problem에서 지불했던 Cost를 더해서 Constraints를 계산합니다. 이때, 모든 Cost를 더했을 때 Constraint를 넘으면 안된다</li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/11/BoostCamp/Day33/"><img class="fill" src="/img/boostcamp.png" alt="Day33"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-11T07:10:49.000Z" title="2021-3-11 4:10:49 ├F10: PM┤">2021-03-11</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-11T07:21:20.429Z" title="2021-3-11 4:21:20 ├F10: PM┤">2021-03-11</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">24 minutes read (About 3569 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/11/BoostCamp/Day33/">Day33</a></h1><div class="content"><h1 id="Object-detection"><a href="#Object-detection" class="headerlink" title="Object detection"></a>Object detection</h1><h2 id="What-is-object-detection"><a href="#What-is-object-detection" class="headerlink" title="What is object detection"></a>What is object detection</h2><ul>
+<li>semantic segmentation보다 더 구체적</li>
+<li>객체가 달라도 구분이 됨</li>
+<li>Instance segmentation ⊂ Panoptic sementation</li>
+<li>object detection=Classification + Box localization<ul>
+<li>two-stage: box localization → classfication</li>
+<li>one-stage: box + classfication 한번에</li>
+</ul>
+</li>
+</ul>
+<h2 id="What-are-the-applications"><a href="#What-are-the-applications" class="headerlink" title="What are the applications"></a>What are the applications</h2><ul>
+<li>autonomous driveing</li>
+<li>ocr</li>
+</ul>
+<h1 id="Two-stage-detector"><a href="#Two-stage-detector" class="headerlink" title="Two-stage detector"></a>Two-stage detector</h1><h2 id="Traditional"><a href="#Traditional" class="headerlink" title="Traditional"></a>Traditional</h2><ul>
+<li>Gradient-based detector<ul>
+<li>과거에는 경계선을 특징으로 모델링 , gradient 방향성을 활용한 선형 모델 사용</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749394-78dd6000-8284-11eb-8939-33f4b781b27e.png" alt="image-20210310091730224"></li>
+</ul>
+</li>
+<li>selective search<ul>
+<li>사람이나 특정 물체 뿐만 아니라, 다양한 물체 후보군의 영역 후보군을 지정해주는 방식</li>
+<li>bounding box 제안-&gt; Proposal Algorithm</li>
+<li>Over-segmentation: 영상을 색끼리 잘게 분할</li>
+<li>merginig: 비슷한 feature를 가지는 영역들을 합침</li>
+<li>반복해서 합쳐주다보면 object를 소수로 특정지음</li>
+<li>특정지은 소수의 object 위치를 바운딩 박스로 나타냄</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749396-7975f680-8284-11eb-9a67-3e54ab12e29b.png" alt="image-20210310092048339"></li>
+</ul>
+</li>
+</ul>
+<h2 id="R-CNN"><a href="#R-CNN" class="headerlink" title="R-CNN"></a>R-CNN</h2><ul>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749518-927ea780-8284-11eb-8b6b-19c497d8f97d.png" alt="image-20210311104814315"></p>
+</li>
+<li><p>Selective Search를 통해 Region Proposal을 진행 → 2K 이하로 설정</p>
+</li>
+<li>각 Region Proposal을 CNN의 input size로 Warping</li>
+<li>기존에 pre-trained된 CNN에 input으로 넣어서 Classification을 진행</li>
+<li>SVM의 linear classifier만을 이용해서 클래스를 학습(fine-tuning)</li>
+<li>단점<ul>
+<li>모든 region proposal이 CNN에 입력값으로 들어가기 때문에 느림</li>
+<li>Hand Designed된 selective search-&gt; 학습을 통한 성능향상에 한계</li>
+</ul>
+</li>
+</ul>
+<h2 id="Fast-R-CNN"><a href="#Fast-R-CNN" class="headerlink" title="Fast R-CNN"></a>Fast R-CNN</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749399-7a0e8d00-8284-11eb-93bc-ea409f518ab2.png" alt="image-20210310092641179"></li>
+<li>영상 전체에 대한 Feature을 한번에 추출하고 이를 재활용해서 object detection</li>
+</ul>
+<ol>
+<li>Conv layer를 통해 feature map 검출<ul>
+<li>conv layer를 거쳤으므로 tensor형태가 된다</li>
+<li>Fully Convolutional Network는 입력사이즈와 상관없이 Feature Map을 뽑아낼 수 있기 때문에 warp 필요 없다</li>
+</ul>
+</li>
+<li>RoI Pooling: Feature를 여러번 재활용, Region Proposal이 제시한 물체의 후보 위치들(Bounding Box)에 대해서 RoI에 해당하는 Feature만 추출한다.<ul>
+<li>RoI feature를 고정된 사이즈로 resampling한다</li>
+</ul>
+</li>
+<li>classification : softmax, bbx regression로 위치 조정</li>
+</ol>
+<ul>
+<li>selective search를 사용했으므로 성능 향상 한계</li>
+</ul>
+<h2 id="Faster-R-CNN"><a href="#Faster-R-CNN" class="headerlink" title="Faster R-CNN"></a>Faster R-CNN</h2><ul>
+<li>IoU<ul>
+<li>두 영역의 OVERLAP 측정</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749401-7a0e8d00-8284-11eb-8126-cf48f190ea43.png" alt="image-20210310092844050"></li>
+</ul>
+</li>
+<li>anchor box 각 위치에서 발생할 것 같은 박스를 미리 정의해둔 후보군<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749404-7aa72380-8284-11eb-9011-51add2eb2350.png" alt="image-20210310092945166"></li>
+<li>box의 개수와 종류는 hyperparameter</li>
+<li>Faster R-CNN에서는 9개 (scale 3 * 비율3)</li>
+</ul>
+</li>
+<li>selective search 대신 RPN 모듈 제안<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749406-7aa72380-8284-11eb-8f51-62d5eae5554d.png" alt="image-20210310093216117"></li>
+<li>Fast R-CNN과 마찬가지로 각각의 영상에서 공유되는 Feature Map을 미리 뽑아두고, 해당 Feature Map을 바탕으로 RPN에서 Region Proposal을 여러 개 제공하고 RoI Pooling을 실시한 다음 Classifier를 통해 정답을 예측</li>
+</ul>
+</li>
+<li>Region Proposal Network<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749407-7b3fba00-8284-11eb-81d1-43144ac30ad2.png" alt="image-20210310093418147"></li>
+<li>Conv Layer를 통해 나온 Feature Map에 Sliding Window 방식으로 돌면서 매 위치마다 미리 정의해둔 K개의 Anchor Box를 고려<ol>
+<li>각 위치에서 256-d의 feature vector를 하나 추출</li>
+<li>각 vector로 부터 Object인지 아닌지에 대한 score인 2K개 classification score (object, non-object)</li>
+<li>k개의 Bounding Box위치를 regression하는 4k 개의 Coordinates (x,y,w,h 4개)<ul>
+<li>Anchor Box를 촘촘하게 만들면 계산 속도가 느려지므로 대표적인 비율과 Scale만 정해두고 정교한 위치는 Regression 문제로 분할 정복</li>
+</ul>
+</li>
+<li>각각의 Loss → Cross Entropy Loss + Regression Loss를 사용<ul>
+<li>이 2가지 Loss가 RPN을 위한 요소가 되며, 전체 Target Task를 위한 RoI별 Classification Loss는 따로 하나가 추가가 되서 전체적으로 End-to-End로 학습을 진행한다.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>RPN에서 object를 완전히 class로 분류한게 아니라, object인지 아닌지만 판단</li>
+<li>RPN에서 classifier, regressor 두개의 모델이 필요하고, 마지막으로 classifier가 필요하다. 또 맨 처음 feature map을 뽑아낼 CNN도 필요하다. 총 4개의 모델이 각각이 아니라 한번에 학습된다.</li>
+</ul>
+</li>
+<li>non maximum suppression<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749409-7bd85080-8284-11eb-9a84-cfd804c87e2e.png" alt="image-20210310093530590"></li>
+<li>IoU스코어가 낮은 박스들은 제거하는 방식의 NMS 알고리즘을 추가한다.</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749411-7c70e700-8284-11eb-922c-d2d10de4c07a.png" alt="image-20210310093600826"></li>
+</ul>
+<h1 id="Single-stage-detector"><a href="#Single-stage-detector" class="headerlink" title="Single-stage-detector"></a>Single-stage-detector</h1><h2 id="Comparison-with-two-stage-detector"><a href="#Comparison-with-two-stage-detector" class="headerlink" title="Comparison with two-stage detector"></a>Comparison with two-stage detector</h2><ul>
+<li>성능을 조금 포기하고 계산 속도를 확보해서 real-time detection 이 가능하도록한 모델</li>
+<li>ROI pooling을 하지 않기 때문에 구조가 매우 간단한 편</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749412-7c70e700-8284-11eb-8c45-473994cb8d33.png" alt="image-20210310093821561"></li>
+</ul>
+<h2 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749413-7d097d80-8284-11eb-9609-7988796876ae.png" alt="image-20210310093908226"></li>
+<li>input image를 SxS grid로 나눈다</li>
+<li>각 grid마다 바운딩박스 정보 4개 + object여부 1개 + Class 분류 확률 C개 = 5+C개의 정보를 한꺼번에 예측한다.</li>
+<li>Faster R-CNN의 RPN과 마찬가지로, ground truth와의 IoU스코어가 높은 Anchor box를 positive로 간주하여 loss 계산</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749416-7d097d80-8284-11eb-94be-293724797c46.png" alt="image-20210310094058186"><ul>
+<li>30 channel= 앵커박스를 grid마다 2개만 사용했고, class 개수는 총 20개여서 5*2+20=30</li>
+<li>s는 convolution layer에서의 마지막 해상도로 결정됨</li>
+<li>마지막 layer에서만 prediction을 수행하기 떄문에 localization 정확도 떨어짐</li>
+</ul>
+</li>
+</ul>
+<h2 id="single-shot-multibox-detector-SSD"><a href="#single-shot-multibox-detector-SSD" class="headerlink" title="single shot multibox detector(SSD)"></a>single shot multibox detector(SSD)</h2><ul>
+<li>SSD는 Multi Scale object를 더 잘 처리하기 위해서 중간 Feature를 각 해상도에 적절한 Bounding Box 들을 출력할 수 있도록하는 Multi Scale구조를 만들었다.</li>
+<li>각기 다른 크기의 feature map에서 정해진 크기의 anchor box를 사용하면, feature map 사이즈에 따라 anchor box가 scaling된다.</li>
+<li>feature map 사이즈마다, anchor box를 적용하여 object를 탐지한다. 때문에 YOLO에 비해 계산량이 늘어난다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749418-7da21400-8284-11eb-9014-aac4a48e9928.png" alt="image-20210310094304705"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749420-7e3aaa80-8284-11eb-9413-98015b4b5f28.png" alt="image-20210310094408490"><ul>
+<li>SSD는 각 층마다 classifier적용</li>
+<li>각 layer마다 (class수+위치정보4)에 anchor box개수를 곱해준다</li>
+</ul>
+</li>
+</ul>
+<h1 id="Two-stage-vs-One-stage"><a href="#Two-stage-vs-One-stage" class="headerlink" title="Two-stage vs One-stage"></a>Two-stage vs One-stage</h1><h2 id="Focal-loss"><a href="#Focal-loss" class="headerlink" title="Focal loss"></a>Focal loss</h2><ul>
+<li>일반적으로object보다 background가 더 넗음-&gt; class imbalance</li>
+<li>모든 구역에 대해 object detection하는 경우 negative를 결과로 내는 anchor boxrk 많아진다.<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749421-7ed34100-8284-11eb-8e38-af8862cfade9.png" alt="image-20210310094634765"></li>
+</ul>
+</li>
+<li>focal loss= cross entropy의 확장<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749423-7ed34100-8284-11eb-9e64-9c90ba6c20cb.png" alt="image-20210310094659841"></li>
+<li>파란색 그래프가 기존의 Cross Entropy</li>
+<li>나머지가 FL함수에서 $\gamma$값을 바꿔주었을 때의 그래프다.</li>
+<li>학률term을 통해 잘 맞춘 애들은 더 낮은 loss를 주고 맞추지 못한 애들은 더 높은 loss를 준다.</li>
+<li>FL함수는 정답률이 높을수록 gradient를 0에 가깝게 만들고, 정답률이 낮을수록 gradient가 가팔라지게</li>
+<li>Loss 값 자체가 중요한게 아니라 gradient</li>
+<li>$\gamma$값을 크게줄수록 적용 폭이 강해진다.</li>
+<li>Q) gamma가 높을수록 loss가 낮아지지만 잘 찾지 못할 때 loss는 소폭 줄어들게 하고 잘 찾은 경우에서는 loss를 대폭 줄어들게 합니다</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749520-93173e00-8284-11eb-968e-c751c79106fd.png" alt="image-20210311133620851"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749522-93173e00-8284-11eb-9964-c4b4683ea665.png" alt="image-20210311133647011"></li>
+</ul>
+</li>
+</ul>
+<h2 id="RetinaNet"><a href="#RetinaNet" class="headerlink" title="RetinaNet"></a>RetinaNet</h2><ul>
+<li>FPN<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749425-7f6bd780-8284-11eb-924f-92c5964eb125.png" alt="image-20210310094941624"></li>
+<li>U-Net과 비슷한 구조다.</li>
+<li>residual을 활용하여 더해줌으로써, low-level의 특징과 high-level의 특징을 둘 다 활용하면서 각 scale별로 object를 잘 찾기 위한 multi-scale 구조를 갖게된다. (concat이 아닌 더하기)</li>
+<li>class 분류와 box 회귀 예측을 진행한다.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Detection-with-Transform"><a href="#Detection-with-Transform" class="headerlink" title="Detection with Transform"></a>Detection with Transform</h1><ul>
+<li>DETR</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749426-7f6bd780-8284-11eb-9011-080928167227.png" alt="image-20210310095209241"></li>
+<li>CNN으로 Feature추출 후, Positional encoding을 더해준다.</li>
+<li>encoder 학습 후, decoder에 query를 입력으로 준다. (query는 object 정보이거나, positional encoding 정보) 추가로, 최대 몇개의 box를 찾아줄지에 대한 값도 함께 준다. (N)</li>
+<li>해당 query에 맞는 object를 찾아 box를 찾아준다. positional encoding의 경우 해당 위치 근처의 바운딩 박스와 class를 찾아준다</li>
+</ul>
+<h1 id="Visualizing-CNN"><a href="#Visualizing-CNN" class="headerlink" title="Visualizing CNN"></a>Visualizing CNN</h1><h2 id="What-is-CNN-visualization"><a href="#What-is-CNN-visualization" class="headerlink" title="What is CNN visualization"></a>What is CNN visualization</h2><ul>
+<li>딥러닝 네트워크= black box</li>
+<li>CNN의 경우 시각화가 가능하다.</li>
+<li>visualization as debugging tool</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749427-80046e00-8284-11eb-845a-face0dfb2896.png" alt="image-20210310101554404"><ul>
+<li>low-level feature는 방향성이 있는 선, 동그란 블록</li>
+<li>high-level로 갈수록 의미있는 feature</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vanilla-example-filter-visualization"><a href="#Vanilla-example-filter-visualization" class="headerlink" title="Vanilla example: filter visualization"></a>Vanilla example: filter visualization</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749428-809d0480-8284-11eb-9807-59b73cd6e9fb.png" alt="image-20210310101738368"><ul>
+<li>AlexNet 첫번째 층의 필터를 시각화</li>
+<li>해당 필터를 이미지에 적용했을 때의 결과(하나의 필터만 적용했기 때문에 밝기값만 가지는 1채널 이미지)</li>
+<li>높은 층으로 갈수록 필터도 채널 수가 늘어나 고차원의 필터를 시각화하기도 어렵고, 시각화 하더라도 사람이 해석할 수 없다</li>
+</ul>
+</li>
+</ul>
+<h2 id="How-to-visualize-neural-network"><a href="#How-to-visualize-neural-network" class="headerlink" title="How to visualize neural network"></a>How to visualize neural network</h2><ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749431-809d0480-8284-11eb-8320-f9de1cd8fdf5.png" alt="image-20210310102033215"><ul>
+<li>왼쪽으로 갈수록 모델 자체를 분석</li>
+<li>른쪽으로 갈수록 모델의 출력 결과가 왜 그렇게 나타났는지 분석</li>
+</ul>
+</li>
+</ul>
+<h1 id="Analysis-of-model-behaviors"><a href="#Analysis-of-model-behaviors" class="headerlink" title="Analysis of model behaviors"></a>Analysis of model behaviors</h1><h2 id="Embedding-feature-analysis"><a href="#Embedding-feature-analysis" class="headerlink" title="Embedding feature analysis"></a>Embedding feature analysis</h2><p>High-level layer에서 얻는 High-level feature들을 분석하는 방법</p>
+<ul>
+<li><p>nearest neighbors in a feature space</p>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749433-81359b00-8284-11eb-82bd-232d7dd73a71.png" alt="image-20210310102318653"></p>
+<ul>
+<li>잘 군집되어 있음을 확인할 수 있으며 픽셀단위로 학습했음에도 불구하고 포즈도 다르고 방향도 다른 이미지들이 제대로 보여지는 것을 확인할 수 있다.</li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749526-93afd480-8284-11eb-911a-23f29b5fffac.png" alt="image-20210311140648670"></p>
+<ul>
+<li>각각의 이미지에 대해 feature들을 뽑아놓고 임베딩 공간에 저장해둔다.</li>
+</ul>
+</li>
+<li><p><img src="https://user-images.githubusercontent.com/46857207/110749434-81359b00-8284-11eb-8994-3e369a335947.png" alt="image-20210310103825771"></p>
+<ul>
+<li>후 입력이 들어오면, 해당 feature와 비슷하게 임베딩된 feature들을 탐색한다. 유사도 탐색으로 찾아낸 k개의 feature들의 원본 image를 가져와서 반환해준다.</li>
+</ul>
+<p>이 feature들은 매우 고차원 공간에 위치하므로 인간이 해석하기가 너무 어렵다.</p>
+</li>
+<li><p>Demensionality reduction</p>
+<ul>
+<li>고차원 상상 힘들기 때문에 차원축소를 통해 각 클래스마다 다른 색상으로 구분한다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749435-81ce3180-8284-11eb-87b0-eda48fdbcede.png" alt="image-20210310104046674"></li>
+<li>각 클래스간의 분포가 비슷한 위치에 존재한다면 해당 클래스들을 유사하게 보고 있다는 것으로 해석 가능</li>
+<li>3, 8 , 5 분포가 가까움 -&gt; 경계에서 헷갈릴 수 있음</li>
+</ul>
+</li>
+</ul>
+<h2 id="Activation-investigation"><a href="#Activation-investigation" class="headerlink" title="Activation investigation"></a>Activation investigation</h2><p>레이어의 activation을 분석하여 모델의 특성을 파악하는 방법</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749438-8266c800-8284-11eb-9c35-436ab37ae221.png" alt="image-20210310104403875"><ul>
+<li>AlexNet 다섯번째 층의 138번째 채널 값을 thresholding을 통해 시각화-&gt;사람의 얼굴을 detection</li>
+<li>각 hidden node들의 역할(activation)을 파악하는 방법</li>
+</ul>
+</li>
+<li>Maximully activating patch<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749528-93afd480-8284-11eb-8d2a-1c77c03d8166.png" alt="image-20210311141249702"></li>
+<li>레이어를 하나 골라서 해당 레이어에서 feature map 중 하나의 채널을 고른다.</li>
+<li>해당 채널에서 가장 큰 값을 가지는 픽셀을 찾는다. 해당 픽셀의 receptive field가 되는 원본 이미지에서의 영역을 출력해본다.</li>
+<li>입력 이미지 여러개에 대해 반복해보면, hidden node들이 어떤 작업을 하는지 파악할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-visualization"><a href="#Class-visualization" class="headerlink" title="Class visualization"></a>Class visualization</h2><p>예제 데이터를 사용하지 않고, 네트워크가 기억하고 있는 이미지를 시각화하여 판단하는 방법</p>
+<ul>
+<li><p>Gradient ascent</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749440-8266c800-8284-11eb-9284-423822c3e63e.png" alt="image-20210310110456446"></li>
+</ul>
+</li>
+<li><p>image synthesis</p>
+<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749442-82ff5e80-8284-11eb-97eb-3b26f7c0ffbd.png" alt="image-20210310110547935"></li>
+</ul>
+<ol>
+<li>아무런 이미지나 입력으로 준다</li>
+<li>타겟 class의 스코어를 계산한 후 스코어를 최대화하는 방향으로 역전파를 통해 입력 이미지를 업데이트 해준다.(gradient를 더해준다)</li>
+<li>점점 타겟 클래스에 맞게 필터들이 어떻게 학습했는지 알 수 있다.</li>
+</ol>
+</li>
+</ul>
+<h1 id="Model-decision-explanation"><a href="#Model-decision-explanation" class="headerlink" title="Model decision explanation"></a>Model decision explanation</h1><p>모델이 특정 입력을 어떤 각도로 바라보고 있는지 해석하는 방법</p>
+<h2 id="Saliency-test"><a href="#Saliency-test" class="headerlink" title="Saliency test"></a>Saliency test</h2><p>영상이 판정되기 위한 각 영역의 중요도를 추출하는 방법</p>
+<ul>
+<li>occlusion map<ul>
+<li>이미지를 일부 가리고 해당 클래스에 대한 스코어가 얼마일지 예측</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749443-8397f500-8284-11eb-9a09-11d03ede5613.png" alt="image-20210310110822001"></li>
+</ul>
+</li>
+<li>via backpropagation<ul>
+<li>gradient ascent 방법과 유사하다. 하지만 입력 이미지를 업데이트하는 것이 아니라, 입력 이미지의gradient를 새로운 이미지로 그린다.<ol>
+<li>입력 이미지를 CNN에 넣어 class score를 얻는다.</li>
+<li>backpropagation으로 입력 이미지의 gradient를 구한다.</li>
+<li>gradient에 절댓값 또는 제곱을 하여 절대적인 크기(magnitude)를 구한다.<ul>
+<li>어느 방향으로 바뀌는지 보다 해당 영역의 얼마나 큰 영향을 끼치는지가 중요</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749531-94486b00-8284-11eb-8719-30e9efb3a419.png" alt="image-20210311142809698"><ul>
+<li>gradient가 높은 지점이 집중한 곳</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Rectified unit(backward pass)<ul>
+<li>위에서 단순하게 gradient만 그려냈다면, 이번에는 gradient를 그린 것보다 더 선명한 패턴을 시각화해 보고자 한다.</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749446-84308b80-8284-11eb-963e-9673f3a2c98b.png" alt="image-20210310113229492"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749532-94e10180-8284-11eb-8ce0-2a3fdabc78f4.png" alt="image-20210311144038328"><ul>
+<li>Forward pass : 음수가 0으로 마스킹</li>
+<li>Backward pass:-backpropagation: 현재 값들을 기준으로 음수를 마스킹하지 않고 Forward 시에 0이하였던 unit들을 음수 마스킹</li>
+<li>Backward pass-Deconvnet: Backward 시에 Forward시점의 값 기준이 아니라 Backpropagation 시점의 값을 기준으로 음수 마스킹. 마치 역방향으로 ReLU를 재적용</li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749451-84c92200-8284-11eb-85ba-c57f8952ea4a.png" alt="image-20210310113352367"><ul>
+<li>Guided backpropagation : Backward 시에 Forward 패턴도 마스킹하고, 현재 패턴 기준으로도 마스킹</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Class-Activation-mapping"><a href="#Class-Activation-mapping" class="headerlink" title="Class Activation mapping"></a>Class Activation mapping</h2><ul>
+<li>CAM<ul>
+<li>Heatmap을 이용하여 분석하는 방법</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749453-8561b880-8284-11eb-9674-f57cc7fa4d95.png" alt="image-20210310113531264"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749455-8561b880-8284-11eb-8b1c-2c9b2b26cf4e.png" alt="image-20210310113546947"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749458-85fa4f00-8284-11eb-9333-f992bf533fdc.png" alt="image-20210310113613397"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749460-85fa4f00-8284-11eb-92c4-01f65897c7bf.png" alt="image-20210310113830111"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749461-8692e580-8284-11eb-943c-d2168394d82a.png" alt="image-20210310113851709"></li>
+</ul>
+</li>
+<li>Grad-CAM<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749463-872b7c00-8284-11eb-9a4c-aaf626162be1.png" alt="image-20210310114035791"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749464-872b7c00-8284-11eb-9d98-7975ebbed619.png" alt="image-20210310114049349"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749465-87c41280-8284-11eb-9d0e-12fc0dc7bf03.png" alt="image-20210310114107077"></li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749467-885ca900-8284-11eb-8ee7-1e7504f5314c.png" alt="image-20210310114135696"></li>
+</ul>
+</li>
+<li>SCOUTER<ul>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749468-88f53f80-8284-11eb-85c9-d3e5d3b17c96.png" alt="image-20210310114219576"></li>
+</ul>
+</li>
+<li><img src="https://user-images.githubusercontent.com/46857207/110749470-898dd600-8284-11eb-85db-0ac6de6513ce.png" alt="image-20210310114237549"></li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/10/BoostCamp/Day32/"><img class="fill" src="/img/boostcamp.png" alt="Day32"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-10T06:23:14.000Z" title="2021-3-10 3:23:14 ├F10: PM┤">2021-03-10</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:32:51.989Z" title="2021-3-22 6:32:51 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">11 minutes read (About 1606 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/10/BoostCamp/Day32/">Day32</a></h1><div class="content"><h1 id="Problems-with-deeper-layers"><a href="#Problems-with-deeper-layers" class="headerlink" title="Problems with deeper layers"></a>Problems with deeper layers</h1><h2 id="Going-deeper-with-convolutions"><a href="#Going-deeper-with-convolutions" class="headerlink" title="Going deeper with convolutions"></a>Going deeper with convolutions</h2><ul>
 <li>larger receptive fields</li>
 <li>more capacity and non linearity</li>
 <li>but gradient vanishing/exploding, computationally complex</li>
@@ -409,812 +1033,7 @@
 <h2 id="How-to-start-my-AI-engineering-career"><a href="#How-to-start-my-AI-engineering-career" class="headerlink" title="How to start my AI engineering career"></a>How to start my AI engineering career</h2><ul>
 <li>Understand yourself</li>
 </ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/03/02/BoostCamp/Day25/"><img class="fill" src="/img/boostcamp.png" alt="Day25"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-03-02T06:01:15.000Z" title="2021-3-2 3:01:15 ├F10: PM┤">2021-03-02</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:32:13.481Z" title="2021-3-22 6:32:13 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">18 minutes read (About 2748 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/03/02/BoostCamp/Day25/">Day25</a></h1><div class="content"><h1 id="정점-표현-학습-복습"><a href="#정점-표현-학습-복습" class="headerlink" title="정점 표현 학습 복습"></a>정점 표현 학습 복습</h1><ul>
-<li>정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것</li>
-<li>정점 임베딩(Node Embedding)</li>
-<li>그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것</li>
-<li>그래프에서 두 정점의 유사도는 어떻게 정의할까<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605141-11c6f980-7b68-11eb-865e-966f1c409d9a.png" alt="image-20210226093909989"></li>
-</ul>
-</li>
-<li>지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605142-125f9000-7b68-11eb-82ca-23867baee200.png" alt="image-20210226094153894"></li>
-</ul>
-</li>
-<li>출력으로 임베딩 자체를 얻는 변환식 임베딩 방법은 여러 한계를 갖습니다<ol>
-<li>학습이 진행된 이후에 추가된 정점에 대해서는 임베딩을 얻을 수 없습니다</li>
-<li>모든 정점에 대한 임베딩을 미리 계산하여 저장해두어야 합니다</li>
-<li>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 없습니다</li>
-</ol>
-</li>
-<li>출력으로 인코더를 얻는 귀납식 임베딩 방법은 여러 장점을 갖습니다</li>
-</ul>
-<ol>
-<li>학습이 진행된 이후에 추가된 정점에 대해서도 임베딩을 얻을 수 있습니다</li>
-<li>모든 정점에 대한 임베딩을 미리 계산하여 저장해둘 필요가 없습니다</li>
-<li>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 있습니다</li>
-</ol>
-<h1 id="그래프-신경망-기본"><a href="#그래프-신경망-기본" class="headerlink" title="그래프 신경망 기본"></a>그래프 신경망 기본</h1><h2 id="그래프-신경망-구조"><a href="#그래프-신경망-구조" class="headerlink" title="그래프 신경망 구조"></a>그래프 신경망 구조</h2><ul>
-<li>그래프 신경망은 그래프와 정점의 속성 정보를 입력으로 받습니다</li>
-<li>정점의 속성의 예시는 다음과 같습니다<ul>
-<li>온라인 소셜 네트워크에서 사용자의 지역, 성별, 연령, 프로필 사진 등</li>
-<li>논문 인용 그래프에서 논문에 사용된 키워드에 대한 원-핫 벡터</li>
-<li>PageRank 등의 정점 중심성, 군집 계수(Clustering Coefficient) 등</li>
-</ul>
-</li>
-<li>그래프 신경망은 이웃 정점들의 정보를 집계하는 과정을 반복하여 임베딩을 얻습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605144-125f9000-7b68-11eb-8bc1-1f113097bf9a.png" alt="image-20210226095242773"></li>
-</ul>
-</li>
-<li>각 집계 단계를 층(Layer)이라고 부르고, 각 층마다 임베딩을 얻습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605146-12f82680-7b68-11eb-8d10-6a017869e476.png" alt="image-20210226095302247"></li>
-</ul>
-</li>
-</ul>
-<h2 id="그래프-신경망-구조-1"><a href="#그래프-신경망-구조-1" class="headerlink" title="그래프 신경망 구조"></a>그래프 신경망 구조</h2><ul>
-<li>대상 정점 마다 집계되는 정보가 상이합니다<ul>
-<li>대상 정점 별 집계되는 구조를 계산 그래프(Computation Graph)라고 부릅니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605150-1390bd00-7b68-11eb-9b59-aef8ed6602ed.png" alt="image-20210226095524752"></li>
-</ul>
-</li>
-<li>서로 다른 대상 정점간에도 층 별 집계 함수는 공유합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605151-1390bd00-7b68-11eb-9ddd-3d656fb3d0ca.png" alt="image-20210226100451998"></li>
-</ul>
-</li>
-<li>서로 다른 구조의 계산 그래프를 처리하기 위해서는 어떤 형태의 집계 함수가 필요할까요?<ul>
-<li>집계 함수는 (1) 이웃들 정보의 평균을 계산하고 (2) 신경망에 적용하는 단계를 거칩니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605152-14295380-7b68-11eb-8617-38114d578cde.png" alt="image-20210226100555822"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605154-14295380-7b68-11eb-8f79-52fed981cd4c.png" alt="image-20210226100618238"></li>
-</ul>
-</li>
-<li>마지막 층에서의 정점 별 임베딩이 해당 정점의 출력 임베딩입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605155-14c1ea00-7b68-11eb-8fdd-5a98ffefcb6b.png" alt="image-20210226100815736"></li>
-</ul>
-</li>
-</ul>
-<h2 id="그래프-신경망의-학습"><a href="#그래프-신경망의-학습" class="headerlink" title="그래프 신경망의 학습"></a>그래프 신경망의 학습</h2><ul>
-<li>그래프 신경망의 학습 변수(Trainable Parameter)는 층 별 신경망의 가중치입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605158-14c1ea00-7b68-11eb-9ac6-b00ea57645a3.png" alt="image-20210226101307119"></li>
-</ul>
-</li>
-<li>먼저 손실함수를 결정합니다. 정점간 거리를 “보존”하는 것을 목표로 할 수 있습니다<ul>
-<li>(그래프 신경망은 비지도 학습, 지도 학습이 모두 가능합니다)</li>
-<li>비지도 학습에서는 정점간 거리를 “보존”하는 것을 목표로 합니다</li>
-<li>지도 학습에서는 후속 과제의 손실함수를 이용해 종단종 학습을 합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605159-155a8080-7b68-11eb-808c-3cd8c3a27dfb.png" alt="image-20210226101351951"></li>
-</ul>
-</li>
-<li>후속 과제(Downstream Task)의 손실함수를 이용한 종단종(End-to-End) 학습도 가능합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605160-15f31700-7b68-11eb-95ae-559655f4f009.png" alt="image-20210226101411794"></li>
-<li>임베딩이 그래프의 유사도를 보존하는지 여부는 관심이 아니고 분류기의 정확도를 높이는 것이 목표</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605162-15f31700-7b68-11eb-9371-45c6782e0dbf.png" alt="image-20210226101557375"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605163-168bad80-7b68-11eb-9573-3301b3064996.png" alt="image-20210226101654895"></li>
-</ul>
-</li>
-<li>그래프 신경망과 변환적 정점 임베딩을 이용한 정점 분류<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605165-168bad80-7b68-11eb-9d06-4485ff209e1b.png" alt="image-20210226101746055"></li>
-</ul>
-</li>
-<li>손실함수를 정의한 후 학습에 사용할 대상 정점을 결정하여 학습 데이터를 구성합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605167-17244400-7b68-11eb-9222-68492883e5e6.png" alt="image-20210226101903383"></li>
-</ul>
-</li>
-<li>마지막으로 오차역전파(Backpropagation)을 통해 손실함수를 최소화합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605168-17244400-7b68-11eb-8954-51320720515e.png" alt="image-20210226101920599"></li>
-</ul>
-</li>
-</ul>
-<h2 id="그래프-신경망의-활용"><a href="#그래프-신경망의-활용" class="headerlink" title="그래프 신경망의 활용"></a>그래프 신경망의 활용</h2><ul>
-<li>학습된 신경망을 적용하여, 학습에 사용되지 않은 정점의 임베딩을 얻을 수 있습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605169-17bcda80-7b68-11eb-88b6-56624412c88d.png" alt="image-20210226101958027"></li>
-</ul>
-</li>
-<li>마찬가지로, 학습 이후에 추가된 정점의 임베딩도 얻을 수 있습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605171-17bcda80-7b68-11eb-952f-6a1d720a3d41.png" alt="image-20210226102022878"></li>
-</ul>
-</li>
-<li>학습된 그래프 신경망을, 새로운 그래프에 적용할 수도 있습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605172-18557100-7b68-11eb-9439-4ecb97dc2fea.png" alt="image-20210226102046596"></li>
-</ul>
-</li>
-</ul>
-<h1 id="그래프-신경망-변형"><a href="#그래프-신경망-변형" class="headerlink" title="그래프 신경망 변형"></a>그래프 신경망 변형</h1><h2 id="그래프-합성곱-신경망"><a href="#그래프-합성곱-신경망" class="headerlink" title="그래프 합성곱 신경망"></a>그래프 합성곱 신경망</h2><ul>
-<li>소개한 것 이외에도 다양한 형태의 집계 함수를 사용할 수 있습니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605173-18557100-7b68-11eb-97ae-37a12b1b1d9a.png" alt="image-20210226102159031"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605175-18ee0780-7b68-11eb-83ca-e97d9fd7f5fa.png" alt="image-20210226102220785"></li>
-</ul>
-<h2 id="GraphSAGE"><a href="#GraphSAGE" class="headerlink" title="GraphSAGE"></a>GraphSAGE</h2><ul>
-<li>GraphSAGE의 집계 함수입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605177-19869e00-7b68-11eb-887b-78f3626c3828.png" alt="image-20210226102310506"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605179-1a1f3480-7b68-11eb-9f9b-fa480c63bc62.png" alt="image-20210226102336009"></li>
-</ul>
-</li>
-</ul>
-<h1 id="합성곱-신경망과의-비교"><a href="#합성곱-신경망과의-비교" class="headerlink" title="합성곱 신경망과의 비교"></a>합성곱 신경망과의 비교</h1><h2 id="합성곱-신경망과-그래프-신경망의-유사성"><a href="#합성곱-신경망과-그래프-신경망의-유사성" class="headerlink" title="합성곱 신경망과 그래프 신경망의 유사성"></a>합성곱 신경망과 그래프 신경망의 유사성</h2><ul>
-<li>합성곱 신경망과 그래프 신경망은 모두 이웃의 정보를 집계하는 과정을 반복합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605180-1a1f3480-7b68-11eb-8631-167ec7b95918.png" alt="image-20210226102504509"></li>
-</ul>
-</li>
-<li>합성곱 신경망에서는 이웃의 수가 균일하지만, 그래프 신경망에서는 아닙니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605181-1ab7cb00-7b68-11eb-830e-526dfd490c3c.png" alt="image-20210226102536470"></li>
-</ul>
-</li>
-<li>그래프의 인접 행렬에 합성곱 신경망을 적용하면 효과적일까요?<ul>
-<li>그래프에는 합성곱 신경망이 아닌 그래프 신경망을 적용하여야 합니다! 많은 분들이 흔히 범하는 실수입니다</li>
-<li>합성곱 신경망이 주로 쓰이는 이미지에서는 인접 픽셀이 유용한 정보를 담고 있을 가능성이 높습니다</li>
-<li>하지만, 그래프의 인접 행렬에서의 인접 원소는 제한된 정보를 가집니다 특히나, 인접 행렬의 행과 열의 순서는 임의로 결정되는 경우가 많습니다</li>
-</ul>
-</li>
-</ul>
-<h1 id="그래프-신경망에서의-어텐션"><a href="#그래프-신경망에서의-어텐션" class="headerlink" title="그래프 신경망에서의 어텐션"></a>그래프 신경망에서의 어텐션</h1><h2 id="기본-그래프-신경망의-한계"><a href="#기본-그래프-신경망의-한계" class="headerlink" title="기본 그래프 신경망의 한계"></a>기본 그래프 신경망의 한계</h2><ul>
-<li>기본 그래프 신경망에서는 이웃들의 정보를 동일한 가중치로 평균을 냅니다</li>
-<li>그래프 합성곱 신경망에서 역시 단순히 연결성을 고려한 가중치로 평균을 냅니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605185-1b506180-7b68-11eb-88b9-42cf1b10e7be.png" alt="image-20210226111652422"></li>
-</ul>
-</li>
-<li>그래프 어텐션 신경망(Graph Attention Network, GAT)에서는 가중치 자체도 학습합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605186-1be8f800-7b68-11eb-93fe-b38766e8904d.png" alt="image-20210226111708990"></li>
-</ul>
-</li>
-<li>각 층에서 정점 𝑖로부터 이웃 𝑗로의 가중치 𝜶𝒊𝒋는 세 단계를 통해 계산합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605187-1c818e80-7b68-11eb-9b6e-1c007d2e3104.png" alt="image-20210226111748352"></li>
-</ul>
-</li>
-<li>여러 개의 어텐션을 동시에 학습한 뒤, 결과를 연결하여 사용할 수 있다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605188-1c818e80-7b68-11eb-9b93-e93ebfc377f5.png" alt="image-20210226111854772"></li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605189-1d1a2500-7b68-11eb-95df-502379b2961c.png" alt="image-20210226111912416"></li>
-</ul>
-<h2 id="그래프-표현-학습과-그래프-풀링"><a href="#그래프-표현-학습과-그래프-풀링" class="headerlink" title="그래프 표현 학습과 그래프 풀링"></a>그래프 표현 학습과 그래프 풀링</h2><h2 id="그래프-표현-학습"><a href="#그래프-표현-학습" class="headerlink" title="그래프 표현 학습"></a>그래프 표현 학습</h2><ul>
-<li>그래프 표현 학습, 혹은 그래프 임베딩이란 정점이 아닌 그래프 전체를 벡터의 형태로 표현하는 것입니다</li>
-<li>개별 정점을 벡터의 형태로 표현하는 정점 표현 학습과 구분됩니다</li>
-<li>그래프 임베딩은 벡터의 형태로 표현된 그래프 자체를 의미하기도 합니다</li>
-<li>그래프 임베딩은 그래프 분류 등에 활용됩니다<ul>
-<li>그래프 형태로 표현된 화합물의 분자 구조로부터 특성을 예측하는 것이 한가지 예시입니다</li>
-</ul>
-</li>
-</ul>
-<h2 id="그래프-풀링"><a href="#그래프-풀링" class="headerlink" title="그래프 풀링"></a>그래프 풀링</h2><ul>
-<li>그래프 풀링(Graph Pooling)이란 정점 임베딩들로부터 그래프 임베딩(그래프 전체를 표현하는 벡터)을 얻는 과정입니다</li>
-<li>평균 등 단순한 방법보다 그래프의 구조를 고려한 방법을 사용할 경우 그래프 분류 등의 후속 과제에서 더 높은 성능을 얻는 것으로 알려져 있습니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605191-1db2bb80-7b68-11eb-8594-f158c00124ca.png" alt="image-20210226112121596"><ul>
-<li>미분 가능한 풀링은 그래프 신경망의 여러곳에서 사용 가능<ul>
-<li>개별정점의 임베딩을 얻는데</li>
-<li>군집을 찾는데</li>
-<li>군집을 합산하는데</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="지나친-획일화-문제"><a href="#지나친-획일화-문제" class="headerlink" title="지나친 획일화 문제"></a>지나친 획일화 문제</h1><h2 id="지나친-획일화-문제-1"><a href="#지나친-획일화-문제-1" class="headerlink" title="지나친 획일화 문제"></a>지나친 획일화 문제</h2><ul>
-<li>지나친 획일화(Over-smoothing) 문제란 그래프 신경망의 층의 수가 증가하면서 정점의 임베딩이 서로 유사해지는 현상을 의미합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605193-1db2bb80-7b68-11eb-90c3-2c105c227d8a.png" alt="image-20210226112522775"></li>
-<li>수 많은 정점들로부터 정보를 합산하기 떄문에 그래프의 전반을 집계하는 효과가 있다</li>
-</ul>
-</li>
-<li>지나친 획일화의 결과로 그래프 신경망의 층의 수를 늘렸을 때, 후속 과제에서의 정확도가 감소하는 현상이 발견되었습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605195-1e4b5200-7b68-11eb-9664-6a970da427ac.png" alt="image-20210226112644804"></li>
-</ul>
-</li>
-</ul>
-<h2 id="지나친-획일화-문제에-대한-대응"><a href="#지나친-획일화-문제에-대한-대응" class="headerlink" title="지나친 획일화 문제에 대한 대응"></a>지나친 획일화 문제에 대한 대응</h2><ul>
-<li>획일화 문제에 대한 대응으로 JK 네트워크(Jumping Knowledge Network)는 마지막 층의 임베딩 뿐 아니라, 모든 층의 임베딩을 함께 사용합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605197-1ee3e880-7b68-11eb-87b7-a41c719cd206.png" alt="image-20210226112742714"></li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605199-1ee3e880-7b68-11eb-9a53-b54394cfd22a.png" alt="image-20210226112822802"><ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605200-1f7c7f00-7b68-11eb-8dad-6e94da152c29.png" alt="image-20210226112911814"></li>
-</ul>
-</li>
-</ul>
-<h1 id="그래프-데이터의-증강"><a href="#그래프-데이터의-증강" class="headerlink" title="그래프 데이터의 증강"></a>그래프 데이터의 증강</h1><h2 id="그래프-데이터-증강"><a href="#그래프-데이터-증강" class="headerlink" title="그래프 데이터 증강"></a>그래프 데이터 증강</h2><ul>
-<li>데이터 증강(Data Augmentation)은 다양한 기계학습 문제에서 효과적입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605204-20151580-7b68-11eb-8b27-6a342e7d391e.png" alt="image-20210226113004671"></li>
-</ul>
-</li>
-<li>그래프 데이터 증강의 결과 정점 분류의 정확도가 개선되는 것을 확인했습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109605206-20151580-7b68-11eb-8eae-55f938b877a3.png" alt="image-20210226113057726"></li>
-</ul>
-</li>
-</ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/26/BoostCamp/Day24/"><img class="fill" src="/img/boostcamp.png" alt="Day24"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-26T05:58:26.000Z" title="2021-2-26 2:58:26 ├F10: PM┤">2021-02-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:32:01.419Z" title="2021-3-22 6:32:01 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">20 minutes read (About 2992 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/26/BoostCamp/Day24/">Day24</a></h1><div class="content"><h1 id="정점-표현-학습"><a href="#정점-표현-학습" class="headerlink" title="정점 표현 학습"></a>정점 표현 학습</h1><h2 id="정점-표현-학습이란"><a href="#정점-표현-학습이란" class="headerlink" title="정점 표현 학습이란"></a>정점 표현 학습이란</h2><ul>
-<li>정점 표현 학습이란 그래프의 정점들을 벡터의 형태로 표현하는 것입니다</li>
-<li>정점 표현 학습은 간단히 정점 임베딩(Node Embedding)이라고도 부릅니다</li>
-<li>정점 임베딩은 벡터 형태의 표현 그 자체를 의미하기도 합니다 정점이 표현되는 벡터 공간을 임베딩 공간이라고 부릅시다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261281-f47dec80-7842-11eb-860e-ea60bd7db502.png" alt="image-20210225103605447"></li>
-</ul>
-<h2 id="정점-표현-학습의-이유"><a href="#정점-표현-학습의-이유" class="headerlink" title="정점 표현 학습의 이유"></a>정점 표현 학습의 이유</h2><ul>
-<li>정점 임베딩의 결과로, 벡터 형태의 데이터를 위한 도구들을 그래프에도 적용할 수 있습니다</li>
-<li>분류기(로지스틱 회귀분석, 다층 퍼셉트론 등) 그리고 군집 분석 알고리즘(K-Means, DBSCAN 등)은 벡터 형태로 표현된 사례(Instance)들을 입력으로 받습니다</li>
-<li>정점 분류(Node Classification), 군집 분석(Community Detection) 등에 활용</li>
-</ul>
-<h2 id="정점-표현-학습의-목표"><a href="#정점-표현-학습의-목표" class="headerlink" title="정점 표현 학습의 목표"></a>정점 표현 학습의 목표</h2><ul>
-<li>어떤 기준으로 정점을 벡터로 변환해야할까요?<ul>
-<li>그래프에서의 정점간 유사도를 임베딩 공간에서도 “보존”하는 것을 목표로 합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261283-f5168300-7842-11eb-9e5a-120f8f2d33da.png" alt="image-20210225103834225"></li>
-<li>임베딩 공간에서의 유사도로는 내적(Inner Product)를 사용합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261284-f5168300-7842-11eb-99fa-a3f6a23163aa.png" alt="image-20210225104001731"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261285-f5af1980-7842-11eb-8d22-e6f5857240f3.png" alt="image-20210225104305559"></li>
-<li>먼저 인접성을 바탕으로 한 접근법</li>
-</ul>
-</li>
-</ul>
-<h1 id="인접성-기반-접근법"><a href="#인접성-기반-접근법" class="headerlink" title="인접성 기반 접근법"></a>인접성 기반 접근법</h1><h2 id="인접성-기반-접근법-1"><a href="#인접성-기반-접근법-1" class="headerlink" title="인접성 기반 접근법"></a>인접성 기반 접근법</h2><ul>
-<li>인접성(Adjacency) 기반 접근법에서는 두 정점이 인접할 때 유사하다고 간주합니다</li>
-<li>두 정점 𝑢와 𝑣가 인접하다는 것은 둘을 직접 연결하는 간선 (𝑢, 𝑣)가 있음을 의미합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261287-f5af1980-7842-11eb-97dd-0116a42ab597.png" alt="image-20210225104509964"></li>
-<li>인접성 기반 접근법의 손실 함수<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261288-f647b000-7842-11eb-9906-dd6dd31a4f2c.png" alt="image-20210225104540249"></li>
-</ul>
-</li>
-<li>인접성만으로 유사도를 판단하는 것은 한계가 있습니다<ul>
-<li>빨간색 정점과 파란색 정점은 거리가 3인 반면 초록색 정점과 파란색 정점은 거리가 2입니다</li>
-<li>인접성만을 고려할 경우 이러한 사실에 대한 고려 없이, 두 경우의 유사도는 0으로 같습니다</li>
-<li>군집 관점에서는 빨간색 정점과 파란색 정점은 다른 군집에 속하는 반면 초록색 정점과 파란색 정점은 같은 군집에 속합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261289-f647b000-7842-11eb-9d75-fcb2cdebd8f8.png" alt="image-20210225105104693"></li>
-</ul>
-</li>
-</ul>
-<h1 id="거리-경로-중첩-기반-접근법"><a href="#거리-경로-중첩-기반-접근법" class="headerlink" title="거리/경로/중첩 기반 접근법"></a>거리/경로/중첩 기반 접근법</h1><h2 id="거리-기반-접근법"><a href="#거리-기반-접근법" class="headerlink" title="거리 기반 접근법"></a>거리 기반 접근법</h2><ul>
-<li>거리 기반 접근법에서는 두 정점 사이의 거리가 충분히 가까운 경우 유사하다고 간주합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261291-f6e04680-7842-11eb-88b0-bf607dc865c2.png" alt="image-20210225105312470"></li>
-</ul>
-<h2 id="경로-기반-접근법"><a href="#경로-기반-접근법" class="headerlink" title="경로 기반 접근법"></a>경로 기반 접근법</h2><ul>
-<li>경로 기반 접근법에서는 두 정점 사이의 경로가 많을 수록 유사하다고 간주합니다<ul>
-<li>복습</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261294-f778dd00-7842-11eb-8937-2f509cbb0d0b.png" alt="image-20210225105528816"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261368-03fd3580-7843-11eb-9a10-b140db1e0f1b.png" alt="image-20210225202814595"></li>
-<li>1 4 6 8</li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261295-f778dd00-7842-11eb-9854-3e04e9c8abf8.png" alt="image-20210225105735510"></li>
-</ul>
-<h2 id="중첩-기반-접근법"><a href="#중첩-기반-접근법" class="headerlink" title="중첩 기반 접근법"></a>중첩 기반 접근법</h2><ul>
-<li>중첩 기반 접근법에서는 두 정점이 많은 이웃을 공유할 수록 유사하다고 간주합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261297-f8117380-7842-11eb-8657-84eb0f11fc40.png" alt="image-20210225105857781"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261299-f8117380-7842-11eb-86c6-0425d1fea443.png" alt="image-20210225110007261"></li>
-<li>공통 이웃 수 대신 자카드 유사도 혹은 Adamic Adar 점수를 사용할 수도 있습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261303-f942a080-7842-11eb-873f-339cbce40391.png" alt="image-20210225110053574"></li>
-<li>$N_u=N_v$일때 즉,두 정점의 이웃들의 집합이 같을 떄 자카드 유사도 1</li>
-<li>W(u와v의 공통이웃)의 연결성이 클수록 가중치 낮다 why?<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261305-f942a080-7842-11eb-8965-6451efb3f9e7.png" alt="image-20210225110942133"></li>
-<li>u와v가 트와이스를 팔로우한다고 서로 가까운 것은 아님-&gt;낮은 가중치</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="임의-보행-기반-접근법"><a href="#임의-보행-기반-접근법" class="headerlink" title="임의 보행 기반 접근법"></a>임의 보행 기반 접근법</h1><h2 id="임의보행-기반-접근법"><a href="#임의보행-기반-접근법" class="headerlink" title="임의보행 기반 접근법"></a>임의보행 기반 접근법</h2><ul>
-<li>임의보행 기반 접근법에서는 한 정점에서 시작하여 임의보행을 할 때 다른 정점에 도달할 확률 을 유사도로 간주합니다</li>
-<li>임의보행이란 현재 정점의 이웃 중 하나를 균일한 확률로 선택하는 이동하는 과정을 반복하는 것을 의미합니다</li>
-<li>임의보행을 사용할 경우 시작 정점 주변의 지역적 정보와 그래프 전역 정보를 모두 고려한다는 장점이 있습니다<ul>
-<li>기존의 거리,경로 기반 접근법은 거리를 k로 제한, 하지만 임의보행 접근법에서는 제한하지 않음, 그런 의미에서 그래프 전역정보 고려</li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261306-f9db3700-7842-11eb-957e-2c9cf1650ba1.png" alt="image-20210225111859789"></li>
-<li>어떻게 임베딩으로부터 도달 확률을 추정할까요?<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261307-f9db3700-7842-11eb-8d70-8f5cc259c39f.png" alt="image-20210225111943572"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261310-fa73cd80-7842-11eb-947f-f81348e1aa1d.png" alt="image-20210225112028514"></li>
-</ul>
-</li>
-</ul>
-<h2 id="DeepWalk-Node2Vec"><a href="#DeepWalk-Node2Vec" class="headerlink" title="DeepWalk, Node2Vec"></a>DeepWalk, Node2Vec</h2><ul>
-<li>임의보행의 방법에 따라 DeepWalk와 Node2Vec이 구분됩니다</li>
-<li>DeepWalk는 앞서 설명한 기본적인 임의보행을 사용합니다 즉, 현재 정점의 이웃 중 하나를 균일한 확률로 선택하는 이동하는 과정을 반복합니다</li>
-<li>Node2Vec은 2차 치우친 임의보행(Second-order Biased Random Walk)을 사용합니다<ul>
-<li>현재 정점(예시에서 𝑣)과 직전에 머물렀던 정점(예시에서 𝑢)을 모두 고려하여 다음 정점을 선택합니다</li>
-<li>직전 정점의 거리를 기준으로 경우를 구분하여 차등적인 확률을 부여합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261311-fb0c6400-7842-11eb-9a3b-aa04d9868e65.png" alt="image-20210225112308400"></li>
-<li>Node2Vec에서는 부여하는 확률에 따라서 다른 종류의 임베딩을 얻습니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261312-fba4fa80-7842-11eb-8916-38506aa334e0.png" alt="image-20210225112417345"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261315-fba4fa80-7842-11eb-95f3-08bd135ecd2d.png" alt="image-20210225112449054"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261316-fc3d9100-7842-11eb-82d6-e8a065224624.png" alt="image-20210225112506606"><br>-</li>
-</ul>
-</li>
-</ul>
-<h2 id="손실-함수-근사"><a href="#손실-함수-근사" class="headerlink" title="손실 함수 근사"></a>손실 함수 근사</h2><ul>
-<li>임의보행 기법의 손실함수는 계산에 정점의 수의 제곱에 비례하는 시간이 소요됩니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261318-fc3d9100-7842-11eb-884f-33114e80f3b6.png" alt="image-20210225112816322"></li>
-<li>따라서 많은 경우 근사식을 사용합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261320-fcd62780-7842-11eb-8dd7-7bcea7e986d4.png" alt="image-20210225112844742"></li>
-<li>연결성에 비례하는 확률로 네거티브 샘플을 뽑으며, 네거티브 샘플이 많을 수록 학습이 더욱 안정적입니다</li>
-<li>네거티브 샘플을 많이 뽑을 수록 학습이 안정적임</li>
-</ul>
-<h1 id="변환식-정점-표현-학습의-한계"><a href="#변환식-정점-표현-학습의-한계" class="headerlink" title="변환식 정점 표현 학습의 한계"></a>변환식 정점 표현 학습의 한계</h1><h2 id="변환식-정점-표현-학습과-귀납식-정점-표현-학습"><a href="#변환식-정점-표현-학습과-귀납식-정점-표현-학습" class="headerlink" title="변환식 정점 표현 학습과 귀납식 정점 표현 학습"></a>변환식 정점 표현 학습과 귀납식 정점 표현 학습</h2><ul>
-<li><p>지금까지 소개한 정점 임베딩 방법들을 변환식(Transductive) 방법입니다</p>
-</li>
-<li><p>변환식(Transdctive) 방법은 학습의 결과로 정점의 임베딩 자체를 얻는다는 특성이 있습니다 정점을 임베딩으로 변화시키는 함수, 즉 인코더를 얻는 귀납식(Inductive) 방법과 대조됩 니다</p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/109261322-fcd62780-7842-11eb-8d2f-599a90078e89.png" alt="image-20210225113320988"></p>
-</li>
-<li><p>변환식 임베딩 방법은 여러 한계를 갖습니다</p>
-<ol>
-<li>학습이 진행된 이후에 추가된 정점에 대해서는 임베딩을 얻을 수 없습니다</li>
-</ol>
-<p>​ 입력그래프에 변화가 있는 경우 임베딩을 다시 수행</p>
-<ol>
-<li><p>모든 정점에 대한 임베딩을 미리 계산하여 저장해두어야 합니다</p>
-</li>
-<li><p>정점이 속성(Attribute) 정보를 가진 경우에 이를 활용할 수 없습니다</p>
-</li>
-</ol>
-</li>
-<li><p>귀납식 임베딩 방법-&gt; GNN</p>
-</li>
-</ul>
-<h1 id="넷플릭스-챌린지"><a href="#넷플릭스-챌린지" class="headerlink" title="넷플릭스 챌린지"></a>넷플릭스 챌린지</h1><ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261323-fd6ebe00-7842-11eb-854b-5174c3769b79.png" alt="image-20210225170001631"></li>
-<li>넷플릭스 챌린지의 목표는 추천시스템의 성능을 10%이상 향상시키는 것이었습니다</li>
-<li>평균 제곱근 오차 0.9514을 0.8563까지 낮출 경우 100만불의 상금을 받는 조건이었습니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261326-fe075480-7842-11eb-9fab-50b952254207.png" alt="image-20210225170127758"></li>
-</ul>
-<h1 id="잠재-인수-모형"><a href="#잠재-인수-모형" class="headerlink" title="잠재 인수 모형"></a>잠재 인수 모형</h1><h2 id="잠재-인수-모형-개요"><a href="#잠재-인수-모형-개요" class="headerlink" title="잠재 인수 모형 개요"></a>잠재 인수 모형 개요</h2><ul>
-<li>잠재 인수 모형(Latent Factor Model)의 핵심은 사용자와 상품을 벡터로 표현하는 것입니다<ul>
-<li>uv decomposition</li>
-<li>SVD</li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261328-fe9feb00-7842-11eb-9060-9130a6d9bc22.png" alt="image-20210225170314752"></li>
-<li>수치적으로 표현하는 것은 쉬운 일이 아님</li>
-<li>잠재 인수 모형에서는 고정된 인수 대신 효과적인 인수를 학습하는 것을 목표로 합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261330-fe9feb00-7842-11eb-8918-0e9ec3b96a45.png" alt="image-20210225170458921"></li>
-</ul>
-</li>
-</ul>
-<h2 id="손실-함수"><a href="#손실-함수" class="headerlink" title="손실 함수"></a>손실 함수</h2><ul>
-<li>사용자와 상품을 임베딩하는 기준은 무엇인가요?<ul>
-<li>사용자와 상품의 임베딩의 내적(Inner Product)이 평점과 최대한 유사하도록 하는 것입니다</li>
-<li>사용자 𝑥의 임베딩을 𝑝𝑥, 상품 𝑖의 임베딩을 𝑞𝑖라고 합시다 사용자 𝑥의 상품 𝑖에 대한 평점을 𝑟𝑥𝑖라고 합시다 임베딩의 목표는 𝑝𝑥 ⊺ 𝑞𝑖이 𝑟𝑥𝑖와 유사하도록 하는 것입니다</li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261333-ff388180-7842-11eb-879d-44fe5ba83e88.png" alt="image-20210225170833623"></li>
-<li>과적합을 방지하기 위하여 정규화 항을 손실 함수에 더해줍니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261336-ff388180-7842-11eb-8623-8dc93925f533.png" alt="image-20210225170850192"></li>
-<li>임베딩이 너무 크면 훈련 데이터에 있는 잡음들까지 배울 수 있다</li>
-<li>정규화의 세기가 클수록 모형 복잡도에 집중하여 최소화</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261337-ffd11800-7842-11eb-9e6b-f4695b005f09.png" alt="image-20210225171218512"></li>
-</ul>
-</li>
-</ul>
-<h2 id="최적화"><a href="#최적화" class="headerlink" title="최적화"></a>최적화</h2><ul>
-<li>손실함수를 최소화하는 𝑃와 𝑄를 찾기 위해서는 (확률적) 경사하강법을 사용합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261338-ffd11800-7842-11eb-86ea-07f32a25f700.png" alt="image-20210225171324056"></li>
-</ul>
-<h1 id="고급-잠재-인수-모형"><a href="#고급-잠재-인수-모형" class="headerlink" title="고급 잠재 인수 모형"></a>고급 잠재 인수 모형</h1><h2 id="사용자와-상품의-편향을-고려한-잠재-인수-모형"><a href="#사용자와-상품의-편향을-고려한-잠재-인수-모형" class="headerlink" title="사용자와 상품의 편향을 고려한 잠재 인수 모형"></a>사용자와 상품의 편향을 고려한 잠재 인수 모형</h2><ul>
-<li>각 사용자의 편향은 해당 사용자의 평점 평균과 전체 평점 평균의 차입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261339-0069ae80-7843-11eb-8b7b-821e813b22b8.png" alt="image-20210225171938430"></li>
-</ul>
-</li>
-<li>각 상품의 편향은 해당 상품에 대한 평점 평균과 전체 평점 평균의 차입니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261342-0069ae80-7843-11eb-969d-2d549be1b0e0.png" alt="image-20210225172005439"></li>
-</ul>
-</li>
-<li><p>개선된 잠재 인수 모형에서는 평점을 전체 평균, 사용자 편향, 상품 편향, 상호작용으로 분리합니다</p>
-<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261347-01024500-7843-11eb-974d-c181004112ec.png" alt="image-20210225172108647"></li>
-</ul>
-</li>
-<li><p>개선된 잠재 인수 모형의 손실 함수는 아래와 같습니다</p>
-<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261350-019adb80-7843-11eb-8d47-9f52c5c1e149.png" alt="image-20210225172248712"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261351-02337200-7843-11eb-8445-ae6ae5810cc7.png" alt="image-20210225172404000"></li>
-</ul>
-</li>
-</ul>
-<h2 id="시간적-편향을-고려한-잠재-인수-모형"><a href="#시간적-편향을-고려한-잠재-인수-모형" class="headerlink" title="시간적 편향을 고려한 잠재 인수 모형"></a>시간적 편향을 고려한 잠재 인수 모형</h2><ul>
-<li>넷플릭스 시스템의 변화로 평균 평점이 크게 상승하는 사건이 있었습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261354-02337200-7843-11eb-99f1-e4a5292feb9c.png" alt="image-20210225172446600"></li>
-</ul>
-</li>
-<li>영화의 평점은 출시일 이후 시간이 지남에 따라 상승하는 경향을 갖습니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261359-02cc0880-7843-11eb-9a58-88d3d146166d.png" alt="image-20210225172529255"></li>
-</ul>
-</li>
-<li>개선된 잠재 인수 모형에서는 이러한 시간적 편향을 고려합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261363-03649f00-7843-11eb-94db-6e1e5ce0e04c.png" alt="image-20210225172647321"></li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109261366-03649f00-7843-11eb-9edf-0329b91a5e2a.png" alt="image-20210225172711517"></li>
-</ul>
-<h1 id="넷플릭스-챌린지의-결과"><a href="#넷플릭스-챌린지의-결과" class="headerlink" title="넷플릭스 챌린지의 결과"></a>넷플릭스 챌린지의 결과</h1><h2 id="앙상블-학습"><a href="#앙상블-학습" class="headerlink" title="앙상블 학습"></a>앙상블 학습</h2><ul>
-<li>BellKor 팀은 앙상블 학습을 사용하여 처음으로 목표 성능에 도달하였습니다</li>
-<li>BellKor 팀의 독주에 위기감을 느낀 다른 팀들은 연합팀 Ensemble을 만들었습니다</li>
-<li>넷플릭스 챌린지 종료 시점에 BellKor 팀 Ensemble 팀의 오차는 정확히 동일했습니다 하지만 BellKor 팀의 제출이 20분 빨랐습니다.</li>
-</ul>
-<p>​</p>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/25/BoostCamp/Day23/"><img class="fill" src="/img/boostcamp.png" alt="Day23"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-25T03:28:58.000Z" title="2021-2-25 12:28:58 ├F10: PM┤">2021-02-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:31:55.399Z" title="2021-3-22 6:31:55 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">21 minutes read (About 3091 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/25/BoostCamp/Day23/">Day23</a></h1><div class="content"><h1 id="군집-구조와-군집-탐색-문제"><a href="#군집-구조와-군집-탐색-문제" class="headerlink" title="군집 구조와 군집 탐색 문제"></a>군집 구조와 군집 탐색 문제</h1><ul>
-<li>군집(Community)이란 다음 조건들을 만족하는 정점들의 집합<ol>
-<li>집합에 속하는 정점 사이에는 많은 간선이 존재</li>
-<li>집합에 속하는 정점과 그렇지 않은 정점 사이에는 적은 수의 간선이 존재</li>
-</ol>
-</li>
-<li>실제 그래프에서의 군집들<ul>
-<li>온라인 소셜 네트워크의 군집들은 사회적 무리(Social Circle)을 의미하는 경우가 많다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098575-f5d8e780-7764-11eb-919a-f5bbfc2e7654.png" alt="image-20210224093907324"></li>
-</ul>
-</li>
-<li>온라인 소셜 네트워크의 군집들이 부정 행위와 관련된 경우도 많다.</li>
-<li>조직 내의 분란이 소셜 네트워크 상의 군집으로 표현된 경우도 있다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098576-f6717e00-7764-11eb-8003-52cbd83c9256.png" alt="image-20210224094033233"></li>
-</ul>
-</li>
-<li>키워드 – 광고주 그래프에서는 동일한 주제의 키워드들이 군집을 형성합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098580-f70a1480-7764-11eb-8362-5d27c8d8681b.png" alt="image-20210224094118211"></li>
-</ul>
-</li>
-<li>뉴런간 연결 그래프에서는 군집들이 뇌의 기능적 구성 단위를 의미합니다</li>
-</ul>
-</li>
-<li>군집 탐색 문제<ul>
-<li>그래프를 여러 군집으로 ‘잘’ 나누는 문제를 군집 탐색(Community Detection) 문제라고 합니다<ul>
-<li>보통은 각 정점이 한 개의 군집에 속하도록 군집을 나눕니다</li>
-<li>비지도 기계학습 문제인 클러스터링(Clustering)과 상당히 유사합니다<ul>
-<li>클러스터링 : 피쳐들의 벡터형태로 표현된 인스턴스들을 그룹으로 묶음</li>
-<li>군집탐색문제 : 정점들을 그룹으로 묶음</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="군집-구조의-통계적-유의성과-군집성"><a href="#군집-구조의-통계적-유의성과-군집성" class="headerlink" title="군집 구조의 통계적 유의성과 군집성"></a>군집 구조의 통계적 유의성과 군집성</h1><ul>
-<li>비교 대상: 배치 모형<ul>
-<li>성공적인 군집탐색은 비교를 통해 정의 , 그 비교의 대상이 되는 것이 배치모형(Configuration Model)이다.</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098581-f7a2ab00-7764-11eb-9967-4baa9c8a099d.png" alt="image-20210224094631721"></li>
-</ul>
-</li>
-<li>군집성의 정의<ul>
-<li>군집 탐색의 성공 여부를 판단 하기 위해서, 군집성(Modularity)가 사용됩니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098582-f83b4180-7764-11eb-8f62-d13f07344040.png" alt="image-20210224094817164"></li>
-<li>기댓값을 사용하는 이유는 배치모형이 무작위성을 포함하고 있기 때문</li>
-<li>차이가 클수록 그래프에서 군집s내부 간선의 수가 많음을 의미-&gt;군집의 성질을 잘 만족함</li>
-<li>-1&lt;=군집성&lt;=1</li>
-</ul>
-</li>
-<li>즉, 군집성은 무작위로 연결된 배치 모형과의 비교를 통해 통계적 유의성을 판단합니다</li>
-<li>군집성은 항상 –1과 +1 사이의 값을 갖습니다</li>
-<li>보통 군집성이 0.3 ~ 0.7 정도의 값을 가질 때, 그래프에 존재하는 통계적으로 유의미한 군집들을 찾아냈다고 할 수 있습니다</li>
-</ul>
-<h1 id="군집-탐색-알고리즘"><a href="#군집-탐색-알고리즘" class="headerlink" title="군집 탐색 알고리즘"></a>군집 탐색 알고리즘</h1><ul>
-<li><p>Girvan-Newman 알고리즘</p>
-<ul>
-<li><p>하향식(Top-Down) 군집 탐색 알고리즘입니다</p>
-</li>
-<li><p>전체 그래프에서 탐색을 시작합니다 군집들이 서로 분리되록, 간선을 순차적으로 제거합니다</p>
-</li>
-<li><p>어떤 간선을 제거해야 군집들이 분리될까요?</p>
-<ul>
-<li>바로 서로 다른 군집을 연결하는 다리(Bridge) 역할의 간선입니다</li>
-</ul>
-</li>
-<li><p>서로 다른 군집을 연결하는 다리 역할의 간선을 어떻게 찾아낼 수 있을까요?</p>
-<ul>
-<li>간선의 매개 중심성(Betweenness Centrality)을 사용합니다 이는 해당 간선이 정점 간의 최단 경로에 놓이는 횟수를 의미합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098585-f83b4180-7764-11eb-9318-1b8f60869b8a.png" alt="image-20210224095424640"></li>
-<li>매개 중심성을 통해 서로 다른 군집을 연결하는 다리 역할의 간선을 찾아낼 수 있습니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098587-f8d3d800-7764-11eb-9d4b-68fe22374e88.png" alt="image-20210224095455618"></li>
-</ul>
-</li>
-<li><p>Girvan-Newman 알고리즘은 매개 중심성이 높은 간선을 순차적으로 제거합니다</p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/109098590-f8d3d800-7764-11eb-8f49-17dd49321729.png" alt="image-20210224095609411"></p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/109098592-f96c6e80-7764-11eb-98c3-d5cb18346c4a.png" alt="image-20210224095623587"></p>
-</li>
-<li><p>간선이 모두 제거될 때까지 반복합니다</p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/109098594-fa050500-7764-11eb-9eb7-bb62c8cf9fdd.png" alt="image-20210224095709009"></p>
-</li>
-<li><p>간선을 어느 정도 제거하는 것이 가장 적합할까요?</p>
-<ul>
-<li>앞서 정의한 군집성을 그 기준으로 삼습니다 즉, 군집성이 최대가 되는 지점까지 간선을 제거합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098596-fa050500-7764-11eb-9820-6766f6e3b60c.png" alt="image-20210224095854257"></li>
-</ul>
-</li>
-<li><p>정리</p>
-<ol>
-<li>전체 그래프에서 시작합니다</li>
-<li>매개 중심성이 높은 순서로 간선을 제거하면서, 군집성을 변화를 기록합니다</li>
-<li>군집성이 가장 커지는 상황을 복원합니다</li>
-<li>이 때, 서로 연결된 정점들, 즉 연결 요소를 하나의 군집으로 간주합니다</li>
-</ol>
-<p>즉, 전체 그래프에서 시작해서 점점 작은 단위를 검색하는 하향식(Top-Down) 방법입니다</p>
-</li>
-</ul>
-</li>
-<li><p>Louvain 알고리즘</p>
-<ul>
-<li>상향식(Bottom-Up) 군집 탐색 알고리즘입니다</li>
-<li>각 정점이 하나의 군집을 형성한다고 가정한 상태에서 시작</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098598-fa9d9b80-7764-11eb-9bb3-341486cef08d.png" alt="image-20210224100142281"></li>
-<li>그러면 어떤 기준으로 군집을 합쳐야 할까요?<ul>
-<li>군집성</li>
-</ul>
-</li>
-<li>과정<ol>
-<li>Louvain 알고리즘은 개별 정점으로 구성된 크기 1의 군집들로부터 시작합니다</li>
-<li>각 정점 𝑢를 기존 혹은 새로운 군집으로 이동합니다 이 때, 군집성이 최대화되도록 군집을 결정합니다</li>
-<li>더 이상 군집성이 증가하지 않을 때까지 2)를 반복합니다</li>
-<li>각 군집을 하나의 정점으로하는 군집 레벨의 그래프를 얻은 뒤 3)을 수행합니다</li>
-<li>한 개의 정점이 남을 때까지 4)를 반복합니다</li>
-</ol>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098601-fb363200-7764-11eb-9469-361dbb6c0fa9.png" alt="image-20210224100401905"></li>
-</ul>
-</li>
-</ul>
-<h1 id="중첩이-있는-군집-탐색"><a href="#중첩이-있는-군집-탐색" class="headerlink" title="중첩이 있는 군집 탐색"></a>중첩이 있는 군집 탐색</h1><ul>
-<li>중첩이 있는 군집 구조<ul>
-<li>실제 그래프의 군집들을 중첩되어 있는 경우가 많습니다</li>
-<li>예를 들어 소셜 네트워크에서의 개인은 여러 사회적 역할을 수행합니다 그 결과 여러 군집에 속하게 됩니다</li>
-<li>앞서 배운 Girvan-Newman 알고리즘, Louvain 알고리즘은 군집 간의 중첩이 없다고 가정합니다 그러면 중첩이 있는 군집은 어떻게 찾아낼 수 있을까요?<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098602-fb363200-7764-11eb-9e2a-6b6addaf5251.png" alt="image-20210224100542795"></li>
-</ul>
-</li>
-<li>이를 위해 아래와 같은 중첩 군집 모형을 가정합니다<ol>
-<li>각 정점은 여러 개의 군집에 속할 수 있습니다</li>
-<li>각 군집 𝐴에 대하여, 같은 군집에 속하는 두 정점은 𝑃𝐴 확률로 간선으로 직접 연결됩니다</li>
-<li>두 정점이 여러 군집에 동시에 속할 경우 간선 연결 확률은 독립적입니다 예를 들어, 두 정점이 군집 𝐴와 𝐵에 동시에 속할 경우 두 정점이 간선으로 직접 연결될 확률은 1 − (1 − 𝑃𝐴)(1 − 𝑃𝐵)입니다</li>
-<li>어느 군집에도 함께 속하지 않는 두 정점은 낮은 확률 𝜖으로 직접 연결됩니다</li>
-</ol>
-</li>
-<li>중첩 군집 모형이 주어지면, 주어진 그래프의 확률을 계산할 수 있습니다</li>
-<li>그래프의 확률은 다음 확률들의 곱입니다<ul>
-<li>그래프의 각 간선의 두 정점이 (모형에 의해) 직접 연결될 확률</li>
-<li>그래프에서 직접 연결되지 않은 각 정점 쌍이 (모형에 의해) 직접 연결되지 않을 확률</li>
-</ul>
-</li>
-<li>현실의 많은 경우 그래프는 주어져 있지만 중첩군집모형은 주어지지 않는 경우가 많음</li>
-<li>따라서 중첩 군집 탐색은 주어진 그래프의 확률을 최대화하는 중첩 군집 모형을 찾는 과정입니다 -&gt;최대우도추정치<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098605-fbcec880-7764-11eb-89f7-ecb5e4e0346a.png" alt="image-20210224101151987"></li>
-</ul>
-</li>
-<li>중첩 군집 탐색을 용이하게 하기 위하여 완화된 중첩 군집 모형을 사용합니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098606-fc675f00-7764-11eb-9715-903f3f4b8dc7.png" alt="image-20210224101212737"></li>
-<li>완화된 중첩 군집 모형에서는 각 정점이 각 군집에 속해 있는 정도를 실숫값으로 표현합니다</li>
-<li>즉, 기존 모형에서는 각 정점이 각 군집에 속하거나 속하지 않거나 둘 중 하나였는데, 중간 상태를 표현할 수 있게 된 것입니다</li>
-<li>최적화 관점에서는, 모형의 매개변수들이 실수 값을 가지기 때문에 익숙한 최적화 도구 (경사하강법 등)을 사용하여 모형을 탐색할 수 있다는 장점이 있습니다</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="우리-주변의-추천-시스템"><a href="#우리-주변의-추천-시스템" class="headerlink" title="우리 주변의 추천 시스템"></a>우리 주변의 추천 시스템</h1><ul>
-<li>추천 시스템과 그래프<ul>
-<li>사용자 각각이 구매할 만한 혹은 선호할 만한 상품을 추천합니다</li>
-<li>구매 기록이라는 암시적(Implicit)인 선호만 있는 경우도 있고, 평점이라는 명시적(Explicit)인 선호가 있는 경우도 있습니다</li>
-<li>그래프 관점에서 추천 시스템은 “<code>미래의 간선을 예측하는 문제</code>” 혹은 “<code>누락된 간선의 가중치를 추정하는 문제</code>”로 해석할 수 있습니다</li>
-</ul>
-</li>
-</ul>
-<h1 id="내용-기반-추천시스템"><a href="#내용-기반-추천시스템" class="headerlink" title="내용 기반 추천시스템"></a>내용 기반 추천시스템</h1><ul>
-<li><p>내용 기반 추천시스템의 원리</p>
-<ul>
-<li>내용 기반(Content-based) 추천은 각 사용자가 구매/만족했던 상품(부가정보)과 유사한 것을 추천하는 방법입니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098609-fcfff580-7764-11eb-9bba-78b2f2406d22.png" alt="image-20210224105759072"><ol>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098610-fcfff580-7764-11eb-852c-ef0d8cb72984.png" alt="image-20210224105841531"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098614-fd988c00-7764-11eb-91d8-203969bb5806.png" alt="image-20210224105904795"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098615-fe312280-7764-11eb-8cd5-49e8ef7550e1.png" alt="image-20210224110310572"></li>
-<li>마지막 단계는 사용자에게 상품을 추천하는 단계입니다 코사인 유사도가 높은 상품들을 추천합니다</li>
-</ol>
-</li>
-<li>내용 기반 추천시스템은 다음 장점을 갖습니다<ul>
-<li>다른 사용자의 구매 기록이 필요하지 않습니다-&gt; 본인의 기록만</li>
-<li>독특한 취향의 사용자에게도 추천이 가능합니다</li>
-<li>새 상품에 대해서도 추천이 가능합니다-&gt;상품 프로필</li>
-<li>추천의 이유를 제공할 수 있습니다</li>
-</ul>
-</li>
-<li>내용 기반 추천시스템은 다음 단점을 갖습니다<ul>
-<li>상품에 대한 부가 정보가 없는 경우에는 사용할 수 없습니다</li>
-<li>구매 기록이 없는 사용자에게는 사용할 수 없습니다-&gt;사용자 프로필x</li>
-<li>과적합(Overfitting)으로 지나치게 협소한 추천을 할 위험이 있습니다</li>
-</ul>
-</li>
-</ul>
-<h1 id="협업-필터링-추천시스템"><a href="#협업-필터링-추천시스템" class="headerlink" title="협업 필터링 추천시스템"></a>협업 필터링 추천시스템</h1><p>​</p>
-</li>
-<li><p>​ 협업 필터링의 원리</p>
-<ul>
-<li>사용자-사용자 협업 필터링은 다음 세 단계로 이루어집니다<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098616-fe312280-7764-11eb-9e1d-7b62419521fd.png" alt="image-20210224110937832"></li>
-</ul>
-</li>
-<li>사용자-사용자 협업 필터링의 핵심은 유사한 취향의 사용자를 찾는 것입니다 그런데 취향의 유사도는 어떻게 계산할까요?<ul>
-<li>취향의 유사성은 상관 계수(Correlation Coefficient)를 통해 측정합니다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098618-fec9b900-7764-11eb-89db-32df27a69a47.png" alt="image-20210224111923584"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098620-fec9b900-7764-11eb-9208-2102bf0add60.png" alt="image-20210224112801261"></li>
-<li>마지막 단계는 추정한 평점이 가장 높은 상품을 추천하는 단계입니다</li>
-<li>추천의 대상 사용자를 𝑥라고 합시다 앞서 설명한 방법을 통해, 𝑥가 아직 구매하지 않은 상품 각각에 대해 평점을 추정합니다 추정한 평점이 가장 높은 상품들을 𝑥에게 추천합니다</li>
-<li>협업 필터링은 다음 장점과 단점 갖습니다<ul>
-<li>(+) 상품에 대한 부가 정보가 없는 경우에도 사용할 수 있습니다</li>
-<li>(−) 충분한 수의 평점 데이터가 누적되어야 효과적입니다</li>
-<li>(−) 새 상품, 새로운 사용자에 대한 추천이 불가능합니다</li>
-<li>(−) 독특한 취향의 사용자에게 추천이 어렵습니다</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="추천-시스템의-평가"><a href="#추천-시스템의-평가" class="headerlink" title="추천 시스템의 평가"></a>추천 시스템의 평가</h1><ul>
-<li>데이터 분리<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098621-ff624f80-7764-11eb-9c29-bd7d7b76bdcf.png" alt="image-20210224113213272"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/109098622-fffae600-7764-11eb-86c8-c8d88394fcb4.png" alt="image-20210224113230529"></li>
-</ul>
-</li>
-</ul>
-</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/2021/02/24/BoostCamp/Day22/"><img class="fill" src="/img/boostcamp.png" alt="Day22"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-24T05:58:22.000Z" title="2021-2-24 2:58:22 ├F10: PM┤">2021-02-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-03-22T09:31:43.487Z" title="2021-3-22 6:31:43 ├F10: PM┤">2021-03-22</time></span><span class="level-item"><a class="link-muted" href="/categories/AI/">AI</a><span> / </span><a class="link-muted" href="/categories/AI/BoostCamp/">BoostCamp</a></span><span class="level-item">14 minutes read (About 2054 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2021/02/24/BoostCamp/Day22/">Day22</a></h1><div class="content"><ul>
-<li>웹과 그래프<ul>
-<li>웹은 웹페이지와 하이퍼링크로 구성된 거대한 방향성 있는 그래프</li>
-<li>정점: 웹페이지, 간선: 하이퍼링크</li>
-</ul>
-</li>
-<li>검색 엔진<ul>
-<li>웹을 거대한 디렉토리로 정리 -&gt; 카테고리의 수와 깊이도 무한정 커지는 문제</li>
-</ul>
-</li>
-<li>키워드에 의존한 검색 엔진<ul>
-<li>악의적인 웹페이지에 취약</li>
-</ul>
-</li>
-<li>Q 사용자 키워드와 관련성이 높고 신뢰할 수 있는 웹페이지를 어떻게 찾을 수 있을까?</li>
-<li>A. 페이지랭크</li>
-</ul>
-<h2 id="페이지랭크"><a href="#페이지랭크" class="headerlink" title="페이지랭크"></a>페이지랭크</h2><ul>
-<li><p>페이지랭크의 핵심 아이디어는 투표(하이퍼링크)</p>
-</li>
-<li><p>들어노는 간선이 많을 수록 신뢰할 수 있다는 뜻</p>
-</li>
-<li><p>들어오는 간선의 수를 세는 것만으로 충분할까?</p>
-<ul>
-<li>악용될 소지가 있다. 웹페이지를 여러 개 만들어서 간선의 수를 부풀릴 수 있다</li>
-<li>돈을 주고 트위터의 팔로어를 늘리는 것</li>
-<li>이런 악용에 의한 효과를 줄이기 위해 가중 투표를한다. 관련성이 높고 신뢰할 수 있는 웹사이트의 투표를 더 중요하게 간주한다.</li>
-<li>관련성과 신뢰성을 출력과 입력으로 사용한다-&gt; 재귀,연립방정식을 통해 가능</li>
-</ul>
-</li>
-<li><p>페이지랭크 점수 <strong>_자신의 페이지랭크 점수/나가는 이웃의 수_</strong> 만큼의 가중치로 투표한다.</p>
-</li>
-<li><p>각 웹페이지의 페이지랭크 점수는 받은 투표의 가중치 합으로 정의</p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/108954757-a5a04d80-76b0-11eb-998b-0dab48cf192a.png" alt="image-20210223095716783"></p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/108954762-a6d17a80-76b0-11eb-8889-a3497c4ec1d4.png" alt="image-20210223095736643"></p>
-</li>
-<li><p>투표의 관점이 아닌 임의 보행 관점</p>
-<ul>
-<li>웹퍼서는 하이퍼링크 중 하나를 균일한 확률로 클릭</li>
-<li>웹서퍼가 t번째 방문한 웹페이지가 웹페이지 i일 확률을 $p_i(t)$</li>
-<li>$p(t)$는 길이가 웹페이지 수와 같은 확률분포 벡터<ul>
-<li>모든 페이지에서 웹페이지 <em>i</em>를 클릭할 확률 $p_i(t)$를 모두 모아놓은 벡터이다. 당연히 길이가 웹페이지 수와 같아진다.</li>
-</ul>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954765-a6d17a80-76b0-11eb-8237-dc3921394071.png" alt="image-20210223100240027"></li>
-<li>웹서퍼가 이 과정을 무한히 반복하고 나면, 즉 t가 무한히 커지먼 확률본포 p(t)는 수렴</li>
-<li>p(t)=p(t+1)=p</li>
-<li>수렴한 확률분포 p는 정상분포라고 부른다</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954767-a76a1100-76b0-11eb-82cb-7f7e13475aa1.png" alt="image-20210223100523413"></li>
-<li>투표 관점에서 정의한 페이지랭크점수와 동일하다</li>
-</ul>
-</li>
-<li><p>페이지랭크의 계산</p>
-<ul>
-<li><p>반복곱(power iteration)</p>
-<ul>
-<li><ol>
-<li>각 웹페이지의 i의 페이지랭크 점수$r_i^{(0)}$를 <strong>_1/웹페이지의 수_</strong>로 초기화</li>
-</ol>
-</li>
-<li><ol>
-<li>페이지랭크 점수를 갱신, 각 정점이 받은 투표의 가중치 합산<img src="https://user-images.githubusercontent.com/46857207/108954768-a76a1100-76b0-11eb-9d28-0de413e583e5.png" alt="image-20210223101026085"></li>
-<li>페이지랭크 점수가 수렴하였으면 종료, 아닌 경우 2로</li>
-</ol>
-</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954770-a802a780-76b0-11eb-9a3f-bd92ee8a1ab9.png" alt="image-20210223101441439"></li>
-</ul>
-</li>
-<li><p>Q1. 반복곱이 한상 수렴하는 것을 보장할 수 있나?</p>
-<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954775-a89b3e00-76b0-11eb-8f7e-efcc8d017b85.png" alt="image-20210223101724884"></li>
-</ul>
-</li>
-<li><p>Q2. 반복곱이 합리적인 점수로 수렴하는 것을 보장할 수 있나?</p>
-<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954776-a933d480-76b0-11eb-8752-7a36ee4ab336.png" alt="image-20210223101811983"></li>
-</ul>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/108954779-a933d480-76b0-11eb-9657-31b514835e42.png" alt="image-20210223101851709"></p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/108954782-a9cc6b00-76b0-11eb-8ad9-32345025c06d.png" alt="image-20210223102032533"></p>
-</li>
-<li><p><img src="https://user-images.githubusercontent.com/46857207/108954783-a9cc6b00-76b0-11eb-922b-340fab7f62cd.png" alt="image-20210223102140989"></p>
-<ul>
-<li>B가 점수가 높은 이유는 많은 정점으로부터 투표를 받고 있기 때문</li>
-<li>투표를 받지 않아도 순간이동으로 페이지랭크 점수가 0이 아니다</li>
-<li>c의 점수가 높은 이유는 b로부터 들어오기 때문 (소중한 한표)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="그래프를-바이럴-마케팅에-어떻게-활용할까"><a href="#그래프를-바이럴-마케팅에-어떻게-활용할까" class="headerlink" title="그래프를 바이럴 마케팅에 어떻게 활용할까?"></a>그래프를 바이럴 마케팅에 어떻게 활용할까?</h2><ul>
-<li>그래프를 통한 전파의 예시, 정보 행동 고장 질병<ul>
-<li>SNS을 통해 정보 전파</li>
-<li>아이스버킷 챌린지, 펭권문제등의 행동 전파</li>
-<li>컴퓨터 네트워크에서 일부장비의 고장이 다른 장비의 과부하로 이어져 전체 네트워크를 마비시킬 수 있다</li>
-<li>코로나 메르스등의 질병 전파</li>
-</ul>
-</li>
-<li>전파과정을 치계적으로 이해하고 대처하기 위해서는 수학적 모형화가 필요</li>
-<li>의사결정 기반의 전파 모형</li>
-<li>언제 사용하는가<ul>
-<li>주변 사람의 의사결정이 본인의 의사결정에 영향을 미친다. 주변사람들의 의사결정을 고려하여 각자 의사결정을 내리는 경우 <strong><code>의사결정 기반의 전파 모형</code></strong>을 사용한다.</li>
-</ul>
-</li>
-<li><ul>
-<li>카카오 vs 라인</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954785-aa650180-76b0-11eb-8169-92e13639eb70.png" alt="image-20210223103904118"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954788-aafd9800-76b0-11eb-97b0-82f811f17880.png" alt="image-20210223103948116"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954790-aafd9800-76b0-11eb-85d4-fc1ecd0a4de2.png" alt="image-20210223104018597"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954791-ab962e80-76b0-11eb-8bd7-bfd52b9d7960.png" alt="image-20210223104111058"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954792-ab962e80-76b0-11eb-9ac1-4d09d3bf946d.png" alt="image-20210223104253539"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954793-ac2ec500-76b0-11eb-8f10-7aa077745ab9.png" alt="image-20210223104329710"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954794-ac2ec500-76b0-11eb-935d-f5deb8e2792f.png" alt="image-20210223104435407"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954795-acc75b80-76b0-11eb-8186-0d76710ed31c.png" alt="image-20210223104501214"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954797-acc75b80-76b0-11eb-95c7-0bc604306a4e.png" alt="image-20210223104635824"></li>
-</ul>
-</li>
-<li>확률적 전파 모형(독립적 전파 모형)<ul>
-<li>의사결정 기반의 전파 모형은 전파 과정을 간단하게 표현할 수 있지만, ‘의지’나 ‘결정’이 들어가지 않은 전파에 대해서는 적합하지 않다.</li>
-<li>코로나의 전파 과정은 확률적 과정이기 떄문에 확률적 전파 모형을 고려해야 한다.</li>
-<li>가장 간단한 형태의 확률적 전파 모형인 독립 전파 모형</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954799-ad5ff200-76b0-11eb-8168-557b36d93478.png" alt="image-20210223104912798"></li>
-<li>서로 다른 이웃이 전염되는 확률은 독립적이므로, 최초 감염자들로부터 전파가 늘어남에 따라 전파확률이 기하급수적으로 늘어나게 된다.</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954800-ad5ff200-76b0-11eb-928b-6b7747a8be0c.png" alt="image-20210223105036897"></li>
-<li>한번 감염자는 계속 감염자</li>
-<li>회복을 가정하는 SIS, SIR등의 다른 전파 모형도 있다.</li>
-</ul>
-</li>
-<li>전파 최대화 문제<ul>
-<li>바이럴 마케팅이란<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954803-adf88880-76b0-11eb-8b02-91c6cefb6087.png" alt="image-20210223105222893"></li>
-</ul>
-</li>
-<li>시드 집합의 중요성<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954808-ae911f00-76b0-11eb-8a8e-7adbaaae265a.png" alt="image-20210223105316358"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954813-af29b580-76b0-11eb-9e14-3dde9f68ec91.png" alt="image-20210223105439115"></li>
-</ul>
-</li>
-<li>전파 최대화 문제<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954815-af29b580-76b0-11eb-815d-7222f00703f0.png" alt="image-20210223105734089"></li>
-<li>대신에, 최고의 시드 집합에 근사하는 <strong><code>휴리스틱(heuristics)</code></strong>을 사용해 볼 수 있다.</li>
-<li>휴리스틱이란 실험적으로 잘 동작하지만 이론적으로는 보장할 수 없는 알고리즘<ul>
-<li><img src="https://user-images.githubusercontent.com/46857207/108964909-72b18600-76bf-11eb-9a66-2c5210b174fa.png" alt="image-20210223105936790"></li>
-<li>연결 중심성 : 연결성이 높은 정점들이 높은 중심성을 갖는다</li>
-<li>근접 중심성 : 다른 정점들과의 평균 거리를 측정한 뒤 평균 거리가 낮은 정점들이 높은 근접 중심성을 갖는다</li>
-<li>매개 중심성 : 정점 간 최단 경로를 고려하여 최단 경로에 많이 놓인 정점일수록 매개 중심성이 높다</li>
-</ul>
-</li>
-<li>탐욕 알고리즘<ul>
-<li>탐욕 알고리즘 역시 많이 사용된다. 시드 집합의 원소, 즉 최초 전파자를 한번에 한명씩 선택하며, 매 순간 시뮬레이션 하여 더 많은 전파를 일으킬 수 있는 시드를 찾아 다음 타겟으로 지목한다.</li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954819-afc24c00-76b0-11eb-9b3c-5e994d244a46.png" alt="image-20210223110327774"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954820-b05ae280-76b0-11eb-848f-adfc9a9c48ae.png" alt="image-20210223110546908"></li>
-<li><img src="https://user-images.githubusercontent.com/46857207/108954821-b05ae280-76b0-11eb-98f6-9b2a66fc1588.png" alt="image-20210223110633961"></li>
-<li>탐욕 알고리즘으로 찾은 시드 집합에 의한 평균 전파 크기가, 최고(이상적) 시드집합에 의한 평균 전파크기의 최소 0.632배 이상은 된다는 것이 증명되어있다. 즉, <strong>최저성능이 보장</strong>되어있다.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/AI/BoostCamp/">Previous</a></div><div class="pagination-next"><a href="/categories/AI/BoostCamp/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/AI/BoostCamp/">1</a></li><li><a class="pagination-link is-current" href="/categories/AI/BoostCamp/page/2/">2</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/3/">3</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/4/">4</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/5/">5</a></li></ul></nav></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">42</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">42</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/"><span class="level-start"><span class="level-item">BoostCamp</span></span><span class="level-end"><span class="level-item tag">41</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/Project-Stage/"><span class="level-start"><span class="level-item">Project Stage</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-01T15:10:20.000Z">2021-04-02</time></p><p class="title"><a href="/2021/04/02/BoostCamp/Project%20Stage/Day44/">Day44</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-01T15:10:08.000Z">2021-04-02</time></p><p class="title"><a href="/2021/04/02/BoostCamp/Project%20Stage/Day43/">Day43</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-30T16:32:26.000Z">2021-03-31</time></p><p class="title"><a href="/2021/03/31/BoostCamp/Project%20Stage/Day42/">Day42-Augmentation</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-29T16:00:24.000Z">2021-03-30</time></p><p class="title"><a href="/2021/03/30/BoostCamp/Project%20Stage/Day41/">Day41-EDA</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-03-22T06:59:30.000Z">2021-03-22</time></p><p class="title"><a href="/2021/03/22/BoostCamp/Day40/">Day40</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/categories/AI/BoostCamp/">Previous</a></div><div class="pagination-next"><a href="/categories/AI/BoostCamp/page/3/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/categories/AI/BoostCamp/">1</a></li><li><a class="pagination-link is-current" href="/categories/AI/BoostCamp/page/2/">2</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/3/">3</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/4/">4</a></li><li><a class="pagination-link" href="/categories/AI/BoostCamp/page/5/">5</a></li></ul></nav></div><div class="column column-left is-3-tablet is-3-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/./img/avatar.jpg" alt="Keonwoo Choi"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Keonwoo Choi</p><p class="is-size-6 is-block">blog</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Korea</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">46</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">4</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/KeonwooChoi" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/KeonwooChoi"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/AI/"><span class="level-start"><span class="level-item">AI</span></span><span class="level-end"><span class="level-item tag">46</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/"><span class="level-start"><span class="level-item">BoostCamp</span></span><span class="level-end"><span class="level-item tag">45</span></span></a><ul><li><a class="level is-mobile" href="/categories/AI/BoostCamp/Project-Stage/"><span class="level-start"><span class="level-item">Project Stage</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li></ul></li><li><a class="level is-mobile" href="/categories/AI/Pytorch/"><span class="level-start"><span class="level-item">Pytorch</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-08T05:49:01.000Z">2021-04-08</time></p><p class="title"><a href="/2021/04/08/BoostCamp/Project%20Stage/Day48/">Day48</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-06T06:18:25.000Z">2021-04-06</time></p><p class="title"><a href="/2021/04/06/BoostCamp/Project%20Stage/Day47/">Day47</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-06T06:18:16.000Z">2021-04-06</time></p><p class="title"><a href="/2021/04/06/BoostCamp/Project%20Stage/Day46/">Day46</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-02T15:27:10.000Z">2021-04-03</time></p><p class="title"><a href="/2021/04/03/BoostCamp/Project%20Stage/Day45/">Day45</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-01T15:10:20.000Z">2021-04-02</time></p><p class="title"><a href="/2021/04/02/BoostCamp/Project%20Stage/Day44/">Day44</a></p><p class="categories"><a href="/categories/AI/">AI</a> / <a href="/categories/AI/BoostCamp/">BoostCamp</a> / <a href="/categories/AI/BoostCamp/Project-Stage/">Project Stage</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">April 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">March 2021</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">blog</a><p class="is-size-7"><span>&copy; 2021 Keonwoo Choi</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
